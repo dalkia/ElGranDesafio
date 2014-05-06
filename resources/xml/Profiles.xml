@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+<profile>
+	<name>Catalina</name>
+	<age>31 años</age>
+	<description>"Mi compromiso está sujeto a tener un jefe dispuesto a comprender mi individualidad. Quiero colaborar con mi jefe y no que él me diga que hacer."</description>
+	<technicalProfile>Ingeniera</technicalProfile>
+	<technicalAbilities>
+		<mainAttribute>
+			<name>Programación</name>
+			<value>4</value>
+		</mainAttribute>
+		<secondAttribute>
+			<name>Diseño</name>
+			<value>4</value>
+		</secondAttribute>
+		<thirdAttribute>
+			<name>Comunicación</name>
+			<value>4</value>
+		</thirdAttribute>
+		<fourthAttribute>
+			<name>Investigación</name>
+			<value>4</value>
+		</fourthAttribute>
+	</technicalAbilities>
+	<img>../resources/ProfileImages/Catalina.png</img>	
+	<normalAnimation>catalinaNormal_mc</normalAnimation>
+	<happyAnimation>catalinaHappyNoSigns_mc</happyAnimation>
+	<angryAnimation>catalinaAngryNoSigns_mc</angryAnimation>
+</profile>
+
+<profile>
+	<name>Marta</name>
+	<age>60 años</age>
+	<description>"Soy una empleada líder, creo que puedo diferenciarme rápidamente de mis compañeros por medio de mis resultados. Son estos lo que me hacen una líder nata. Soy parte de la empresa."</description>
+	<technicalProfile>Secundario</technicalProfile>
+	<technicalAbilities>
+		<mainAttribute>
+			<name>Programación</name>
+			<value>1</value>
+		</mainAttribute>
+		<secondAttribute>
+			<name>Diseño</name>
+			<value>1</value>
+		</secondAttribute>
+		<thirdAttribute>
+			<name>Comunicación</name>
+			<value>3</value>
+		</thirdAttribute>
+		<fourthAttribute>
+			<name>Investigación</name>
+			<value>1</value>
+		</fourthAttribute>
+	</technicalAbilities>
+	<img>../resources/ProfileImages/Marta.png</img>	
+	<normalAnimation>martaNormal_mc</normalAnimation>
+	<happyAnimation>martaHappyNoSigns_mc</happyAnimation>
+	<angryAnimation>martaAngryNoSigns_mc</angryAnimation>
+</profile>
+
+<profile>
+	<name>Martin</name>
+	<age>48 años</age>
+	<description>"Quiero este trabajo porque es algo que me gusta. Creo que tengo una formación y conocimientos técnicos adecuados que serían de gran valor agregado a la empresa. Debo reconocer que no tomo las órdenes como vienen quiero saber que lo que hago tiene un por qué."</description>
+	<technicalProfile>Empresario</technicalProfile>
+	<technicalAbilities>
+		<mainAttribute>
+			<name>Programación</name>
+			<value>1</value>
+		</mainAttribute>
+		<secondAttribute>
+			<name>Diseño</name>
+			<value>1</value>
+		</secondAttribute>
+		<thirdAttribute>
+			<name>Comunicación</name>
+			<value>1</value>
+		</thirdAttribute>
+		<fourthAttribute>
+			<name>Investigación</name>
+			<value>1</value>
+		</fourthAttribute>
+	</technicalAbilities>
+	<img>../resources/ProfileImages/Martin.png</img>	
+	<normalAnimation>martinNormal_mc</normalAnimation>
+	<happyAnimation>martinHappyNoSigns_mc</happyAnimation>
+	<angryAnimation>martinAngryNoSigns_mc</angryAnimation>
+</profile>
+
+<profile>
+	<name>Nicolas</name>
+	<age>27 años</age>
+	<description>"Creo ser un empelado creativo y dentro del horario laboral haré lo mejor que pueda para aportar a los objetivos de la empresa. Me considero una persona independiente y me apasiona trabajar en proyecto desafiantes."</description>
+	<technicalProfile>Negro</technicalProfile>
+	<technicalAbilities>
+		<mainAttribute>
+			<name>Programación</name>
+			<value>1</value>
+		</mainAttribute>
+		<secondAttribute>
+			<name>Diseño</name>
+			<value>1</value>
+		</secondAttribute>
+		<thirdAttribute>
+			<name>Comunicación</name>
+			<value>1</value>
+		</thirdAttribute>
+		<fourthAttribute>
+			<name>Investigación</name>
+			<value>1</value>
+		</fourthAttribute>
+	</technicalAbilities>
+	<img>../resources/ProfileImages/Nicolas.png</img>
+	<normalAnimation>nicolasNormal_mc</normalAnimation>
+	<happyAnimation>nicolasHappyNoSigns_mc</happyAnimation>
+	<angryAnimation>nicolasAngryNoSigns_mc</angryAnimation>
+</profile>
+
+<profile>
+	<name>Roberto</name>
+	<age>58 años</age>
+	<description>"Soy un empleado que se desvive por su empresa. Creo que el esfuerzo genera resultados. Si debo quedarme después de hora para lograr los objetivos acordados, lo haré. Confío plenamente en la empresa y busco desarrollar una carrera dentro de esta."</description>
+	<technicalProfile>Secundario</technicalProfile>
+	<technicalAbilities>
+		<mainAttribute>
+			<name>Programación</name>
+			<value>1</value>
+		</mainAttribute>
+		<secondAttribute>
+			<name>Diseño</name>
+			<value>1</value>
+		</secondAttribute>
+		<thirdAttribute>
+			<name>Comunicación</name>
+			<value>1</value>
+		</thirdAttribute>
+		<fourthAttribute>
+			<name>Investigación</name>
+			<value>1</value>
+		</fourthAttribute>
+	</technicalAbilities>
+	<img>../resources/ProfileImages/Roberto.png</img>	
+	<normalAnimation>robertoNormal_mc</normalAnimation>
+	<happyAnimation>robertoHappyNoSigns_mc</happyAnimation>
+	<angryAnimation>robertoAngryNoSigns_mc</angryAnimation>
+</profile>
+
+<profile>
+	<name>Tomas</name>
+	<age>18 años</age>
+	<description>"Todavía sigo con mis estudios y creo que este trabajo puede ser beneficioso tanto para mí como para la empresa ya que tengo el tiempo para hacerlo y la tecnología es algo con lo que me siento cómodo."</description>
+	<technicalProfile>Ingeniera</technicalProfile>
+	<technicalAbilities>
+		<mainAttribute>
+			<name>Programación</name>
+			<value>1</value>
+		</mainAttribute>
+		<secondAttribute>
+			<name>Diseño</name>
+			<value>1</value>
+		</secondAttribute>
+		<thirdAttribute>
+			<name>Comunicación</name>
+			<value>1</value>
+		</thirdAttribute>
+		<fourthAttribute>
+			<name>Investigación</name>
+			<value>1</value>
+		</fourthAttribute>
+	</technicalAbilities>
+	<img>../resources/ProfileImages/Tomas.png</img>	
+	<normalAnimation>tomasNormal_mc</normalAnimation>
+	<happyAnimation>tomasHappyNoSigns_mc</happyAnimation>
+	<angryAnimation>tomasAngryNoSigns_mc</angryAnimation>
+</profile>
+
+<profile>
+	<name>Valentina</name>
+	<age>22 años</age>
+	<description>"Creo que este trabajo sería ideal ya que ando buscando algo que pueda ofrecer una paga acorde a mis expectativas. Creo que un trabajo part-time me habilitaría a tener tiempo personal para desarrollar mis propios intereses."</description>
+	<technicalProfile>Ingeniera</technicalProfile>
+	<technicalAbilities>
+		<mainAttribute>
+			<name>Programación</name>
+			<value>1</value>
+		</mainAttribute>
+		<secondAttribute>
+			<name>Diseño</name>
+			<value>1</value>
+		</secondAttribute>
+		<thirdAttribute>
+			<name>Comunicación</name>
+			<value>1</value>
+		</thirdAttribute>
+		<fourthAttribute>
+			<name>Investigación</name>
+			<value>1</value>
+		</fourthAttribute>
+	</technicalAbilities>
+	<img>../resources/ProfileImages/Valentina.png</img>	
+	<normalAnimation>valentinaNormal_mc</normalAnimation>
+	<happyAnimation>valentinaHappyNoSigns_mc</happyAnimation>
+	<angryAnimation>valentinaAngryNoSigns_mc</angryAnimation>
+</profile>
+
+<profile>
+	<name>Victoria</name>
+	<age>44 años</age>
+	<description>"Soy una persona autónoma, me gusta trabajar en equipo siempre y cuando haya cambio de roles y todos tengan la oportunidad de liderar. Quiero este trabajo porque trabajar con gente es algo que me apasiona."</description>
+	<technicalProfile>Negra</technicalProfile>
+	<technicalAbilities>
+		<mainAttribute>
+			<name>Programación</name>
+			<value>1</value>
+		</mainAttribute>
+		<secondAttribute>
+			<name>Diseño</name>
+			<value>1</value>
+		</secondAttribute>
+		<thirdAttribute>
+			<name>Comunicación</name>
+			<value>1</value>
+		</thirdAttribute>
+		<fourthAttribute>
+			<name>Investigación</name>
+			<value>1</value>
+		</fourthAttribute>
+	</technicalAbilities>
+	<img>../resources/ProfileImages/Victoria.png</img>	
+	<normalAnimation>victoriaNormal_mc</normalAnimation>
+	<happyAnimation>victoriaHappyNoSigns_mc</happyAnimation>
+	<angryAnimation>victoriaAngryNoSigns_mc</angryAnimation>
+</profile>
+
+
+</data>

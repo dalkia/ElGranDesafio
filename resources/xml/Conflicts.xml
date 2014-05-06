@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+<conflicts owner="Catalina">
+	<conflict id='1' autoActivated="true">
+		<title>Necesito un dia</title>
+		<description>Necesito un dia para ocuparme de mi hijo</description>
+		<day>1</day>
+		<penalty>			
+		</penalty>
+		<solutions>
+			<solution>
+				<title>Tomatelo</title>
+				<description>Tomatelo hermosa</description>
+				<incomeModifier>-10</incomeModifier>
+			</solution>
+			<solution>
+				<title>Tomatelo</title>
+				<description>Esta todo bien</description>
+				<incomeModifier>0</incomeModifier>
+			</solution>
+			<solution>
+				<title>No</title>
+				<description>Te necesitamos en la empresa</description>
+				<incomeModifier>0</incomeModifier>
+				<nextConflict>2</nextConflict>
+			</solution>
+		</solutions>
+	</conflict>	
+	<conflict id='2' autoActivated="false">
+		<title>No me diste un dia, cagon</title>
+		<description>Necesito un dia para ocuparme de mi hijo</description>
+		<day>3</day>
+		<penalty>			
+		</penalty>
+		<solutions>
+			<solution>
+				<title>Chau andate</title>
+				<incomeModifier>-10</incomeModifier>
+			</solution>
+		</solutions>
+	</conflict>	
+</conflicts>
+<conflicts owner="Marta">
+	<conflict id='1' autoActivated="true">
+		<title>Soy Vieja</title>
+		<day>1</day>
+	</conflict>	
+</conflicts>
+<conflicts owner="Roberto">
+	<conflict id='1' autoActivated="true">
+		<title>Tengo un nombre de mierda</title>
+		<day>1</day>
+	</conflict>	
+</conflicts>
+<conflicts owner="Valentina">
+	<conflict id='1' autoActivated="true">
+		<title>Tengo pulgas</title>
+		<day>4</day>
+	</conflict>	
+</conflicts>
+</data>
