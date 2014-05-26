@@ -16,11 +16,17 @@ package controller
 	{
 		
 		private var _interConflicts : XML;
-		
+		private var _activeConflicts : Array;
 		
 		public function ConflictManager() 
 		{
-			
+			_activeConflicts = new Array();
+		}
+		
+		public function addActiveConflicts(newConflicts : Array):void {
+			for (var i : int = 0; i < newConflicts.length; i++) {
+				_activeConflicts.push(newConflicts[i]);
+			}
 		}
 		
 		public function createConflicts() {				
@@ -55,7 +61,7 @@ package controller
 						var solution : Solution = new Solution(currentConflict.solutions.solution[j].title,currentConflict.solutions.solution[j].description,currentConflict.solutions.solution[j].incomeModifier,currentConflict.solutions.solution[j].nextConflict); 
 						solutions.push(solution);
 					}
-					var conflict : Conflict = new Conflict(currentConflict.@id, currentConflict.title, currentConflict.description,penalty, solutions);
+					var conflict : Conflict = new Conflict(currentConflict.@id, currentConflict.title, currentConflict.description,penalty, solutions,conflictsXML.conflicts[k].@owner);
 					if (currentConflict.@autoActivated == "true") {						
 						conflictsForDay[currentConflict.day].push(conflict);
 					}else{
@@ -66,6 +72,11 @@ package controller
 			}				
 		}
 		
+		public function removeActiveConflict(conflict:Conflict):void 
+		{
+			_activeConflicts.splice(_activeConflicts.indexOf(conflict), 1);
+		}
+		
 		private function create10DayArray():Array 
 		{
 			var arrayAux : Array = new Array();
@@ -74,7 +85,7 @@ package controller
 			}
 			return arrayAux;
 		}
-		
+		/*
 		public function createInterPersonalConflicts(names : Array):void{			
 			var nameArray : Array = new Array();
 			for(var i : int = 0;i<names.length;i++){
@@ -104,6 +115,13 @@ package controller
 				}				
 			}
 		}
+		*/
+		public function get activeConflicts():Array 
+		{
+			return _activeConflicts;
+		}
+		
+	
 		
 	}
 

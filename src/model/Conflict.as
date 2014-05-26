@@ -14,14 +14,17 @@ package model
 		private var _id : int;
 		private var _owner : String;
 		
+	
 		
-		public function Conflict(id:int, title : String,description : String, penalty : Penalty, possibleSolutions : Array) 
+		
+		public function Conflict(id:int, title : String,description : String, penalty : Penalty, possibleSolutions : Array, owner : String) 
 		{
 			_id = id;
 			_title = title;
 			_description = description;
 			_penalty = penalty;
 			_solutions = possibleSolutions;
+			_owner = owner;
 		}
 		
 		public function get description():String{
@@ -53,6 +56,8 @@ package model
 		{
 			_owner = value;
 		}
+		
+		
 		
 	}
 

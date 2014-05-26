@@ -6,6 +6,7 @@ package view
 	import model.Task;
 	import view.ComputerScreens.AdminScreen;
 	import view.ComputerScreens.ComputerScreen;
+	import view.ComputerScreens.MailScreen;
 	import view.ComputerScreens.SelectionScreen;
 	/**
 	 * ...
@@ -16,6 +17,7 @@ package view
 		private var _closeBigComputer : MovieClip;	
 		private var _selectionScreen : SelectionScreen;
 		private var _adminScreen : AdminScreen;
+		private var _mailScreen : MailScreen;
 		
 		private var currentScreen : ComputerScreen;
 		
@@ -24,6 +26,7 @@ package view
 			super();	
 			x = 23;
 			y = 15;
+			addChild(new ComputerBorder());
 			_closeBigComputer = new CloseBigComputer();
 			_closeBigComputer.x = 696.75;
 			_closeBigComputer.y = 24.3;
@@ -31,6 +34,7 @@ package view
 			
 			_selectionScreen = new SelectionScreen();
 			_adminScreen = new AdminScreen();
+			_mailScreen = new MailScreen();
 			currentScreen = _selectionScreen;
 			
 		}
@@ -45,17 +49,25 @@ package view
 			removeChild(currentScreen);			
 			currentScreen = _adminScreen;
 			_adminScreen.goBackToInitialScreen();
-			addChildAt(currentScreen, 0);
+			addChild(currentScreen);
+			addChild(_closeBigComputer);
 		}
 		
-		public function openTaskView(task:Task):void 
+		
+		
+		public function openMailScreen():void 
 		{
-			_adminScreen.openTaskView(task);
+			removeChild(currentScreen);			
+			currentScreen = _mailScreen;			
+			addChild(currentScreen);
+			addChild(_closeBigComputer);
+			currentScreen.goBackToInitialScreen();
 		}
 		
 		private function closeComputer(e:MouseEvent):void 
 		{			
-			removeChild(_closeBigComputer);
+			currentScreen.closeScreen();
+			removeChild(_closeBigComputer);			
 			removeChild(currentScreen)
 			currentScreen = _selectionScreen;
 			ViewManager.getInstance().mainSimulationScreen.closeComputer();
@@ -64,6 +76,11 @@ package view
 		public function get adminScreen():AdminScreen 
 		{
 			return _adminScreen;
+		}
+		
+		public function get mailScreen():MailScreen 
+		{
+			return _mailScreen;
 		}
 		
 	}

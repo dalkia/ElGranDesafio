@@ -3,8 +3,9 @@
 <profile>
 	<name>Catalina</name>
 	<age>31 años</age>
+	<generation>Y</generation>
 	<description>"Mi compromiso está sujeto a tener un jefe dispuesto a comprender mi individualidad. Quiero colaborar con mi jefe y no que él me diga que hacer."</description>
-	<technicalProfile>Ingeniera</technicalProfile>
+	<technicalProfile>Ingeniería</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
 			<name>Programación</name>
@@ -32,8 +33,9 @@
 <profile>
 	<name>Marta</name>
 	<age>60 años</age>
+	<generation>BB</generation>
 	<description>"Soy una empleada líder, creo que puedo diferenciarme rápidamente de mis compañeros por medio de mis resultados. Son estos lo que me hacen una líder nata. Soy parte de la empresa."</description>
-	<technicalProfile>Secundario</technicalProfile>
+	<technicalProfile>Bachiller</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
 			<name>Programación</name>
@@ -61,8 +63,9 @@
 <profile>
 	<name>Martin</name>
 	<age>48 años</age>
+	<generation>X</generation>
 	<description>"Quiero este trabajo porque es algo que me gusta. Creo que tengo una formación y conocimientos técnicos adecuados que serían de gran valor agregado a la empresa. Debo reconocer que no tomo las órdenes como vienen quiero saber que lo que hago tiene un por qué."</description>
-	<technicalProfile>Empresario</technicalProfile>
+	<technicalProfile>Lic. Administración de Empresas</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
 			<name>Programación</name>
@@ -90,8 +93,9 @@
 <profile>
 	<name>Nicolas</name>
 	<age>27 años</age>
+	<generation>X</generation>
 	<description>"Creo ser un empelado creativo y dentro del horario laboral haré lo mejor que pueda para aportar a los objetivos de la empresa. Me considero una persona independiente y me apasiona trabajar en proyecto desafiantes."</description>
-	<technicalProfile>Negro</technicalProfile>
+	<technicalProfile>Lic. Humanidades</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
 			<name>Programación</name>
@@ -119,8 +123,9 @@
 <profile>
 	<name>Roberto</name>
 	<age>58 años</age>
+	<generation>BB</generation>
 	<description>"Soy un empleado que se desvive por su empresa. Creo que el esfuerzo genera resultados. Si debo quedarme después de hora para lograr los objetivos acordados, lo haré. Confío plenamente en la empresa y busco desarrollar una carrera dentro de esta."</description>
-	<technicalProfile>Secundario</technicalProfile>
+	<technicalProfile>Secundario técnico</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
 			<name>Programación</name>
@@ -148,8 +153,9 @@
 <profile>
 	<name>Tomas</name>
 	<age>18 años</age>
+	<generation>Z</generation>
 	<description>"Todavía sigo con mis estudios y creo que este trabajo puede ser beneficioso tanto para mí como para la empresa ya que tengo el tiempo para hacerlo y la tecnología es algo con lo que me siento cómodo."</description>
-	<technicalProfile>Ingeniera</technicalProfile>
+	<technicalProfile>Bachiller</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
 			<name>Programación</name>
@@ -177,8 +183,9 @@
 <profile>
 	<name>Valentina</name>
 	<age>22 años</age>
+	<generation>Z</generation>
 	<description>"Creo que este trabajo sería ideal ya que ando buscando algo que pueda ofrecer una paga acorde a mis expectativas. Creo que un trabajo part-time me habilitaría a tener tiempo personal para desarrollar mis propios intereses."</description>
-	<technicalProfile>Ingeniera</technicalProfile>
+	<technicalProfile>Lic. Humanidades</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
 			<name>Programación</name>
@@ -206,8 +213,9 @@
 <profile>
 	<name>Victoria</name>
 	<age>44 años</age>
+	<generation>Y</generation>
 	<description>"Soy una persona autónoma, me gusta trabajar en equipo siempre y cuando haya cambio de roles y todos tengan la oportunidad de liderar. Quiero este trabajo porque trabajar con gente es algo que me apasiona."</description>
-	<technicalProfile>Negra</technicalProfile>
+	<technicalProfile>Lic. Administración de Empresas</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
 			<name>Programación</name>
@@ -231,6 +239,4 @@
 	<happyAnimation>victoriaHappyNoSigns_mc</happyAnimation>
 	<angryAnimation>victoriaAngryNoSigns_mc</angryAnimation>
 </profile>
-
-
 </data>

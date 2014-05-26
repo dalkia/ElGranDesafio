@@ -13,9 +13,11 @@ package model
 		
 		private var _technicalProfile : TechnicalProfile;
 		private var _humanProfile : HumanProfile;
+		private var _experiencie : int;
 		private var _name : String;
 		private var _description : String;
 		private var _age : String;
+		private var _salary : int;
 		
 		private var _imageLoader : Loader;
 		private var _image : Bitmap;
@@ -31,13 +33,13 @@ package model
 		private var _pendingConflicts : Array;
 		
 		public function Profile(name:String, age:String, description:String, technicalProfile:String,
-								technicalAbilities:Object, imageLoader:Loader) 
+								technicalAbilities:Object, imageLoader:Loader, generation : String) 
 		{
 			_name = name;
 			_age = age;
 			_description = description;
 			_technicalProfile = new TechnicalProfile(technicalProfile, technicalAbilities);
-			_humanProfile = new HumanProfile();
+			_humanProfile = new HumanProfile(generation);
 			_imageLoader = imageLoader;
 			_active = true;
 			_lazy = true;
@@ -128,7 +130,7 @@ package model
 		{
 			_pendingConflicts = value;
 		}
-		
+		/*
 		public function increaseNegativeAttributes():void {
 			if (humanProfile.conflictividad.value > 1) {
 				humanProfile.conflictividad.value--;
@@ -138,7 +140,7 @@ package model
 			}
 			
 		}
-		
+		*/
 		public function increasePositiveAttributes():void {
 			if (humanProfile.empatia.value < 4) {
 				humanProfile.empatia.value++;

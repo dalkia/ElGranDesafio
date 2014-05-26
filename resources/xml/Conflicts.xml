@@ -46,11 +46,17 @@
 		<day>1</day>
 	</conflict>	
 </conflicts>
+<conflicts owner="Martin">
+</conflicts>
+<conflicts owner="Nicolas">
+</conflicts>
 <conflicts owner="Roberto">
 	<conflict id='1' autoActivated="true">
 		<title>Tengo un nombre de mierda</title>
 		<day>1</day>
 	</conflict>	
+</conflicts>
+<conflicts owner="Tomas">
 </conflicts>
 <conflicts owner="Valentina">
 	<conflict id='1' autoActivated="true">
@@ -58,4 +64,7 @@
 		<day>4</day>
 	</conflict>	
 </conflicts>
+<conflicts owner="Victoria">
+</conflicts>
+
 </data>

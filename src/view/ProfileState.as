@@ -51,9 +51,9 @@ package view
 			tech3_mc.gotoAndStop(_profile.technicalProfile.thirdAttribute.value);
 			tech4_mc.gotoAndStop(_profile.technicalProfile.fourthAttribute.value);
 			human1_mc.gotoAndStop(_profile.humanProfile.proactividad.value);
-			human2_mc.gotoAndStop(_profile.humanProfile.desmotivacion.value);
+			human2_mc.gotoAndStop(_profile.humanProfile.motivacion.value);
 			human3_mc.gotoAndStop(_profile.humanProfile.empatia.value);
-			human4_mc.gotoAndStop(_profile.humanProfile.conflictividad.value);
+			human4_mc.gotoAndStop(_profile.humanProfile.cooperacion.value);
 		}
 		
 	}

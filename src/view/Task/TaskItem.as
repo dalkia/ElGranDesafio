@@ -21,7 +21,7 @@ package view.Task
 		
 		private function openTask(e:MouseEvent):void 
 		{
-			ViewManager.getInstance().mainSimulationScreen.addNewTask(_task);
+			ViewManager.getInstance().mainSimulationScreen.computer.adminScreen.openTaskView(_task);
 		}
 		
 	}

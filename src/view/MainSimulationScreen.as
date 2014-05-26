@@ -2,6 +2,7 @@ package view
 {
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
+	import model.News;
 	import model.Profile;
 	import model.Task;
 	
@@ -16,6 +17,7 @@ package view
 		
 		private var _desk : Desk;
 		private var _computer : ComputerView;
+		private var _newspaper : Newspaper;
 		
 		public function MainSimulationScreen() 
 		{
@@ -25,8 +27,15 @@ package view
 			_desk.x = 150.6;
 			_desk.y = 75.5;
 			addChild(_desk);
+			_newspaper = new Newspaper();
 			_computer = new ComputerView();
 			computerIcon_mc.addEventListener(MouseEvent.CLICK, showComputer);
+			smallNewspaper_mc.addEventListener(MouseEvent.CLICK, showNewspaper);
+		}
+		
+		private function showNewspaper(e:MouseEvent):void 
+		{
+			addChild(_newspaper);
 		}
 		
 		private function showComputer(e:MouseEvent):void 
@@ -48,16 +57,7 @@ package view
 		{
 			removeChild(_computer);
 		}
-		
-		public function openAdminScreen():void 
-		{
-			_computer.openAdminScreen();
-		}
-		
-		public function addNewTask(task : Task):void 
-		{
-			_computer.openTaskView(task);
-		}
+	
 		
 		public function setTotalMoney(totalMoney:Number):void 
 		{
@@ -85,8 +85,19 @@ package view
 			day_txt.text = "Dia " + day.toString();
 		}
 		
+		public function createNews(currentNews:News, day : int):void 
+		{
+			_newspaper.setNews(currentNews, day);
+		}
 		
 		
+		
+		public function closeNewspaper():void 
+		{
+			removeChild(_newspaper);
+		}
+		
+			
 		public function get computer():ComputerView 
 		{
 			return _computer;

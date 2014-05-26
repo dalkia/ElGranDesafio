@@ -16,6 +16,10 @@ package view.ComputerScreens
 			y = 24.3;
 		}
 		
+		public function goBackToInitialScreen():void { }
+		
+		public function closeScreen():void{}
+		
 	}
 
 }

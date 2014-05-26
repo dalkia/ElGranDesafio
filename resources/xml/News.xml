@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+<news>
+	<title>Paro Gremial</title>
+	<description>Descripcion del paro gremial</description>
+	<day>1</day>
+</news>	
+<news>
+	<title>Paro 2</title>
+	<description>Descripcion del paro gremial</description>
+	<day>2</day>
+</news>	
+<news>
+	<title>Paro 3</title>
+	<description>Descripcion del paro gremial</description>
+	<day>3</day>
+</news>	
+<news>
+	<title>Paro 4</title>
+	<description>Descripcion del paro gremial</description>
+	<day>4</day>
+</news>	
+<news>
+	<title>Paro 5</title>
+	<description>Descripcion del paro gremial</description>
+	<day>5</day>
+</news>	
+<news>
+	<title>Paro 6</title>
+	<description>Descripcion del paro gremial</description>
+	<day>6</day>
+</news>	
+<news>
+	<title>Paro 7</title>
+	<description>Descripcion del paro gremial</description>
+	<day>7</day>
+</news>	
+<news>
+	<title>Paro 8</title>
+	<description>Descripcion del paro gremial</description>
+	<day>8</day>
+</news>	
+<news>
+	<title>Paro 9</title>
+	<description>Descripcion del paro gremial</description>
+	<day>9</day>
+</news>	
+<news>
+	<title>Paro 10</title>
+	<description>Descripcion del paro gremial</description>
+	<day>10</day>
+</news>	
+
+</data>

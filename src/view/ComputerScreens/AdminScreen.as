@@ -67,16 +67,14 @@ package view.ComputerScreens
 		private function removeAllButtons():void 
 		{
 			removeChild(asignTask_mc);
-			removeChild(individualAction_mc);
 			removeChild(globalAction_mc);
 		}
 		
-		public function goBackToInitialScreen():void {
+		override public function goBackToInitialScreen():void {
 			if (scrollPaneAdded) {
 				removeChild(taskScrollPane);
 			}
 			addChild(asignTask_mc);
-			addChild(individualAction_mc);
 			addChild(globalAction_mc);
 		}
 		

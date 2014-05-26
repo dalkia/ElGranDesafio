@@ -1,4 +1,4 @@
-package view.ComputerScreens 
+﻿package view.ComputerScreens 
 {
 	import flash.events.MouseEvent;
 	import controller.ViewManager;
@@ -13,11 +13,17 @@ package view.ComputerScreens
 		{
 			super();
 			adminShortcut_mc.addEventListener(MouseEvent.CLICK, openAdminScreen);
+			mailShortcut_mc.addEventListener(MouseEvent.CLICK, openMailScreen);
+		}
+		
+		private function openMailScreen(e:MouseEvent):void 
+		{
+			ViewManager.getInstance().mainSimulationScreen.computer.openMailScreen();
 		}
 		
 		private function openAdminScreen(e:MouseEvent):void 
 		{
-			ViewManager.getInstance().mainSimulationScreen.openAdminScreen();
+			ViewManager.getInstance().mainSimulationScreen.computer.openAdminScreen();
 		}
 		
 	}

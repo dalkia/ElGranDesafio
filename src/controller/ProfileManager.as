@@ -60,7 +60,7 @@ package controller
 				
 				var profile : Profile = new Profile(currentProfile.name, currentProfile.age, currentProfile.description,
 													currentProfile.technicalProfile, currentProfile.technicalAbilities,
-													imageLoader);
+													imageLoader, currentProfile.generation);
 				
 				
 				var normalAnimation:Class = getDefinitionByName(currentProfile.normalAnimation) as Class;

@@ -1,6 +1,9 @@
 package controller
 {
 	import flash.filters.DisplacementMapFilterMode;
+	import model.Conflict;
+	import model.News;
+	import model.Solution;
 	import model.Task;
 	
 	/**
@@ -16,6 +19,7 @@ package controller
 		private var _profileManager:ProfileManager;
 		private var _taskManager:TaskManager;
 		private var _conflictManager:ConflictManager;
+		private var _newsManager:NewsManager;
 		private var _timeManager:TimeManager;
 		private var _mainView:Main;
 		
@@ -26,6 +30,7 @@ package controller
 			_profileManager = new ProfileManager();
 			_taskManager = new TaskManager();
 			_conflictManager = new ConflictManager();
+			_newsManager = new NewsManager();
 			_timeManager = new TimeManager(3);
 			_totalMoney = 0;
 		}
@@ -53,15 +58,23 @@ package controller
 			}
 			else
 			{
-				//var conflictsForDay : Array = _profileManager.getConflictsForDay(day);
+				var conflictsForDay : Array = _profileManager.getConflictsForDay(day);
+				var currentNews : News = _newsManager.activeNews[day];
+				ViewManager.getInstance().mainSimulationScreen.createNews(currentNews, day);
+				_conflictManager.addActiveConflicts(conflictsForDay);
 				ViewManager.getInstance().mainSimulationScreen.setDay(day + 1);
 			}
 		}
+		
+		
+		
+		
 		
 		public function startCharacterSelectionScreen()
 		{
 			_profileManager.createProfiles();
 			_conflictManager.createConflicts();
+			_newsManager.createNews();
 		}
 		
 		public function set mainView(value:Main):void
@@ -118,6 +131,18 @@ package controller
 			}
 			_totalMoney += totalResult;
 			ViewManager.getInstance().mainSimulationScreen.setTotalMoney(_totalMoney);
+		}
+		
+		public function startSolution(solution:Solution, conflict:Conflict):void 
+		{
+			_conflictManager.removeActiveConflict(conflict);
+			ViewManager.getInstance().mainSimulationScreen.computer.mailScreen.removeSolutions();
+			ViewManager.getInstance().mainSimulationScreen.computer.mailScreen.goBackToInitialScreen();
+		}
+		
+		public function getActiveConflicts():Array 
+		{
+			return _conflictManager.activeConflicts;
 		}
 	
 	}

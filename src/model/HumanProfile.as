@@ -8,21 +8,23 @@ package model
 	{
 		
 		private var _proactividad : Attribute;
-		private var _desmotivacion : Attribute;
+		private var _motivacion : Attribute;
 		private var _empatia : Attribute;
-		private var _conflictividad : Attribute;
+		private var _cooperacion : Attribute;
+		private var _generation : String;
 		
 		
-		public function HumanProfile() {
 		
+		public function HumanProfile(generation : String) {
+			_generation = generation;
 			_proactividad = new Attribute("Proactividad ",2);
-			_desmotivacion = new Attribute("Desmotivación",2);;
+			_motivacion = new Attribute("Motivación",2);;
 			_empatia = new Attribute("Empatía",2);
-			_conflictividad = new Attribute("Conflictividad",2);
+			_cooperacion = new Attribute("Conflictividad",2);
 		}
 		
 		public function getActualPerformance():Number {;
-			return 0.25 * _proactividad.value + 0.25 * _desmotivacion.value + 0.25 * _empatia.value + 0.25 * _conflictividad.value;
+			return 0.25 * _proactividad.value + 0.25 * _motivacion.value + 0.25 * _empatia.value + 0.25 * _cooperacion.value;
 		}
 		
 		public function get proactividad():Attribute 
@@ -30,9 +32,9 @@ package model
 			return _proactividad;
 		}
 		
-		public function get desmotivacion():Attribute 
+		public function get motivacion():Attribute 
 		{
-			return _desmotivacion;
+			return _motivacion;
 		}
 		
 		public function get empatia():Attribute 
@@ -40,9 +42,9 @@ package model
 			return _empatia;
 		}
 		
-		public function get conflictividad():Attribute 
+		public function get cooperacion():Attribute 
 		{
-			return _conflictividad;
+			return _cooperacion;
 		}
 		
 	

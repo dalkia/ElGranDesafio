@@ -30,7 +30,7 @@ package controller
 			}
 			return _instance;
 		}
-		
+				
 		public function get startScreen():StartScreen 
 		{
 			return _startScreen;
