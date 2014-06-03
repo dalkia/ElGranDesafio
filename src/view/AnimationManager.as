@@ -1,4 +1,4 @@
-package view 
+﻿package view 
 {
 
 	import fl.controls.Label;
@@ -12,6 +12,7 @@ package view
 	import flash.utils.Timer;
 	import controller.ViewManager;
 	import model.Profile;
+	import view.ProfileMenu;
 	/**
 	 * ...
 	 * @author Juanola
@@ -30,7 +31,9 @@ package view
 		private var currentTimer : Timer;
 		private var currentLabel : Label; 
 		
-		private var _profileState :ProfileState;
+	
+		
+		private var _profileMenu : ProfileMenu;
 		
 		
 		public function AnimationManager(normalAnimation : MovieClip, happyAnimation : MovieClip, sadAnimation : MovieClip, profileState : ProfileState) 
@@ -39,8 +42,9 @@ package view
 			_happyAnimation = happyAnimation;
 			_sadAnimation = sadAnimation;
 			currentAnimation = _normalAnimation;
-			_profileState = profileState;
-			currentAnimation.addEventListener(MouseEvent.CLICK, showProfileState);
+
+			_profileMenu = new ProfileMenu(profileState);
+			currentAnimation.addEventListener(MouseEvent.CLICK, showProfileMenu);
 			
 			var format:TextFormat = new TextFormat();
             format.font = "Verdana";
@@ -54,9 +58,9 @@ package view
 			currentLabel.setStyle("textFormat", format);
 		}
 		
-		private function showProfileState(e:MouseEvent):void 
+		private function showProfileMenu(e:MouseEvent):void 
 		{
-			ViewManager.getInstance().mainSimulationScreen.showProfileState(_profileState);
+			ViewManager.getInstance().mainSimulationScreen.showProfileMenu(_profileMenu);
 		}
 		
 		public function addProgressBar(totalTime:Number):void 

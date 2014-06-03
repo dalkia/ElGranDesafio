@@ -1,4 +1,4 @@
-package model 
+﻿package model 
 {
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
@@ -73,6 +73,7 @@ package model
 		private function taskComplete(e:TimerEvent):void 
 		{
 			_timer.stop();
+			_taskOutcome.activateOutcome();
 			SimulationManager.getInstance().taskManager.taskComplete(this); 
 		}
 		

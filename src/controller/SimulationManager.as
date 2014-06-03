@@ -1,4 +1,4 @@
-package controller
+﻿package controller
 {
 	import flash.filters.DisplacementMapFilterMode;
 	import model.Conflict;
@@ -133,11 +133,19 @@ package controller
 			ViewManager.getInstance().mainSimulationScreen.setTotalMoney(_totalMoney);
 		}
 		
+		public function addPoorWorkConflicts(peopleSelected : Array):void{
+			
+		}
+		
 		public function startSolution(solution:Solution, conflict:Conflict):void 
 		{
 			_conflictManager.removeActiveConflict(conflict);
 			ViewManager.getInstance().mainSimulationScreen.computer.mailScreen.removeSolutions();
 			ViewManager.getInstance().mainSimulationScreen.computer.mailScreen.goBackToInitialScreen();
+		}
+		
+		public function affectHumanProfiles(affection : int, profilesSelected : Array):void{
+			_profileManager.increasePositiveAtributes(profilesSelected,affection);
 		}
 		
 		public function getActiveConflicts():Array 

@@ -1,4 +1,4 @@
-package view 
+﻿package view 
 {
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
@@ -64,10 +64,10 @@ package view
 			totalMoney_txt.text = "$ " + totalMoney.toString();
 		}
 		
-		public function showProfileState(profileState:ProfileState):void 
+		public function showProfileMenu(profileMenu:ProfileMenu):void 
 		{
-			profileState.updateProfileState();
-			addChild(profileState);
+			addChild(profileMenu);
+			
 		}
 		
 		public function removeProfile(profileState:ProfileState):void 

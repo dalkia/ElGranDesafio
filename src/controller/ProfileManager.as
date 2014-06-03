@@ -1,4 +1,4 @@
-package controller 
+﻿package controller 
 {
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
@@ -141,17 +141,12 @@ package controller
 			}
 		}
 		
-		public function increaseNegativeAtributes(peopleSelected:Array):void 
-		{
-			for (var i : int = 0; i < peopleSelected.length; i++) {
-				peopleSelected[i].increaseNegativeAttributes();
-			}
-		}
 		
-		public function increasePositiveAtributes(peopleSelected:Array):void 
+		
+		public function increasePositiveAtributes(peopleSelected:Array, affection : int):void 
 		{
 			for (var i : int = 0; i < peopleSelected.length; i++) {
-				peopleSelected[i].increasePositiveAttributes();
+				peopleSelected[i].increasePositiveAttributes(affection);
 			}
 		}
 		

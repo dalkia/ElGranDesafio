@@ -1,4 +1,4 @@
-package model 
+﻿package model 
 {
 	import flash.display.Bitmap;
 	import flash.display.Loader;
@@ -141,13 +141,11 @@ package model
 			
 		}
 		*/
-		public function increasePositiveAttributes():void {
-			if (humanProfile.empatia.value < 4) {
-				humanProfile.empatia.value++;
-			}
-			if (humanProfile.proactividad.value < 4) {
-				humanProfile.proactividad.value++;
-			}
+		public function increasePositiveAttributes(affection : int):void {
+			humanProfile.empatia.value = humanProfile.empatia.value + affection;
+			humanProfile.cooperacion.value = humanProfile.cooperacion.value + affection;
+			humanProfile.motivacion.value = humanProfile.motivacion.value + affection;
+			humanProfile.proactividad.value = humanProfile.empatia.value + affection;
 		}
 		
 		public function getActualProfileState():ProfileState 

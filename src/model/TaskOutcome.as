@@ -1,5 +1,7 @@
-package model 
+﻿package model 
 {
+	import controller.SimulationManager;
+	
 	/**
 	 * ...
 	 * @author Juanola
@@ -25,6 +27,10 @@ package model
 		
 		private var _outcome : Object;
 		
+		private var _affection : int;
+		private var _profilesSelected : Array;
+		private var createConflicts : Boolean;
+		
 		public function TaskOutcome(technicalGoodDemands : Array, generationGoodDemands : Array, amountGood : Array,
 									technicalMediumDemands : Array, generationMediumDemands : Array, amountMedium : Array,
 									goodTime : int, mediumTime : int, badTime :int,
@@ -44,7 +50,8 @@ package model
 			
 			this._goodResult = goodResult;
 			this._mediumResult = mediumResult;
-			this._badResult = badResult;		
+			this._badResult = badResult;
+			createConflicts = false;
 		}
 		
 		public function getOutcome(profilesSelected : Array):Object {
@@ -54,6 +61,7 @@ package model
 			var mediumGeneration : Boolean = true;
 			var goodAmount : Boolean = true;
 			var mediumAmount : Boolean = true;
+			_profilesSelected = profilesSelected;
 			for each(var profile : Profile in profilesSelected) {	
 				if (findInArray(profile.technicalProfile.type,_technicalGoodDemands) == -1) {
 					goodTechnical = false;
@@ -78,12 +86,17 @@ package model
 			if (goodTechnical && goodGeneration && goodAmount) {
 				outcome.time = _goodTime * 1000;
 				outcome.result = _goodResult;
+				_affection = 2;
 			}else if (mediumTechnical && mediumGeneration && mediumAmount) {
 				outcome.time = _mediumTime * 1000;
 				outcome.result = _mediumResult;
+				_affection = 1;
 			}else {
 				outcome.time = _badTime * 1000;
 				outcome.result = _badResult;
+				_affection = -1;
+				createConflicts = true;
+				
 			}
 			return outcome;			
 		}
@@ -91,6 +104,13 @@ package model
 		public function get outcome():Object 
 		{
 			return _outcome;
+		}
+		
+		public function activateOutcome():void{
+			SimulationManager.getInstance().affectHumanProfiles(_affection, _profilesSelected);
+			if(createConflicts){
+				SimulationManager.getInstance().addPoorWorkConflicts(_profilesSelected);
+			}
 		}
 		
 		function findInArray(str:String, array : Array):int {
