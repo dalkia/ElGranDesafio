@@ -11,33 +11,22 @@ package model
 	{
 		private var _description : String;
 		private var _title : String;		
-		private var _demands : Array;
+		//private var _demands : Array;
 		private var _timer : Timer;
 	
-		private var _totalTime : Number;
-		private var _totalResult : int;
+		//private var _totalTime : Number;
+		//private var _totalResult : int;
 		
-		private var _peopleSelected : Array;
+		private var _peopleSelected : Array;		
+				
+		private var _taskOutcome : TaskOutcome;
 		
-		private var _badResult : int;
-		private var _mediumResult : int;
-		private var _bestResult : int;	
-		
-		private var _maximumResult : Number;
-		
-		public function Task(title : String, demands : Object, description : String, badResult : int, mediumResult : int, bestResult : int, maximumResult : Number) 
+		public function Task(title : String, description : String, taskOutcome : TaskOutcome) 
 		{
-			_title = title;
-			_demands = new Array();
-			_maximumResult = maximumResult;
-			var totalDemands : int = demands.demand.length();
-			for (var i : int = 0; i < totalDemands; i++) {
-				_demands.push(demands.demand[i]);				
-			}
+			_title = title;			
 			_description = description;
-			_badResult = badResult;
-			_mediumResult = mediumResult;
-			_bestResult = bestResult;
+			_taskOutcome = taskOutcome;
+			
 		}
 		
 		public function get title():String 
@@ -57,16 +46,37 @@ package model
 			return _peopleSelected;
 		}
 		
-		public function get totalResult():Number 
+	
+		
+		public function get taskOutcome():TaskOutcome 
 		{
-			return _totalResult;
+			return _taskOutcome;
 		}
 		
-		public function get totalTime():Number 
+		public function set peopleSelected(value:Array):void 
 		{
-			return _totalTime;
+			_peopleSelected = value;
+		}
+	
+		
+		public function startTime():void {
+			_timer = new Timer(_taskOutcome.outcome.time);			
+			_timer.addEventListener(TimerEvent.TIMER, taskComplete);
+			_timer.start();			
 		}
 		
+		public function getOutcome():Object 
+		{
+			return _taskOutcome.getOutcome(_peopleSelected);
+		}
+		
+		private function taskComplete(e:TimerEvent):void 
+		{
+			_timer.stop();
+			SimulationManager.getInstance().taskManager.taskComplete(this); 
+		}
+		
+		/*
 		public function getTime(profiles: Array):Number{
 			var totalUsefulTime : Number = 0;
 			var totalUselessTime : Number = 0;
@@ -159,7 +169,7 @@ package model
 			return -1; //If not found
 		}
 		
-		
+		*/
 		
 	}
 

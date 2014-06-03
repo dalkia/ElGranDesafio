@@ -6,6 +6,7 @@ package controller
 	import flash.net.URLRequest;
 	import flash.utils.Timer;
 	import model.Task;
+	import model.TaskOutcome;
 	/**
 	 * ...
 	 * @author Juanola
@@ -25,23 +26,26 @@ package controller
 			_tasks = new Array();
 			_finishedTasks = new Array();
 			_currentTasks = new Array();
-			var minimumTime : Number  = (1 / (4 * 0.5 + 4 * 0.3 + 4 * 0.2 + 4 * 0.1))*(1/(4 * 0.5 + 4 * 0.3 + 4 * 0.2 + 4 * 0.1));
-			_maximumResult  = (1 / minimumTime) * (4*0.5 + 4 * 0.3 + 4 * 0.2 + 4 * 0.1);
+		//	var minimumTime : Number  = (1 / (4 * 0.5 + 4 * 0.3 + 4 * 0.2 + 4 * 0.1))*(1/(4 * 0.5 + 4 * 0.3 + 4 * 0.2 + 4 * 0.1));
+		//	_maximumResult  = (1 / minimumTime) * (4*0.5 + 4 * 0.3 + 4 * 0.2 + 4 * 0.1);
 			createTasks();
 		}
 		
-		public function startTask(task:Task, selectedProfiles : Array):void 
+		public function startTask(task:Task, selectedProfiles : Array):Object 
 		{
 			_tasks.splice(_tasks.indexOf(task), 1);
-			_currentTasks.push(task);		
-			task.startTime(selectedProfiles);			
+			_currentTasks.push(task);	
+			task.peopleSelected = selectedProfiles;
+			var outcome : Object = task.getOutcome();
+			task.startTime();	
+			return outcome;					
 		}		
 		
 		public function taskComplete(task:Task):void 
 		{
 			_currentTasks.splice(_currentTasks.indexOf(task), 1);
 			_finishedTasks.push(task);
-			SimulationManager.getInstance().taskComplete(task.totalResult, task.peopleSelected);
+			SimulationManager.getInstance().taskComplete(task.taskOutcome.outcome.result, task.peopleSelected);
 		}		
 		
 		private function createTasks() {			
@@ -58,7 +62,13 @@ package controller
 			
 			for (var i : int = 0; i < totalTasks ; i++) {
 				var currentTask : Object = tasksXML.task[i];
-				var newTask : Task = new Task(currentTask.title, currentTask.demands, currentTask.description,currentTask.badResult,currentTask.mediumResult,currentTask.bestResult,_maximumResult);
+				var currentDemands : Object = currentTask.demands;
+				var taskOutcome : TaskOutcome = new TaskOutcome(xmlListToArray(currentDemands.goodTechnicalDemands), xmlListToArray(currentDemands.goodGenerationDemands), xmlListToArray(currentDemands.goodAmount),
+																xmlListToArray(currentDemands.mediumTechnicalDemands), xmlListToArray(currentDemands.mediumGenerationDemands), xmlListToArray(currentDemands.mediumAmount),
+																currentTask.goodTime, currentTask.mediumTime, currentTask.badTime,
+																currentTask.goodResult, currentTask.mediumResult, currentTask.badResult);
+				var newTask : Task = new Task(currentTask.title, currentTask.description, taskOutcome);
+				
 				tasks.push(newTask);
 			}
 		}
@@ -67,6 +77,14 @@ package controller
 		{
 			return _tasks;
 		}
+		
+		public function xmlListToArray($x:XMLList):Array {   		
+			var a:Array=[], i:String;
+			for (i in $x) a[i] = $x[i];
+			return a;
+		}
+		
+		
 		
 		
 		

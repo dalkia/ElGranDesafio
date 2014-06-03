@@ -119,8 +119,8 @@ package controller
 			{
 				selectedProfiles[i].lazy = false;
 			}
-			_taskManager.startTask(task, selectedProfiles);
-			SimulationManager.getInstance().profileManager.addProgressBar(selectedProfiles, task.totalTime);
+			var outcome : Object = _taskManager.startTask(task, selectedProfiles);
+			SimulationManager.getInstance().profileManager.addProgressBar(selectedProfiles, outcome.time);
 		}
 		
 		public function taskComplete(totalResult:Number, peopleSelected:Array):void

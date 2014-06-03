@@ -4,34 +4,73 @@
 	<title>LLamado a clientes</title>
 	<description>Llamar a todos los clientes que tiene la empresa para ofrecer un producto nuevo</description>
 	<demands>
-		<demand>Ingeniera</demand>
-	</demands>
-	<goodPeople></goodPeople>
-	<mediumPeople></mediumPeople>
-	<badPeople></badPeople>
+		<goodTechnicalDemands>Ingeniería</goodTechnicalDemands>
+		<goodTechnicalDemands>Lic. Administración de Empresas</goodTechnicalDemands>
+		<goodTechnicalDemands>Bachiller</goodTechnicalDemands>		
+		<goodGenerationDemands>Y</goodGenerationDemands>
+		<goodAmount>1</goodAmount>
+		<goodAmount>2</goodAmount>
+		<mediumTechnicalDemands>Lic. Humanidades</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Lic. Administración de Empresas</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Bachiller</mediumTechnicalDemands>
+		<mediumGenerationDemands>X</mediumGenerationDemands>
+		<mediumAmount>1</mediumAmount>
+		<mediumAmount>2</mediumAmount>
+	</demands>	
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
-	<bestResult>10</bestResult>
+	<goodResult>10</goodResult>
+	<badTime>10</badTime>
+	<mediumTime>5</mediumTime>
+	<goodTime>10</goodTime>
 </task>
 <task>
 	<title>Participación en reunión de equipo</title>
 	<description>Asistir y proponer ideas en el equipo</description>
 	<demands>
-		<demand>Ingeniera</demand>
-	</demands>
+		<goodTechnicalDemands>Lic. Humanidades</goodTechnicalDemands>
+		<goodTechnicalDemands>Lic. Administración de Empresas</goodTechnicalDemands>
+		<goodTechnicalDemands>Bachiller</goodTechnicalDemands>		
+		<goodGenerationDemands>BB</goodGenerationDemands>
+		<goodAmount>2</goodAmount>
+		<goodAmount>3</goodAmount>
+		<mediumTechnicalDemands>Lic. Humanidades</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Lic. Administración de Empresas</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Bachiller</mediumTechnicalDemands>
+		<mediumGenerationDemands>X</mediumGenerationDemands>
+		<mediumAmount>1</mediumAmount>
+		<mediumAmount>2</mediumAmount>
+	</demands>	
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
-	<bestResult>10</bestResult>
+	<goodResult>10</goodResult>
+	<badTime>10</badTime>
+	<mediumTime>10</mediumTime>
+	<goodTime>10</goodTime>
 </task>
 <task>
 	<title>Propuesta de nuevos proyectos</title>
 	<description>Se incorporan en el proyecto con autonomía y aporte de ideas</description>
 	<demands>
-		<demand>Ingeniera</demand>
-	</demands>
+		<goodTechnicalDemands>Lic. Humanidades</goodTechnicalDemands>
+		<goodTechnicalDemands>Lic. Administración de Empresas</goodTechnicalDemands>
+		<goodTechnicalDemands>Bachiller</goodTechnicalDemands>		
+		<goodGenerationDemands>BB</goodGenerationDemands>
+		<goodAmount>2</goodAmount>
+		<goodAmount>3</goodAmount>
+		<mediumTechnicalDemands>Lic. Humanidades</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Lic. Administración de Empresas</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Bachiller</mediumTechnicalDemands>
+		<mediumGenerationDemands>X</mediumGenerationDemands>
+		<mediumAmount>1</mediumAmount>
+		<mediumAmount>2</mediumAmount>
+	</demands>	
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
-	<bestResult>10</bestResult>
+	<goodResult>10</goodResult>
+	<badTime>10</badTime>
+	<mediumTime>10</mediumTime>
+	<goodTime>10</goodTime>
 </task>
 <task>
 	<title>Recibir llamados de consultas o quejas de clientes</title>
@@ -47,60 +86,144 @@
 	<title>Realizar mejoras de la propia tarea</title>
 	<description>Se analiza al final de la semana cuáles fueron los aspectos del servicio a mejorar, a partir de la planilla de registro de quejas y consultas.</description>
 	<demands>
-		<demand>Ingeniera</demand>
-	</demands>
+		<goodTechnicalDemands>Lic. Humanidades</goodTechnicalDemands>
+		<goodTechnicalDemands>Lic. Administración de Empresas</goodTechnicalDemands>
+		<goodTechnicalDemands>Bachiller</goodTechnicalDemands>		
+		<goodGenerationDemands>BB</goodGenerationDemands>
+		<goodAmount>2</goodAmount>
+		<goodAmount>3</goodAmount>
+		<mediumTechnicalDemands>Lic. Humanidades</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Lic. Administración de Empresas</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Bachiller</mediumTechnicalDemands>
+		<mediumGenerationDemands>X</mediumGenerationDemands>
+		<mediumAmount>1</mediumAmount>
+		<mediumAmount>2</mediumAmount>
+	</demands>	
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
-	<bestResult>10</bestResult>
+	<goodResult>10</goodResult>
+	<badTime>10</badTime>
+	<mediumTime>10</mediumTime>
+	<goodTime>10</goodTime>
 </task>
 <task>
 	<title>Mantener el orden y la limpieza de oficina, y salas de atención.</title>
 	<description>Al final de la jornada dejar ordenado y limpios los puestos de trabajo, antes de que pase el personal del servicio</description>
 	<demands>
-		<demand>Ingeniera</demand>
-	</demands>
+		<goodTechnicalDemands>Lic. Humanidades</goodTechnicalDemands>
+		<goodTechnicalDemands>Lic. Administración de Empresas</goodTechnicalDemands>
+		<goodTechnicalDemands>Bachiller</goodTechnicalDemands>		
+		<goodGenerationDemands>BB</goodGenerationDemands>
+		<goodAmount>2</goodAmount>
+		<goodAmount>3</goodAmount>
+		<mediumTechnicalDemands>Lic. Humanidades</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Lic. Administración de Empresas</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Bachiller</mediumTechnicalDemands>
+		<mediumGenerationDemands>X</mediumGenerationDemands>
+		<mediumAmount>1</mediumAmount>
+		<mediumAmount>2</mediumAmount>
+	</demands>	
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
-	<bestResult>10</bestResult>
+	<goodResult>10</goodResult>
+	<badTime>10</badTime>
+	<mediumTime>10</mediumTime>
+	<goodTime>10</goodTime>
 </task>
 <task>
 	<title>Aprendizaje permanente en el puesto de trabajo</title>
 	<description>Los empleados enseñan y aprenden tareas de sus compañeros para mejorar la rotación de puestos internos y los posibles ascensos.</description>
 	<demands>
-		<demand>Ingeniera</demand>
-	</demands>
+		<goodTechnicalDemands>Lic. Humanidades</goodTechnicalDemands>
+		<goodTechnicalDemands>Lic. Administración de Empresas</goodTechnicalDemands>
+		<goodTechnicalDemands>Bachiller</goodTechnicalDemands>		
+		<goodGenerationDemands>BB</goodGenerationDemands>
+		<goodAmount>2</goodAmount>
+		<goodAmount>3</goodAmount>
+		<mediumTechnicalDemands>Lic. Humanidades</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Lic. Administración de Empresas</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Bachiller</mediumTechnicalDemands>
+		<mediumGenerationDemands>X</mediumGenerationDemands>
+		<mediumAmount>1</mediumAmount>
+		<mediumAmount>2</mediumAmount>
+	</demands>	
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
-	<bestResult>10</bestResult>
+	<goodResult>10</goodResult>
+	<badTime>10</badTime>
+	<mediumTime>10</mediumTime>
+	<goodTime>10</goodTime>
 </task>
 <task>
 	<title>Capacitación on line</title>
 	<description>Los empleados se inscriben y cumplen los requisitos de los cursos internos que ofrece la empresa de manera presencial u on line.</description>
 	<demands>
-		<demand>Ingeniera</demand>
-	</demands>
+		<goodTechnicalDemands>Lic. Humanidades</goodTechnicalDemands>
+		<goodTechnicalDemands>Lic. Administración de Empresas</goodTechnicalDemands>
+		<goodTechnicalDemands>Bachiller</goodTechnicalDemands>		
+		<goodGenerationDemands>BB</goodGenerationDemands>
+		<goodAmount>2</goodAmount>
+		<goodAmount>3</goodAmount>
+		<mediumTechnicalDemands>Lic. Humanidades</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Lic. Administración de Empresas</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Bachiller</mediumTechnicalDemands>
+		<mediumGenerationDemands>X</mediumGenerationDemands>
+		<mediumAmount>1</mediumAmount>
+		<mediumAmount>2</mediumAmount>
+	</demands>	
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
-	<bestResult>10</bestResult>
+	<goodResult>10</goodResult>
+	<badTime>10</badTime>
+	<mediumTime>10</mediumTime>
+	<goodTime>10</goodTime>
 </task>
 <task>
 	<title>Mantenimiento al día de la base de clientes</title>
 	<description>Los empleados llaman y mantienen actualizados los datos de contacto y de perfil de sus clientes.</description>
 	<demands>
-		<demand>Ingeniera</demand>
-	</demands>
+		<goodTechnicalDemands>Lic. Humanidades</goodTechnicalDemands>
+		<goodTechnicalDemands>Lic. Administración de Empresas</goodTechnicalDemands>
+		<goodTechnicalDemands>Bachiller</goodTechnicalDemands>		
+		<goodGenerationDemands>BB</goodGenerationDemands>
+		<goodAmount>2</goodAmount>
+		<goodAmount>3</goodAmount>
+		<mediumTechnicalDemands>Lic. Humanidades</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Lic. Administración de Empresas</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Bachiller</mediumTechnicalDemands>
+		<mediumGenerationDemands>X</mediumGenerationDemands>
+		<mediumAmount>1</mediumAmount>
+		<mediumAmount>2</mediumAmount>
+	</demands>	
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
-	<bestResult>10</bestResult>
+	<goodResult>10</goodResult>
+	<badTime>10</badTime>
+	<mediumTime>10</mediumTime>
+	<goodTime>10</goodTime>
 </task>
 <task>
 	<title>Obtener información de nuevos clientes</title>
 	<description>Los empleados traen contactos nuevos de otras empresas para aumentar la cartera de clientes.</description>
 	<demands>
-		<demand>Ingeniera</demand>
-	</demands>
+		<goodTechnicalDemands>Lic. Humanidades</goodTechnicalDemands>
+		<goodTechnicalDemands>Lic. Administración de Empresas</goodTechnicalDemands>
+		<goodTechnicalDemands>Bachiller</goodTechnicalDemands>		
+		<goodGenerationDemands>BB</goodGenerationDemands>
+		<goodAmount>2</goodAmount>
+		<goodAmount>3</goodAmount>
+		<mediumTechnicalDemands>Lic. Humanidades</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Lic. Administración de Empresas</mediumTechnicalDemands>
+		<mediumTechnicalDemands>Bachiller</mediumTechnicalDemands>
+		<mediumGenerationDemands>X</mediumGenerationDemands>
+		<mediumAmount>1</mediumAmount>
+		<mediumAmount>2</mediumAmount>
+	</demands>	
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
-	<bestResult>10</bestResult>
+	<goodResult>10</goodResult>
+	<badTime>10</badTime>
+	<mediumTime>10</mediumTime>
+	<goodTime>10</goodTime>
 </task>
 </data>

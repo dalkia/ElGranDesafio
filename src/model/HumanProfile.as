@@ -47,6 +47,11 @@ package model
 			return _cooperacion;
 		}
 		
+		public function get generation():String 
+		{
+			return _generation;
+		}
+		
 	
 	
 	}

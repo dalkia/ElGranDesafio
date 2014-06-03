@@ -23,6 +23,8 @@ package model
 		private var _mediumResult : int;
 		private var _badResult : int;
 		
+		private var _outcome : Object;
+		
 		public function TaskOutcome(technicalGoodDemands : Array, generationGoodDemands : Array, amountGood : Array,
 									technicalMediumDemands : Array, generationMediumDemands : Array, amountMedium : Array,
 									goodTime : int, mediumTime : int, badTime :int,
@@ -45,13 +47,60 @@ package model
 			this._badResult = badResult;		
 		}
 		
-		public function getOutcome(technicalSelected : Array, generationSelected : Array, amountSelected : Array):Object {
-			var outcome : Object = new Object();
-			outcome.time = 0;
-			outcome.result = 0;			
-			return 0;			
+		public function getOutcome(profilesSelected : Array):Object {
+			var goodTechnical : Boolean = true;
+			var mediumTechnical : Boolean = true;
+			var goodGeneration : Boolean = true;
+			var mediumGeneration : Boolean = true;
+			var goodAmount : Boolean = true;
+			var mediumAmount : Boolean = true;
+			for each(var profile : Profile in profilesSelected) {	
+				if (findInArray(profile.technicalProfile.type,_technicalGoodDemands) == -1) {
+					goodTechnical = false;
+				}
+				if (findInArray(profile.technicalProfile.type,_technicalMediumDemands) == -1) {
+						mediumTechnical = false;					
+				}		
+				if (findInArray(profile.humanProfile.generation,_generationGoodDemands) == -1) {
+					goodGeneration = false;					
+				}
+				if (findInArray(profile.humanProfile.generation,_generationMediumDemands) == -1) {
+					mediumGeneration = false;					
+				}					
+			}
+			if (findInArray(profilesSelected.length.toString(),_amountGood) == -1) {
+				goodAmount = false;
+			}
+			if (findInArray(profilesSelected.length.toString(),_amountMedium) == -1) {
+				mediumAmount = false;
+			}
+			_outcome = new Object();	
+			if (goodTechnical && goodGeneration && goodAmount) {
+				outcome.time = _goodTime * 1000;
+				outcome.result = _goodResult;
+			}else if (mediumTechnical && mediumGeneration && mediumAmount) {
+				outcome.time = _mediumTime * 1000;
+				outcome.result = _mediumResult;
+			}else {
+				outcome.time = _badTime * 1000;
+				outcome.result = _badResult;
+			}
+			return outcome;			
 		}
 		
+		public function get outcome():Object 
+		{
+			return _outcome;
+		}
+		
+		function findInArray(str:String, array : Array):int {
+			for(var i:int = 0; i < array.length; i++){
+				if(array[i] == str){					
+					return i;
+				}
+			}
+			return -1; //If not found
+		}
 		
 		
 	}
