@@ -8,23 +8,19 @@ package model
 	{
 		
 		private var _title:String;
-		private var _incomeModifier : int;
+		private var _affection : int;
 		private var _nextConflict : int;
 		private var _description : String;
 		
-		public function Solution(title : String, description: String,incomeModifier : int, nextConflict : int) 
+		public function Solution(title : String, description: String,affection : int, nextConflict : int) 
 		{
 			_title = title;
-			_incomeModifier = incomeModifier;
+			_affection = affection;
 			_nextConflict = nextConflict;
 			_description = description;
 		}	
 		
 
-		
-		public function get incomeModifier() : int {
-			return _incomeModifier;
-		}
 		
 		public function get nextConflict() : int{
 			return _nextConflict;
@@ -43,6 +39,11 @@ package model
 		public function get title():String 
 		{
 			return _title;
+		}
+		
+		public function get affection():int 
+		{
+			return _affection;
 		}
 	}
 

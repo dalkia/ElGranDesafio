@@ -12,12 +12,12 @@ package model
 		private var _solutions : Array;
 		private var _penalty : Penalty;
 		private var _id : int;
-		private var _owner : String;
+		private var _owner : Profile;
 		
 	
 		
 		
-		public function Conflict(id:int, title : String,description : String, penalty : Penalty, possibleSolutions : Array, owner : String) 
+		public function Conflict(id:int, title : String,description : String, penalty : Penalty, possibleSolutions : Array, owner : Profile) 
 		{
 			_id = id;
 			_title = title;
@@ -47,15 +47,12 @@ package model
 			return _solutions;
 		}
 		
-		public function get owner():String 
+		public function get owner():Profile 
 		{
 			return _owner;
 		}
 		
-		public function set owner(value:String):void 
-		{
-			_owner = value;
-		}
+		
 		
 		
 		

@@ -8,8 +8,10 @@ package controller
 	import flash.events.*;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	import flash.utils.Dictionary;
 	import model.Conflict;
 	import model.Penalty;
+	import model.Profile;
 	import model.Solution;
 	
 	public class ConflictManager 
@@ -17,10 +19,12 @@ package controller
 		
 		private var _interConflicts : XML;
 		private var _activeConflicts : Array;
+		private var _pendingConflicts : Dictionary;
 		
 		public function ConflictManager() 
 		{
 			_activeConflicts = new Array();
+			_pendingConflicts = new Dictionary();
 		}
 		
 		public function addActiveConflicts(newConflicts : Array):void {
@@ -45,6 +49,7 @@ package controller
 			_interConflicts =  new XML(e.target.data);
 		}
 		
+		//Cargar solo los conflictos de gente activa
 		public function createPersonalConflicts(e:Event):void {	
 			var conflictsXML : XML = new XML(e.target.data);
 			var totalConflictsOwners : int = conflictsXML.conflicts.length();
@@ -58,14 +63,18 @@ package controller
 					var penalty : Penalty = new Penalty(currentPenalty.proactivity, currentPenalty.stress);						
 					var solutions : Array = new Array;
 					for (var j : int = 0; j < currentConflict.solutions.solution.length(); j++) {
-						var solution : Solution = new Solution(currentConflict.solutions.solution[j].title,currentConflict.solutions.solution[j].description,currentConflict.solutions.solution[j].incomeModifier,currentConflict.solutions.solution[j].nextConflict); 
+						var solution : Solution = new Solution(currentConflict.solutions.solution[j].title,currentConflict.solutions.solution[j].description,currentConflict.solutions.solution[j].affection,currentConflict.solutions.solution[j].nextConflict); 
 						solutions.push(solution);
 					}
-					var conflict : Conflict = new Conflict(currentConflict.@id, currentConflict.title, currentConflict.description,penalty, solutions,conflictsXML.conflicts[k].@owner);
+					var currentProfile : Profile = SimulationManager.getInstance().profileManager.getProfileByName(conflictsXML.conflicts[k].@owner);
+					var conflict : Conflict = new Conflict(currentConflict.@id, currentConflict.title, currentConflict.description,penalty, solutions,currentProfile);
 					if (currentConflict.@autoActivated == "true") {						
 						conflictsForDay[currentConflict.day].push(conflict);
-					}else{
-						pendingConflicts.push(conflict);
+					}else {
+						if (_pendingConflicts[currentProfile.name] == null) {
+							_pendingConflicts[currentProfile.name] = new Array();
+						}
+						_pendingConflicts[currentProfile.name].push(conflict);						
 					}
 				}
 				SimulationManager.getInstance().profileManager.addConflicts(conflictsXML.conflicts[k].@owner, conflictsForDay, pendingConflicts);
@@ -119,6 +128,11 @@ package controller
 		public function get activeConflicts():Array 
 		{
 			return _activeConflicts;
+		}
+		
+		public function get pendingConflicts():Dictionary 
+		{
+			return _pendingConflicts;
 		}
 		
 	

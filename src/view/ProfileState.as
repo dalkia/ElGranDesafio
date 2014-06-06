@@ -45,15 +45,20 @@ package view
 				closeProfile_mc.addEventListener(MouseEvent.CLICK, closeProfile);
 				_firstTime = false;
 			}			
-			
-			tech1_mc.gotoAndStop(_profile.technicalProfile.mainAttribute.value);
-			tech2_mc.gotoAndStop(_profile.technicalProfile.secondAttribute.value);
-			tech3_mc.gotoAndStop(_profile.technicalProfile.thirdAttribute.value);
-			tech4_mc.gotoAndStop(_profile.technicalProfile.fourthAttribute.value);
-			human1_mc.gotoAndStop(_profile.humanProfile.proactividad.value);
-			human2_mc.gotoAndStop(_profile.humanProfile.motivacion.value);
-			human3_mc.gotoAndStop(_profile.humanProfile.empatia.value);
-			human4_mc.gotoAndStop(_profile.humanProfile.cooperacion.value);
+			experience_txt.text = _profile.technicalProfile.experience.toString();
+			tech1_mc.gotoAndStop(_profile.technicalProfile.mainAttribute.value + 1);
+			tech2_mc.gotoAndStop(_profile.technicalProfile.secondAttribute.value  + 1);
+			tech3_mc.gotoAndStop(_profile.technicalProfile.thirdAttribute.value  + 1);
+			tech4_mc.gotoAndStop(_profile.technicalProfile.fourthAttribute.value  + 1);
+			human1_mc.gotoAndStop(_profile.humanProfile.proactividad.value  + 1);
+			human2_mc.gotoAndStop(_profile.humanProfile.motivacion.value  + 1);
+			human3_mc.gotoAndStop(_profile.humanProfile.empatia.value  + 1);
+			human4_mc.gotoAndStop(_profile.humanProfile.cooperacion.value  + 1);
+		}
+		
+		public function get profile():Profile 
+		{
+			return _profile;
 		}
 		
 	}

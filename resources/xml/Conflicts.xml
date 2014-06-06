@@ -11,31 +11,35 @@
 			<solution>
 				<title>Tomatelo</title>
 				<description>Tomatelo hermosa</description>
-				<incomeModifier>-10</incomeModifier>
+				<affection>-5</affection>
 			</solution>
 			<solution>
 				<title>Tomatelo</title>
 				<description>Esta todo bien</description>
-				<incomeModifier>0</incomeModifier>
+				<affection>5</affection>
 			</solution>
 			<solution>
 				<title>No</title>
 				<description>Te necesitamos en la empresa</description>
-				<incomeModifier>0</incomeModifier>
+				<affection>0</affection>
 				<nextConflict>2</nextConflict>
 			</solution>
 		</solutions>
 	</conflict>	
 	<conflict id='2' autoActivated="false">
-		<title>No me diste un dia, cagon</title>
-		<description>Necesito un dia para ocuparme de mi hijo</description>
+		<title>No me diste un dia</title>
+		<description>Necesito un dia para ocuparme de mi hijo, ahora si esta muy enfermo</description>
 		<day>3</day>
 		<penalty>			
 		</penalty>
 		<solutions>
 			<solution>
-				<title>Chau andate</title>
-				<incomeModifier>-10</incomeModifier>
+				<title>Bueno, tomatelo</title>
+				<affection>2</affection>
+			</solution>
+			<solution>
+				<title>Sigue siendo no</title>
+				<affection>-2</affection>
 			</solution>
 		</solutions>
 	</conflict>	
@@ -51,10 +55,6 @@
 <conflicts owner="Nicolas">
 </conflicts>
 <conflicts owner="Roberto">
-	<conflict id='1' autoActivated="true">
-		<title>Tengo un nombre de mierda</title>
-		<day>1</day>
-	</conflict>	
 </conflicts>
 <conflicts owner="Tomas">
 </conflicts>

@@ -1,54 +1,64 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
 <news>
+	<title>Dia 1</title>
+	<description>No pasa nada</description>
+	<day>1</day>
+	<affection>0</affection>
+</news>	
+<news>
 	<title>Paro Gremial</title>
 	<description>Descripcion del paro gremial</description>
-	<day>1</day>
-</news>	
-<news>
-	<title>Paro 2</title>
-	<description>Descripcion del paro gremial</description>
 	<day>2</day>
+	<affection>-1</affection>
 </news>	
 <news>
-	<title>Paro 3</title>
+	<title>Dia 3</title>
 	<description>Descripcion del paro gremial</description>
 	<day>3</day>
+	<affection>0</affection>
 </news>	
 <news>
-	<title>Paro 4</title>
-	<description>Descripcion del paro gremial</description>
+	<title>Corte de luz global</title>
+	<description>Hay muchas csas sin luz</description>
 	<day>4</day>
+	<affection>-1</affection>
 </news>	
 <news>
-	<title>Paro 5</title>
-	<description>Descripcion del paro gremial</description>
+	<title>Dia 5</title>
+	<description>No pasa nada</description>
 	<day>5</day>
+	<affection>0</affection>
 </news>	
 <news>
-	<title>Paro 6</title>
-	<description>Descripcion del paro gremial</description>
+	<title>Dia 6</title>
+	<description>No pasa nada</description>
 	<day>6</day>
+	<affection>0</affection>
 </news>	
 <news>
-	<title>Paro 7</title>
-	<description>Descripcion del paro gremial</description>
+	<title>Anuncio de suba de impuestos</title>
+	<description>Disconformidad general en la poblacion por la suba de los impuestos</description>
 	<day>7</day>
+	<affection>-2</affection>
 </news>	
 <news>
-	<title>Paro 8</title>
-	<description>Descripcion del paro gremial</description>
+	<title>Dia 8</title>
+	<description>No pasa nada</description>
 	<day>8</day>
+	<affection>0</affection>
 </news>	
 <news>
-	<title>Paro 9</title>
-	<description>Descripcion del paro gremial</description>
+	<title>Dia 9</title>
+	<description>No pasa nada</description>
 	<day>9</day>
+	<affection>0</affection>
 </news>	
 <news>
-	<title>Paro 10</title>
-	<description>Descripcion del paro gremial</description>
+	<title>Dia 10</title>
+	<description>Fin de mes</description>
 	<day>10</day>
+	<affection>8</affection>
 </news>	
 
 </data>

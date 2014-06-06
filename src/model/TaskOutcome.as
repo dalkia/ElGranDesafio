@@ -85,18 +85,27 @@
 			_outcome = new Object();	
 			if (goodTechnical && goodGeneration && goodAmount) {
 				outcome.time = _goodTime * 1000;
-				outcome.result = _goodResult;
+				var synergy : Number = 0;
+				for each(var profile : Profile in profilesSelected) {
+					synergy += profile.humanProfile.getActualPerformance() + profile.technicalProfile.getActualPerformance();
+				}
+				var synergyInt : int = synergy;
+				outcome.result = _goodResult + synergyInt;
 				_affection = 2;
 			}else if (mediumTechnical && mediumGeneration && mediumAmount) {
 				outcome.time = _mediumTime * 1000;
-				outcome.result = _mediumResult;
+				var synergy : Number = 0;
+				for each(var profile : Profile in profilesSelected) {
+					synergy += profile.humanProfile.getActualPerformance() + profile.technicalProfile.getActualPerformance();
+				}
+				var synergyInt : int = synergy;
+				outcome.result = _mediumResult + synergyInt/2;	
 				_affection = 1;
 			}else {
 				outcome.time = _badTime * 1000;
 				outcome.result = _badResult;
 				_affection = -1;
-				createConflicts = true;
-				
+				createConflicts = true;				
 			}
 			return outcome;			
 		}

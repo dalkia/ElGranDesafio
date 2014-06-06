@@ -36,14 +36,15 @@ package view
 			age_txt.text = profile.age;
 			description_txt.text = profile.description;
 			job_txt.text = profile.technicalProfile.type;
+			wage_txt.text = profile.wage.toString();
 			techSpec1_txt.text = profile.technicalProfile.mainAttribute.name;
-			techSpec1_mc.gotoAndStop(profile.technicalProfile.mainAttribute.value);
+			techSpec1_mc.gotoAndStop(profile.technicalProfile.mainAttribute.value + 1);
 			techSpec2_txt.text = profile.technicalProfile.secondAttribute.name;
-			techSpec2_mc.gotoAndStop(profile.technicalProfile.secondAttribute.value);
+			techSpec2_mc.gotoAndStop(profile.technicalProfile.secondAttribute.value + 1);
 			techSpec3_txt.text = profile.technicalProfile.thirdAttribute.name;
-			techSpec3_mc.gotoAndStop(profile.technicalProfile.thirdAttribute.value);
+			techSpec3_mc.gotoAndStop(profile.technicalProfile.thirdAttribute.value + 1);
 			techSpec4_txt.text = profile.technicalProfile.fourthAttribute.name;
-			techSpec4_mc.gotoAndStop(profile.technicalProfile.fourthAttribute.value);
+			techSpec4_mc.gotoAndStop(profile.technicalProfile.fourthAttribute.value + 1);
 			
 			_image = profile.image;
 			_image.x = 22;

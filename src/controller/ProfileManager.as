@@ -1,4 +1,6 @@
 ﻿package controller 
+
+
 {
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
@@ -29,12 +31,15 @@
 		private var _profileCards : Array;
 		
 		private var _activeProfiles : Array;
+		private var _trainingTimer : Timer;
 		
 		public function ProfileManager() 
 		{
 			_activeProfiles = new Array();
 			_profiles = new Array();
 			_profileCards = new Array();
+			
+			
 		}
 		
 		public function createProfiles() {
@@ -59,8 +64,8 @@
 				imageLoader.load(new URLRequest(currentProfile.img));				
 				
 				var profile : Profile = new Profile(currentProfile.name, currentProfile.age, currentProfile.description,
-													currentProfile.technicalProfile, currentProfile.technicalAbilities,
-													imageLoader, currentProfile.generation);
+													currentProfile.technicalProfile,currentProfile.experience ,currentProfile.technicalAbilities,
+													imageLoader, currentProfile.generation, currentProfile.wage);
 				
 				
 				var normalAnimation:Class = getDefinitionByName(currentProfile.normalAnimation) as Class;
@@ -104,6 +109,11 @@
 			return _profileCards;
 		}
 		
+		public function get activeProfiles():Array 
+		{
+			return _activeProfiles;
+		}
+		
 		public function addToActiveProfile(profile : Profile) {
 			_activeProfiles.push(profile);
 		}
@@ -134,10 +144,10 @@
 			return currentProfileIcons;
 		}
 		
-		public function addProgressBar(selectedProfiles:Array, totalTime:Number):void 
+		public function addTaskProgressBar(selectedProfiles:Array, totalTime:Number):void 
 		{
 			for each(var profile:Profile in selectedProfiles) {
-				profile.animationManager.addProgressBar(totalTime);
+				profile.animationManager.addProgressBar(totalTime, "TRABAJANDO");
 			}
 		}
 		
@@ -147,7 +157,9 @@
 		{
 			for (var i : int = 0; i < peopleSelected.length; i++) {
 				peopleSelected[i].increasePositiveAttributes(affection);
-			}
+			}			
+			SimulationManager.getInstance().updateGroupAttributes(getGroupParameters());
+			
 		}
 		
 		public function addConflicts(name:String, conflictsForDay:Array, pendingConflicts:Array):void 
@@ -160,9 +172,9 @@
 			}
 		}
 		
-		public function addConflict(owner:String, day:int, conflict:Conflict):void 
+		public function addConflict(owner:Profile, day:int, conflict:Conflict):void 
 		{
-			
+			owner.conflictsForDay[day].push(conflict);
 		}
 		
 		public function addPendingConflict(owner:XMLList, day:int,conflict:Conflict):void 
@@ -178,6 +190,53 @@
 				}							
 			}
 			return conflictsForDay;
+		}
+		
+		public function startTraining(profile:Profile, experience : Number):Boolean 
+		{
+			if (profile.lazy) {
+				profile.addTraining(2);
+				profile.increaseExp(experience);
+				profile.lazy = false;
+				profile.startTraining();
+				return true;
+			}
+			trace("MENSAJE DE ERROR VIEJA");			
+			return false;
+		}
+		
+		public function getGroupParameters():Array 
+		{
+			var groupParamaters : Array = new Array();
+			var proactivity : Number = 0;
+			var empathy : Number = 0;
+			var cooperation : Number = 0;
+			var motivation : Number = 0;
+			for each(var profile : Profile in _activeProfiles) {
+				proactivity += profile.humanProfile.proactividad.value;
+				empathy += profile.humanProfile.empatia.value;
+				cooperation += profile.humanProfile.cooperacion.value;
+				motivation += profile.humanProfile.motivacion.value;
+			}
+			var proactivityInt : int = proactivity / 4;
+			var empathyInt : int = proactivity / 4;
+			var cooperationInt : int = proactivity / 4;
+			var motivationInt : int = proactivity / 4;
+			groupParamaters.push(proactivityInt);
+			groupParamaters.push(empathyInt);
+			groupParamaters.push(cooperationInt);
+			groupParamaters.push(motivationInt);
+			return groupParamaters;
+		}
+		
+		public function getProfileByName(profileName:String):Profile 
+		{
+			for each(var profile : Profile in _profiles) {
+				if (profile.name == profileName) {
+					return profile;
+				}
+			}
+			return null;
 		}
 		
 	}

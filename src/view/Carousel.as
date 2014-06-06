@@ -58,7 +58,7 @@ package view
 			container.y = 260;
 			container.z = 400;
 			addChild(container);				
-			//carouselView.addEventListener(MouseEvent.CLICK, stageClick);
+		//	addEventListener(MouseEvent.CLICK, stageClick);
 		}
 		
 		/*
@@ -91,7 +91,8 @@ package view
 				pc.angle = (i * anglePer) - Math.PI / 2;
 				pc.x = Math.cos(pc.angle ) * 450;
 				pc.z = Math.sin(pc.angle ) * 450;				
-				pc.rotationY = 360/profileCards.length * -i;					
+				pc.rotationY = 360 / profileCards.length * -i;
+			//	pc.addEventListener(MouseEvent.CLICK, onClick);
 				container.addChild(pc);
 			}
 			this.addEventListener(Event.ENTER_FRAME, loop);
@@ -119,25 +120,22 @@ package view
 			}
 			
 		}
-		
-	
-		
-	
 		/*
-		public function startGame(e : MouseEvent):void{
-			_main.startSimulation();
+		// For zoomin in
+		private function onClick(e:MouseEvent):void
+		{
+			var tw:GTween = new GTween(container, 0.8, {rotationY:Math2.toDeg(e.currentTarget.angle+Math.PI/2), z:100},
+														{ease:Exponential.easeInOut});
 		}
-		
-		/*
-		 * For zooming out
+			
+		 // For zooming out
 		private function stageClick(e:MouseEvent) {
-			var tw:GTween = new GTween(container, 0.8, { z: 400},{ease:Exponential.easeInOut } );
-			
+			var tw:GTween = new GTween(container, 0.8, { z: 400},{ease:Exponential.easeInOut } );			
 		}
-			
 		
+		*/
 		
-		
+		/*
 		public function addProfileToTeam(firstLetter : String) :void {
 			selectionDisplay[currentSelection].text = firstLetter;
 			currentSelection++;

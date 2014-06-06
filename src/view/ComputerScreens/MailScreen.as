@@ -72,7 +72,7 @@ package view.ComputerScreens
 		public function showSolutions(conflict:Conflict):void 
 		{
 			currentMail.from_txt.text = "Gerente";
-			currentMail.to_txt.text = conflict.owner;
+			currentMail.to_txt.text = conflict.owner.name;
 			currentMail.title_txt.text = "Re: " + conflict.title;
 			mailScrollPane.update();			
 			for (var i : int = 0; i < conflict.solutions.length; i++) {

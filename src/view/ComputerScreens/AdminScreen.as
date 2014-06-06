@@ -7,6 +7,7 @@ package view.ComputerScreens
 	import view.Task.TaskItem;
 	import view.Task.TaskView;
 	import controller.SimulationManager;
+	import controller.ViewManager;
 
 	import flash.events.MouseEvent;
 	/**
@@ -23,11 +24,25 @@ package view.ComputerScreens
 		{
 			super();
 			asignTask_mc.addEventListener(MouseEvent.CLICK, openAsignTaskList);
+			globalParty_mc.addEventListener(MouseEvent.CLICK, createParty);
+			globalTraining_mc.addEventListener(MouseEvent.CLICK, createGlobalTraining);
 			taskScrollPane = new ScrollPane();
 			taskScrollPane.horizontalScrollPolicy = ScrollPolicy.ON;
 			taskScrollPane.width = 683.85;
 			taskScrollPane.height = 401.85;	
 			scrollPaneAdded = false;
+		}
+		
+		private function createParty(e:MouseEvent):void 
+		{
+			SimulationManager.getInstance().makeParty();
+			ViewManager.getInstance().mainSimulationScreen.computer.closeComputer(null);
+		}
+		
+		private function createGlobalTraining(e:MouseEvent):void 
+		{
+			SimulationManager.getInstance().makeGlobalTraining();
+			ViewManager.getInstance().mainSimulationScreen.computer.closeComputer(null);
 		}
 		
 		public function openTaskView(task:Task):void 
@@ -67,7 +82,8 @@ package view.ComputerScreens
 		private function removeAllButtons():void 
 		{
 			removeChild(asignTask_mc);
-			removeChild(globalAction_mc);
+			removeChild(globalParty_mc);
+			removeChild(globalTraining_mc);
 		}
 		
 		override public function goBackToInitialScreen():void {
@@ -75,7 +91,8 @@ package view.ComputerScreens
 				removeChild(taskScrollPane);
 			}
 			addChild(asignTask_mc);
-			addChild(globalAction_mc);
+			addChild(globalParty_mc);
+			addChild(globalTraining_mc);
 		}
 		
 	}

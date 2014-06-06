@@ -1,4 +1,4 @@
-﻿package view 
+package view 
 {
 
 	import fl.controls.Label;
@@ -11,8 +11,11 @@
 	import flash.text.TextFormat;
 	import flash.utils.Timer;
 	import controller.ViewManager;
+	import controller.SimulationManager;
+	import model.HumanProfile;
 	import model.Profile;
 	import view.ProfileMenu;
+	
 	/**
 	 * ...
 	 * @author Juanola
@@ -23,17 +26,18 @@
 		private var _happyAnimation : MovieClip;
 		private var _sadAnimation : MovieClip;
 		
-		private var currentAnimation : MovieClip;
+		private var _currentAnimation : MovieClip;
 		
 		private var currentProgressBar : ProgressBar;
 		private var currentTotalTime : Number;
 		private var currentTime : Number;
 		private var currentTimer : Timer;
-		private var currentLabel : Label; 
-		
+		private var currentLabel : Label; 		
 	
 		
 		private var _profileMenu : ProfileMenu;
+		private var _profileState : ProfileState;
+		
 		
 		
 		public function AnimationManager(normalAnimation : MovieClip, happyAnimation : MovieClip, sadAnimation : MovieClip, profileState : ProfileState) 
@@ -41,10 +45,13 @@
 			_normalAnimation = normalAnimation;
 			_happyAnimation = happyAnimation;
 			_sadAnimation = sadAnimation;
-			currentAnimation = _normalAnimation;
+			_currentAnimation = _normalAnimation;
 
-			_profileMenu = new ProfileMenu(profileState);
-			currentAnimation.addEventListener(MouseEvent.CLICK, showProfileMenu);
+			_profileMenu = new ProfileMenu(this);
+			_profileMenu.x = 450;
+			_profileMenu.y = 120;	
+			_currentAnimation.addEventListener(MouseEvent.CLICK, showProfileMenu);
+			_profileState = profileState;
 			
 			var format:TextFormat = new TextFormat();
             format.font = "Verdana";
@@ -53,18 +60,26 @@
 			
 			currentLabel = new Label();
 			currentLabel.setSize(150, 22);
-			currentLabel.x = 400;
+			currentLabel.x = 370;
 			currentLabel.y = 185;
 			currentLabel.setStyle("textFormat", format);
 		}
 		
 		private function showProfileMenu(e:MouseEvent):void 
-		{
-			ViewManager.getInstance().mainSimulationScreen.showProfileMenu(_profileMenu);
+		{			
+			_currentAnimation.addChild(_profileMenu);			
+			ViewManager.getInstance().mainSimulationScreen.addEventListener(MouseEvent.MOUSE_UP, removeProfileMenu);
 		}
 		
-		public function addProgressBar(totalTime:Number):void 
+		private function removeProfileMenu(e:MouseEvent):void 
+		{			
+			ViewManager.getInstance().mainSimulationScreen.removeEventListener(MouseEvent.MOUSE_UP,removeProfileMenu);
+			_currentAnimation.removeChild(_profileMenu);
+		}
+		
+		public function addProgressBar(totalTime:Number, activity : String):void 
 		{
+			currentProgressBar = new ProgressBar();
 			currentProgressBar = new ProgressBar();
 			currentTime = 0;
 			currentTotalTime = totalTime;
@@ -82,10 +97,39 @@
 			currentTimer.start();	
 				
 	
-			currentLabel.text = "BUSY";
+			currentLabel.text = activity;
 			
-			currentAnimation.addChild(currentProgressBar);
-			currentAnimation.addChild(currentLabel);
+			_currentAnimation.addChild(currentProgressBar);
+			_currentAnimation.addChild(currentLabel);
+		}
+		
+		public function openProfileState():void 
+		{		
+			_profileState.updateProfileState();
+			ViewManager.getInstance().mainSimulationScreen.addChild(_profileState);
+			ViewManager.getInstance().mainSimulationScreen.profileStateOn = true;
+		}
+		
+		public function startTraining(newExperience : Number):void 
+		{			
+			var trainingStarted : Boolean = SimulationManager.getInstance().startTraining(_profileState.profile,newExperience);
+			if (trainingStarted) {
+				addProgressBar(SimulationManager.getInstance().trainingTime, "CAPACITANDO");
+			}
+		}
+		
+		public function updateAnimation(humanProfile : HumanProfile):void 
+		{
+			_currentAnimation.removeEventListener(MouseEvent.CLICK, showProfileMenu);
+			if (humanProfile.getActualPerformance() > 7.5) {
+				_currentAnimation = _happyAnimation;
+			}else if (humanProfile.getActualPerformance() > 4.0) {
+				_currentAnimation = _normalAnimation;				
+			}else {
+				_currentAnimation = _sadAnimation;
+			}
+			_currentAnimation.addEventListener(MouseEvent.CLICK, showProfileMenu);
+			ViewManager.getInstance().mainSimulationScreen.updateCharacterAnimations();
 		}
 		
 		private function updateProgressBar(e:TimerEvent):void 
@@ -94,8 +138,8 @@
 			if (currentTime > currentTotalTime) {
 				currentProgressBar.setProgress(currentTotalTime, currentTotalTime);
 				currentTimer.stop();
-				currentAnimation.removeChild(currentProgressBar);
-				currentAnimation.removeChild(currentLabel);
+				_currentAnimation.removeChild(currentProgressBar);
+				_currentAnimation.removeChild(currentLabel);
 			}else {
 				currentProgressBar.setProgress(currentTime, currentTotalTime);
 			}
@@ -116,6 +160,16 @@
 		public function get sadAnimation():MovieClip 
 		{
 			return _sadAnimation;
+		}
+		
+		public function get currentAnimation():MovieClip 
+		{
+			return _currentAnimation;
+		}
+		
+		public function get profileState():ProfileState 
+		{
+			return _profileState;
 		}
 		
 	}

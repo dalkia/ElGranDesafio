@@ -64,7 +64,7 @@ package view
 			currentScreen.goBackToInitialScreen();
 		}
 		
-		private function closeComputer(e:MouseEvent):void 
+		public function closeComputer(e:MouseEvent):void 
 		{			
 			currentScreen.closeScreen();
 			removeChild(_closeBigComputer);			

@@ -2,8 +2,11 @@
 {
 	import flash.display.Bitmap;
 	import flash.display.Loader;
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
 	import view.AnimationManager;
 	import view.ProfileState;
+	import controller.SimulationManager;
 	/**
 	 * ...
 	 * @author Juanola
@@ -32,19 +35,33 @@
 		private var _conflictsForDay : Array;
 		private var _pendingConflicts : Array;
 		
-		public function Profile(name:String, age:String, description:String, technicalProfile:String,
-								technicalAbilities:Object, imageLoader:Loader, generation : String) 
+		private var _wage : int;
+		
+		private var trainingTimer : Timer;
+		
+		public function Profile(name:String, age:String, description:String, technicalProfile:String,experience : int,
+								technicalAbilities:Object, imageLoader:Loader, generation : String, wage : int) 
 		{
 			_name = name;
 			_age = age;
 			_description = description;
-			_technicalProfile = new TechnicalProfile(technicalProfile, technicalAbilities);
+			_technicalProfile = new TechnicalProfile(technicalProfile, technicalAbilities, experience);
 			_humanProfile = new HumanProfile(generation);
 			_imageLoader = imageLoader;
 			_active = true;
 			_lazy = true;
-			
+			_wage = wage;
 			_profileState = new ProfileState(this);
+			
+			trainingTimer = new Timer(SimulationManager.getInstance().trainingTime);
+			trainingTimer.addEventListener(TimerEvent.TIMER, endTraining);
+
+		}
+		
+		private function endTraining(e:TimerEvent):void 
+		{
+			trainingTimer.stop();
+			_lazy = true;
 		}
 		
 		public function onImageLoaded():void {
@@ -130,6 +147,11 @@
 		{
 			_pendingConflicts = value;
 		}
+		
+		public function get wage():int 
+		{
+			return _wage;
+		}
 		/*
 		public function increaseNegativeAttributes():void {
 			if (humanProfile.conflictividad.value > 1) {
@@ -142,16 +164,111 @@
 		}
 		*/
 		public function increasePositiveAttributes(affection : int):void {
-			humanProfile.empatia.value = humanProfile.empatia.value + affection;
-			humanProfile.cooperacion.value = humanProfile.cooperacion.value + affection;
-			humanProfile.motivacion.value = humanProfile.motivacion.value + affection;
-			humanProfile.proactividad.value = humanProfile.empatia.value + affection;
+			if (affection > 0) {
+				for each(var attribute : Attribute in _humanProfile.humanAttributes) {
+					if (attribute.value + affection >= 10) {
+						attribute.value = 10;
+					}else {
+						attribute.value = attribute.value + affection;
+					}
+				}
+			}else if(affection < 0) {
+				for each(var attribute : Attribute in _humanProfile.humanAttributes) {
+					if (attribute.value + affection <= 0) {
+						attribute.value = 0;
+					}else {
+						attribute.value = attribute.value + affection;
+					}
+				}				
+			}
+			/*
+				if ((humanProfile.empatia.value + affection) > 4) {
+					humanProfile.empatia.value = 4;
+				}else {
+					humanProfile.empatia.value = humanProfile.empatia.value + affection;
+				}
+				if ((humanProfile.cooperacion.value + affection) >= 3) {
+					humanProfile.cooperacion.value = 3;
+				}else {
+					humanProfile.cooperacion.value = humanProfile.cooperacion.value + affection;
+				}
+				if ((humanProfile.motivacion.value + affection) >= 3) {
+					humanProfile.motivacion.value = 3;
+				}else {
+					humanProfile.motivacion.value = humanProfile.motivacion.value + affection;
+				}
+				if ((humanProfile.proactividad.value + affection) >= 3) {
+					humanProfile.proactividad.value = 3;
+				}else {
+					humanProfile.proactividad.value = humanProfile.proactividad.value + affection;
+				}
+			}else {
+				if ((humanProfile.empatia.value + affection) < 0 ) {
+					humanProfile.empatia.value = 0;
+				}else {
+					humanProfile.empatia.value = humanProfile.empatia.value + affection;
+				}
+				if ((humanProfile.cooperacion.value + affection) < 0 ) {
+					humanProfile.cooperacion.value = 0;
+				}else {
+					humanProfile.cooperacion.value = humanProfile.cooperacion.value + affection;
+				}
+				if ((humanProfile.motivacion.value + affection) < 0) {
+					humanProfile.motivacion.value = 0;
+				}else {
+					humanProfile.motivacion.value = humanProfile.motivacion.value + affection;
+				}
+				if ((humanProfile.proactividad.value + affection) < 0) {
+					humanProfile.proactividad.value = 0;
+				}else {
+					humanProfile.proactividad.value = humanProfile.proactividad.value + affection;
+				}
+			}	
+			*/
+			updateAnimation();
+		}
+		
+		public function addExperience(newExperience : int):void {
+			if (_technicalProfile.experience + newExperience >= 10) {
+					_technicalProfile.experience = 10;
+			}else {
+				_technicalProfile.experience = _technicalProfile.experience + newExperience;
+			}
+		}
+		
+		public function addTraining(newTraining : int):void {
+		for each(var attribute : Attribute in _technicalProfile.technicalAttributes) {
+				if (attribute.value + newTraining >= 10) {
+					attribute.value = 10;
+				}else {
+					attribute.value = attribute.value + newTraining;
+				}
+			}
 		}
 		
 		public function getActualProfileState():ProfileState 
 		{
 			_profileState.updateProfileState()
 			return _profileState;
+		}
+		
+		public function increaseExp(newExperience:Number):void 
+		{
+			if (_technicalProfile.experience + newExperience >= 10) {
+					_technicalProfile.experience = 10;
+				}else {
+					_technicalProfile.experience = _technicalProfile.experience + newExperience;
+			}
+		}
+		
+		public function startTraining():void 
+		{			
+			trainingTimer.start();
+		}
+		
+		public function updateAnimation():void 
+		{
+			_animationManager.updateAnimation(_humanProfile);
 		}
 		
 	}

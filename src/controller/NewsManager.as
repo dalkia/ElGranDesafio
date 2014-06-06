@@ -32,7 +32,7 @@
 			var totalNews : int = newsXML.news.length();
 			for (var i : int = 0; i < totalNews; i++) {
 				var currentNews : Object = newsXML.news[i];
-				var news : News = new News(currentNews.title, currentNews.description);
+				var news : News = new News(currentNews.title, currentNews.description, currentNews.affection);
 				_activeNews.push(news);
 			}
 		}

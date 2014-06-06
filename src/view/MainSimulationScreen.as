@@ -2,10 +2,13 @@
 {
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
+	import model.Conversation.ConversationItem;
 	import model.News;
 	import model.Profile;
 	import model.Task;
-	
+	import controller.SimulationManager;
+	import view.ConversationView.ConversationViewDirector;
+	import view.ConversationView.ConversationViewManager;
 	/**
 	 * ...
 	 * @author Juanola
@@ -19,6 +22,13 @@
 		private var _computer : ComputerView;
 		private var _newspaper : Newspaper;
 		
+		private var computerOn : Boolean;
+		private var conversationOn : Boolean;
+		public var profileStateOn : Boolean;
+		private var newspaperOn : Boolean;
+		
+		private var _conversationViewManager : ConversationViewManager;
+		
 		public function MainSimulationScreen() 
 		{
 			super();			
@@ -29,26 +39,34 @@
 			addChild(_desk);
 			_newspaper = new Newspaper();
 			_computer = new ComputerView();
+			computerOn = false;
+			conversationOn = false;
+			profileStateOn = false;
+			newspaperOn = false;
 			computerIcon_mc.addEventListener(MouseEvent.CLICK, showComputer);
 			smallNewspaper_mc.addEventListener(MouseEvent.CLICK, showNewspaper);
+			_conversationViewManager = new ConversationViewManager();
 		}
 		
 		private function showNewspaper(e:MouseEvent):void 
 		{
 			addChild(_newspaper);
+			newspaperOn = true;
 		}
 		
 		private function showComputer(e:MouseEvent):void 
 		{
 			_computer.showComputer();
 			addChild(_computer);
+			computerOn = true;
 		}
 		
+				
 		public function addCharactersAnimations(characters : Array) {
 			for (var i : int = 0; i < characters.length; i++) {
-				characters[i].normalAnimation.x = animationCoordinates[i][0];
-				characters[i].normalAnimation.y = animationCoordinates[i][1];
-				addChild(characters[i].normalAnimation);
+				characters[i].currentAnimation.x = animationCoordinates[i][0];
+				characters[i].currentAnimation.y = animationCoordinates[i][1];
+				addChild(characters[i].currentAnimation);
 			}
 			addChild(_desk);
 		}
@@ -56,6 +74,8 @@
 		public function closeComputer():void 
 		{
 			removeChild(_computer);
+			computerOn = false;
+			updateCharacterAnimations();
 		}
 	
 		
@@ -73,6 +93,8 @@
 		public function removeProfile(profileState:ProfileState):void 
 		{
 			removeChild(profileState);
+			profileStateOn = false;
+			updateCharacterAnimations();
 		}
 		
 		public function setGameOver():void 
@@ -95,12 +117,59 @@
 		public function closeNewspaper():void 
 		{
 			removeChild(_newspaper);
+			newspaperOn = false;
+			updateCharacterAnimations();
 		}
 		
 			
 		public function get computer():ComputerView 
 		{
 			return _computer;
+		}
+		
+		public function setGroupParamaters(proactivity : int, empathy : int, cooperation : int, motivation : int) {
+			proactivity_txt.text = proactivity.toString();
+			empathy_txt.text = empathy.toString();
+			cooperation_txt.text = cooperation.toString();
+			motivation_txt.text = motivation.toString();
+		}
+		
+		public function updateCharacterAnimations():void 
+		{
+			if (!computerOn && !conversationOn && !profileStateOn && !newspaperOn) {
+				removeChild(_desk);
+				addCharactersAnimations(SimulationManager.getInstance().profileManager.getActiveAnimations());
+			}			
+		}
+		
+		public function addConversation(pc1:ConversationViewDirector, currentUserAnswers:Array):void 
+		{
+			
+			addChild(pc1);
+			for (var i : int = 0; i < 4; i++) {
+				addChild(currentUserAnswers[i]);
+			}
+			conversationOn = true;
+		}
+		
+		public function startConversation(currentProfile : Profile):void 
+		{
+			_conversationViewManager.startConversation(currentProfile);
+		}
+		
+		public function closeConversation():void 
+		{
+			removeChild(_conversationViewManager.currentComputerAnswer);
+			for (var i : int = 0; i < 4; i++) {
+				removeChild(_conversationViewManager.currentUserAnswers[i]);
+			}
+			conversationOn = false;
+			updateCharacterAnimations();
+		}
+		
+		public function continueConversation(nextItem:int):void 
+		{
+			_conversationViewManager.updateConversation(nextItem);
 		}
 		
 		

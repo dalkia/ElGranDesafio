@@ -17,7 +17,7 @@ package view.Mail
 		{
 			super();
 			_conflict = conflict;
-			from_txt.text = _conflict.owner;
+			from_txt.text = _conflict.owner.name;
 			to_txt.text = "Gerente";
 			title_txt.text = _conflict.title;
 			description_txt.text = _conflict.description;
