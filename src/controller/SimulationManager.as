@@ -41,7 +41,7 @@
 			_taskManager = new TaskManager();
 			_conflictManager = new ConflictManager();
 			_newsManager = new NewsManager();
-			_timeManager = new TimeManager(30);
+			_timeManager = new TimeManager(10);
 			_conversation = new Conversation();
 			_totalMoney = 0;
 			_currentDay = 0;
