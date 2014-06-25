@@ -33,7 +33,7 @@
 		
 		private var _currentDay : int;
 		
-		private var _conversation : Conversation;
+		
 		
 		public function SimulationManager()
 		{
@@ -42,7 +42,6 @@
 			_conflictManager = new ConflictManager();
 			_newsManager = new NewsManager();
 			_timeManager = new TimeManager(10);
-			_conversation = new Conversation();
 			_totalMoney = 0;
 			_currentDay = 0;
 			_trainingTime = 5000;
@@ -67,9 +66,9 @@
 		{
 			if (day == 10)
 			{
-				for each(var profile : Profile in _profileManager.activeProfiles) {
-					_totalMoney = _totalMoney - profile.wage;
-				}
+				//for each(var profile : Profile in _profileManager.activeProfiles) {
+				//	_totalMoney = _totalMoney - profile.wage;
+				//}
 				ViewManager.getInstance().mainSimulationScreen.setTotalMoney(_totalMoney);
 				ViewManager.getInstance().mainSimulationScreen.setGameOver();
 				_timeManager.endTimers();
@@ -118,11 +117,6 @@
 		public function get trainingTime():int 
 		{
 			return _trainingTime;
-		}
-		
-		public function get conversation():Conversation 
-		{
-			return _conversation;
 		}
 		
 		public function profilesLoadComplete():void

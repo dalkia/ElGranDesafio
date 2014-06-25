@@ -26,6 +26,9 @@
 		private var _profileXML : XML;		
 		private var _totalProfiles : int;
 		private var _totalProfilesLoaded : int;
+		private var _totalConversationsLoaded : int;
+		private var _imagesLoaded : Boolean;
+		private var _conversationsLoaded : Boolean;
 
 		private var _profiles : Array;
 		private var _profileCards : Array;
@@ -54,8 +57,9 @@
 			_totalProfiles = _profileXML.profile.length(); 
 			
 			_totalProfilesLoaded = 0;
-			
-			
+			_totalConversationsLoaded = 0;
+			_imagesLoaded = false;
+			_conversationsLoaded = false;
 			for (var i: int = 0; i < _totalProfiles; i++) {	
 				var currentProfile : Object = _profileXML.profile[i];
 				
@@ -67,7 +71,7 @@
 													currentProfile.technicalProfile,currentProfile.experience ,currentProfile.technicalAbilities,
 													imageLoader, currentProfile.generation, currentProfile.wage);
 				
-				
+				var conversationLoader : ConversationLoader = new ConversationLoader(currentProfile.conversationFile, profile,this);
 				var normalAnimation:Class = getDefinitionByName(currentProfile.normalAnimation) as Class;
 				var nA:MovieClip = new normalAnimation();
 				var happyAnimation:Class = getDefinitionByName(currentProfile.happyAnimation) as Class;
@@ -100,6 +104,22 @@
 					var profileCard : ProfileCard = new ProfileCard(_profiles[i],this);
 					_profileCards.push(profileCard);	
 				}
+				_imagesLoaded = true;
+				partialLoadComplete();				
+			}
+		}
+		
+		public function loadConversationComplete():void 
+		{
+			_totalConversationsLoaded++;
+			if (_totalConversationsLoaded == _totalProfiles) {
+				_conversationsLoaded = true;
+				partialLoadComplete();
+			}
+		}
+		
+		private function partialLoadComplete() {
+			if (_conversationsLoaded && _imagesLoaded) {
 				SimulationManager.getInstance().profilesLoadComplete();
 			}
 		}
@@ -238,6 +258,8 @@
 			}
 			return null;
 		}
+		
+		
 		
 	}
 

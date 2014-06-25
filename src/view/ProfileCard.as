@@ -36,7 +36,7 @@ package view
 			age_txt.text = profile.age;
 			description_txt.text = profile.description;
 			job_txt.text = profile.technicalProfile.type;
-			wage_txt.text = profile.wage.toString();
+			//wage_txt.text = profile.wage.toString();
 			techSpec1_txt.text = profile.technicalProfile.mainAttribute.name;
 			techSpec1_mc.gotoAndStop(profile.technicalProfile.mainAttribute.value + 1);
 			techSpec2_txt.text = profile.technicalProfile.secondAttribute.name;

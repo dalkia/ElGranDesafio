@@ -4,6 +4,7 @@
 	import flash.display.Loader;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
+	import model.Conversation.Conversation;
 	import view.AnimationManager;
 	import view.ProfileState;
 	import controller.SimulationManager;
@@ -38,6 +39,7 @@
 		private var _wage : int;
 		
 		private var trainingTimer : Timer;
+		private var _conversation : Conversation;
 		
 		public function Profile(name:String, age:String, description:String, technicalProfile:String,experience : int,
 								technicalAbilities:Object, imageLoader:Loader, generation : String, wage : int) 
@@ -52,6 +54,7 @@
 			_lazy = true;
 			_wage = wage;
 			_profileState = new ProfileState(this);
+			
 			
 			trainingTimer = new Timer(SimulationManager.getInstance().trainingTime);
 			trainingTimer.addEventListener(TimerEvent.TIMER, endTraining);
@@ -151,6 +154,16 @@
 		public function get wage():int 
 		{
 			return _wage;
+		}
+		
+		public function get conversation():Conversation 
+		{
+			return _conversation;
+		}
+		
+		public function set conversation(value:Conversation):void 
+		{
+			_conversation = value;
 		}
 		/*
 		public function increaseNegativeAttributes():void {

@@ -10,6 +10,10 @@ package model.Conversation
 		var _computerAnswers : Array;
 		
 		
+		public function Conversation(conversation : Array) {
+			_computerAnswers = conversation;
+		}
+		/*
 		public function Conversation() 
 		{
 			var u11 : ConversationItem = new ConversationItem("Buen dia, cuales son sus gustos", 1,"-1",-1);
@@ -44,10 +48,19 @@ package model.Conversation
 			_computerAnswers = new Array(pc1,pc2,pc3,pc4);
 		}
 		
+		*/
+		
 		public function get computerAnswers():Array 
 		{
 			return _computerAnswers;
 		}
+		
+		public function set computerAnswers(value:Array):void 
+		{
+			_computerAnswers = value;
+		}
+		
+	
 		
 	}
 

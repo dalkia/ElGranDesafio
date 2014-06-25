@@ -21,14 +21,15 @@ package view.ConversationView
 		
 		public function ConversationViewManager() 
 		{
-			_conversation = SimulationManager.getInstance().conversation;
+			
 			
 		}
 		
 		public function startConversation(currentProfile : Profile):void {
+			_conversation = currentProfile.conversation;
 			_currentProfile = currentProfile;
 			_currentUserAnswers = new Array();
-			var pc1 : ConversationViewDirector = new ConversationViewDirector(_conversation.computerAnswers[0]);
+			var pc1 : ConversationViewDirector = new ConversationViewDirector(_conversation.computerAnswers[0], currentProfile);
 			pc1.x = 50;
 			pc1.y = 20;
 			

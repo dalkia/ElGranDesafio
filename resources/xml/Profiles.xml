@@ -30,6 +30,7 @@
 	<normalAnimation>catalinaNormal_mc</normalAnimation>
 	<happyAnimation>catalinaHappyNoSigns_mc</happyAnimation>
 	<angryAnimation>catalinaAngryNoSigns_mc</angryAnimation>
+	<conversationFile>../resources/xml/Conversation.xml</conversationFile>
 </profile>
 
 <profile>
@@ -62,6 +63,7 @@
 	<normalAnimation>martaNormal_mc</normalAnimation>
 	<happyAnimation>martaHappyNoSigns_mc</happyAnimation>
 	<angryAnimation>martaAngryNoSigns_mc</angryAnimation>
+	<conversationFile>../resources/xml/Conversation.xml</conversationFile>
 </profile>
 
 <profile>
@@ -94,6 +96,7 @@
 	<normalAnimation>martinNormal_mc</normalAnimation>
 	<happyAnimation>martinHappyNoSigns_mc</happyAnimation>
 	<angryAnimation>martinAngryNoSigns_mc</angryAnimation>
+	<conversationFile>../resources/xml/Conversation.xml</conversationFile>
 </profile>
 
 <profile>
@@ -126,6 +129,7 @@
 	<normalAnimation>nicolasNormal_mc</normalAnimation>
 	<happyAnimation>nicolasHappyNoSigns_mc</happyAnimation>
 	<angryAnimation>nicolasAngryNoSigns_mc</angryAnimation>
+	<conversationFile>../resources/xml/Conversation.xml</conversationFile>
 </profile>
 
 <profile>
@@ -158,6 +162,7 @@
 	<normalAnimation>robertoNormal_mc</normalAnimation>
 	<happyAnimation>robertoHappyNoSigns_mc</happyAnimation>
 	<angryAnimation>robertoAngryNoSigns_mc</angryAnimation>
+	<conversationFile>../resources/xml/Conversation.xml</conversationFile>
 </profile>
 
 <profile>
@@ -190,6 +195,7 @@
 	<normalAnimation>tomasNormal_mc</normalAnimation>
 	<happyAnimation>tomasHappyNoSigns_mc</happyAnimation>
 	<angryAnimation>tomasAngryNoSigns_mc</angryAnimation>
+	<conversationFile>../resources/xml/Conversation.xml</conversationFile>
 </profile>
 
 <profile>
@@ -222,6 +228,7 @@
 	<normalAnimation>valentinaNormal_mc</normalAnimation>
 	<happyAnimation>valentinaHappyNoSigns_mc</happyAnimation>
 	<angryAnimation>valentinaAngryNoSigns_mc</angryAnimation>
+	<conversationFile>../resources/xml/Conversation.xml</conversationFile>
 </profile>
 
 <profile>
@@ -254,5 +261,6 @@
 	<normalAnimation>victoriaNormal_mc</normalAnimation>
 	<happyAnimation>victoriaHappyNoSigns_mc</happyAnimation>
 	<angryAnimation>victoriaAngryNoSigns_mc</angryAnimation>
+	<conversationFile>../resources/xml/Conversation.xml</conversationFile>
 </profile>
 </data>
