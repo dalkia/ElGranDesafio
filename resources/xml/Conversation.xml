@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<conversation>
+	<conversationIteration id="0">
+		<conversationDirector>
+			<text>
+				Buen dia jefe
+			</text>
+		</conversationDirector>
+		<conversationItem>
+			<text>
+				Buen dia, cuales son sus gusto
+			</text>		
+			<nextItem>1</nextItem>
+		</conversationItem>
+		<conversationItem>
+			<text>
+				Buen dia, vengo a motivarlo!
+			</text>
+			<nextItem>2</nextItem>
+		</conversationItem>
+		<conversationItem>
+			<text>
+				Buen dia, vio las noticias hoy?
+			</text>
+			<nextItem>3</nextItem>
+		</conversationItem>
+		<conversationItem>
+			<text>
+				Adios
+			</text>
+			<nextItem>-1</nextItem>
+		</conversationItem>
+	</conversationIteration>
+	<conversationIteration id="1">
+		<conversationDirector>
+			<text>
+				Mis gustos son los siguientes
+			</text>
+		</conversationDirector>
+		<conversationItem>
+			<text>
+				Que interesante!
+			</text>		
+			<nextItem>-1</nextItem>
+		</conversationItem>
+		<conversationItem>
+			<text>
+				Que fantastico!
+			</text>
+			<nextItem>-1</nextItem>
+		</conversationItem>
+		<conversationItem>
+			<text>
+				Que increible!
+			</text>
+			<nextItem>-1</nextItem>
+		</conversationItem>
+		<conversationItem>
+			<text>
+				Adios
+			</text>
+			<nextItem>-1</nextItem>
+		</conversationItem>
+	</conversationIteration>
+	<conversationIteration id="2">
+		<conversationDirector>
+			<text>
+				Gracias jefe, de que manera?
+			</text>
+		</conversationDirector>
+		<conversationItem>
+			<text>
+				De la correcta
+			</text>	
+			<affection>
+				5
+			</affection>
+			<nextItem>-1</nextItem>
+		</conversationItem>
+		<conversationItem>
+			<text>
+				De la incorrecta
+			</text>
+			<nextItem>-1</nextItem>
+		</conversationItem>
+		<conversationItem>
+			<text>
+				De ninguna
+			</text>
+			<nextItem>-1</nextItem>
+		</conversationItem>
+		<conversationItem>
+			<text>
+				Adios
+			</text>
+			<nextItem>-1</nextItem>
+		</conversationItem>
+	</conversationIteration>
+	<conversationIteration id="3">
+		<conversationDirector>
+			<text>
+				No las vi, y no quiero hablar de ellas
+			</text>
+		</conversationDirector>
+		<conversationItem>
+			<text>
+				Buena onda usted!
+			</text>	
+			<nextItem>-1</nextItem>
+		</conversationItem>
+		<conversationItem>
+			<text>
+				Adios
+			</text>
+			<nextItem>-1</nextItem>
+		</conversationItem>
+		<conversationItem>
+			<text>
+				Adios
+			</text>
+			<nextItem>-1</nextItem>
+		</conversationItem>
+		<conversationItem>
+			<text>
+				Adios
+			</text>
+			<nextItem>-1</nextItem>
+		</conversationItem>
+	</conversationIteration>
+</conversation>
