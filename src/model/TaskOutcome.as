@@ -30,6 +30,9 @@
 		private var _affection : int;
 		private var _profilesSelected : Array;
 		private var createConflicts : Boolean;
+		private var createGreatWorkConflict :Boolean;
+		
+		private var _resultString : String;
 		
 		public function TaskOutcome(technicalGoodDemands : Array, generationGoodDemands : Array, amountGood : Array,
 									technicalMediumDemands : Array, generationMediumDemands : Array, amountMedium : Array,
@@ -52,6 +55,7 @@
 			this._mediumResult = mediumResult;
 			this._badResult = badResult;
 			createConflicts = false;
+			createGreatWorkConflict = false;
 		}
 		
 		public function getOutcome(profilesSelected : Array):Object {
@@ -83,29 +87,32 @@
 				mediumAmount = false;
 			}
 			_outcome = new Object();	
+			var synergy : Number = 0;
 			if (goodTechnical && goodGeneration && goodAmount) {
 				outcome.time = _goodTime * 1000;
-				var synergy : Number = 0;
 				for each(var profile : Profile in profilesSelected) {
 					synergy += profile.humanProfile.getActualPerformance() + profile.technicalProfile.getActualPerformance();
 				}
 				var synergyInt : int = synergy;
 				outcome.result = _goodResult + synergyInt;
 				_affection = 2;
+				createGreatWorkConflict = true;
+				_resultString = "Resultado Bueno";
 			}else if (mediumTechnical && mediumGeneration && mediumAmount) {
 				outcome.time = _mediumTime * 1000;
-				var synergy : Number = 0;
 				for each(var profile : Profile in profilesSelected) {
 					synergy += profile.humanProfile.getActualPerformance() + profile.technicalProfile.getActualPerformance();
 				}
 				var synergyInt : int = synergy;
 				outcome.result = _mediumResult + synergyInt/2;	
 				_affection = 1;
+				_resultString = "Resultado Medio";
 			}else {
 				outcome.time = _badTime * 1000;
 				outcome.result = _badResult;
 				_affection = -1;
-				createConflicts = true;				
+				createConflicts = true;		
+				_resultString = "Resultado Malo";
 			}
 			return outcome;			
 		}
@@ -115,10 +122,22 @@
 			return _outcome;
 		}
 		
+		public function get resultString():String 
+		{
+			return _resultString;
+		}
+		
+		public function set resultString(value:String):void 
+		{
+			_resultString = value;
+		}
+		
 		public function activateOutcome():void{
 			SimulationManager.getInstance().affectHumanProfiles(_affection, _profilesSelected);
 			if(createConflicts){
 				SimulationManager.getInstance().addPoorWorkConflicts(_profilesSelected);
+			}else if (createGreatWorkConflict) {
+				SimulationManager.getInstance().addGreatWorkConflicts(_profilesSelected);
 			}
 		}
 		

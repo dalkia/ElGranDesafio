@@ -38,7 +38,7 @@ package view
 		private var _profileMenu : ProfileMenu;
 		private var _profileState : ProfileState;
 		
-		
+		private var progressBarOn : Boolean;
 		
 		public function AnimationManager(normalAnimation : MovieClip, happyAnimation : MovieClip, sadAnimation : MovieClip, profileState : ProfileState) 
 		{
@@ -63,6 +63,8 @@ package view
 			currentLabel.x = 370;
 			currentLabel.y = 185;
 			currentLabel.setStyle("textFormat", format);
+			
+			progressBarOn = false;
 		}
 		
 		private function showProfileMenu(e:MouseEvent):void 
@@ -101,6 +103,7 @@ package view
 			
 			_currentAnimation.addChild(currentProgressBar);
 			_currentAnimation.addChild(currentLabel);
+			progressBarOn = true;
 		}
 		
 		public function openProfileState():void 
@@ -121,12 +124,24 @@ package view
 		public function updateAnimation(humanProfile : HumanProfile):void 
 		{
 			_currentAnimation.removeEventListener(MouseEvent.CLICK, showProfileMenu);
+			var temporarySavedText : String = currentLabel.text;
+			if (progressBarOn) {
+				_currentAnimation.removeChild(currentLabel);
+				_currentAnimation.removeChild(currentProgressBar);
+			}
 			if (humanProfile.getActualPerformance() > 7.5) {
-				_currentAnimation = _happyAnimation;
+				_currentAnimation = _happyAnimation;			
+				
 			}else if (humanProfile.getActualPerformance() > 4.0) {
 				_currentAnimation = _normalAnimation;				
 			}else {
 				_currentAnimation = _sadAnimation;
+				
+			}
+			if (progressBarOn) {
+				currentLabel.text = temporarySavedText;
+				_currentAnimation.addChild(currentLabel);
+				_currentAnimation.addChild(currentProgressBar);				
 			}
 			_currentAnimation.addEventListener(MouseEvent.CLICK, showProfileMenu);
 			ViewManager.getInstance().mainSimulationScreen.updateCharacterAnimations();
@@ -138,8 +153,9 @@ package view
 			if (currentTime > currentTotalTime) {
 				currentProgressBar.setProgress(currentTotalTime, currentTotalTime);
 				currentTimer.stop();
-				_currentAnimation.removeChild(currentProgressBar);
 				_currentAnimation.removeChild(currentLabel);
+				_currentAnimation.removeChild(currentProgressBar);
+				progressBarOn = false;
 			}else {
 				currentProgressBar.setProgress(currentTime, currentTotalTime);
 			}

@@ -67,7 +67,7 @@ package controller
 						solutions.push(solution);
 					}
 					var currentProfile : Profile = SimulationManager.getInstance().profileManager.getProfileByName(conflictsXML.conflicts[k].@owner);
-					var conflict : Conflict = new Conflict(currentConflict.@id, currentConflict.title, currentConflict.description,penalty, solutions,currentProfile);
+					var conflict : Conflict = new Conflict(currentConflict.@id, currentConflict.title, currentConflict.description,penalty, solutions,currentProfile,true);
 					if (currentConflict.@autoActivated == "true") {						
 						conflictsForDay[currentConflict.day].push(conflict);
 					}else {

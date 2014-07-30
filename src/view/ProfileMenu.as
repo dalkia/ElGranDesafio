@@ -3,7 +3,7 @@
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
 	import controller.ViewManager;
-
+	import controller.SimulationManager;
 	
 	public class ProfileMenu extends MovieClip {
 		
@@ -11,6 +11,9 @@
 		
 		public function ProfileMenu(animationManager : AnimationManager) {		
 			_animationManager = animationManager;
+			viewProfile_btn.gotoAndStop(0);
+			train_btn.gotoAndStop(0);
+			talk_btn.gotoAndStop(0);
 			viewProfile_btn.addEventListener(MouseEvent.MOUSE_DOWN, openProfileState);			
 			train_btn.addEventListener(MouseEvent.MOUSE_DOWN, train);
 			talk_btn.addEventListener(MouseEvent.MOUSE_DOWN, startTalk);

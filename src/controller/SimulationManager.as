@@ -28,8 +28,12 @@
 		private var _mainView:Main;
 		
 		private var _totalMoney:Number;
+		private var _teamPoints:Number;
 		
 		private var _trainingTime : int;
+		private var _trainingCost : int;
+		
+		private var _partyCost : int;
 		
 		private var _currentDay : int;
 		
@@ -37,6 +41,8 @@
 		
 		public function SimulationManager()
 		{
+			_trainingCost = 10;
+			_partyCost = 20;
 			_profileManager = new ProfileManager();
 			_taskManager = new TaskManager();
 			_conflictManager = new ConflictManager();
@@ -44,6 +50,7 @@
 			_timeManager = new TimeManager(10);
 			_totalMoney = 0;
 			_currentDay = 0;
+			_teamPoints = 0;
 			_trainingTime = 5000;
 		}
 		
@@ -58,9 +65,12 @@
 			_mainView.addChild(ViewManager.getInstance().mainSimulationScreen);
 			ViewManager.getInstance().mainSimulationScreen.addCharactersAnimations(_profileManager.getActiveAnimations());
 			dayEnded(0);
+			hourEndend(1);
 			updateGroupAttributes(_profileManager.getGroupParameters());
+			ViewManager.getInstance().mainSimulationScreen.updateTeamPoints(0);
 			_timeManager.startTimers();
 		}
+			
 		
 		public function dayEnded(day:int):void
 		{
@@ -69,9 +79,11 @@
 				//for each(var profile : Profile in _profileManager.activeProfiles) {
 				//	_totalMoney = _totalMoney - profile.wage;
 				//}
-				ViewManager.getInstance().mainSimulationScreen.setTotalMoney(_totalMoney);
-				ViewManager.getInstance().mainSimulationScreen.setGameOver();
 				_timeManager.endTimers();
+		
+			//	ViewManager.getInstance().mainSimulationScreen.setTotalMoney(_totalMoney);
+				ViewManager.getInstance().mainSimulationScreen.setGameOver(_profileManager.activeProfiles, _totalMoney, _teamPoints, taskManager.getCompleteTasks());
+				
 			}
 			else
 			{
@@ -81,13 +93,11 @@
 				ViewManager.getInstance().mainSimulationScreen.createNews(currentNews, day);
 				if (currentNews.affection != 0) {
 					_profileManager.increasePositiveAtributes(_profileManager.activeProfiles, currentNews.affection);
-				}
-				
+				}				
 				_conflictManager.addActiveConflicts(conflictsForDay);
 				ViewManager.getInstance().mainSimulationScreen.setDay(day + 1);
 			}
 		}
-		
 		
 		
 		
@@ -156,12 +166,29 @@
 			{
 				peopleSelected[i].lazy = true;
 			}
-			_totalMoney += totalResult;
-			ViewManager.getInstance().mainSimulationScreen.setTotalMoney(_totalMoney);
+			_teamPoints += totalResult;
+			ViewManager.getInstance().mainSimulationScreen.updateTeamPoints(_teamPoints);
+			//ViewManager.getInstance().mainSimulationScreen.setTotalMoney(_totalMoney);
 		}
 		
 		public function addPoorWorkConflicts(peopleSelected : Array):void{
-			
+			var poorEmails : Array = new Array();
+			for each(var profileTA : Profile in peopleSelected) {
+				var poorEmail : Conflict = new Conflict(0, "Este tarea fue dificil", "El equipo de trabajo que me asigno no me parecio bueno", null, null, profileTA,false);
+				poorEmails.push(poorEmail);
+			}
+			_conflictManager.addActiveConflicts(poorEmails);
+
+		}
+		
+		public function addGreatWorkConflicts(peopleSelected : Array):void{
+			var niceEmails : Array = new Array();
+			for each(var profileTA : Profile in peopleSelected) {
+				var goodEmail : Conflict = new Conflict(0, "Este tarea fue excelente!", "Que buen equipo de trabajo", null, null, profileTA,false);
+				niceEmails.push(goodEmail);
+			}
+			_conflictManager.addActiveConflicts(niceEmails);
+
 		}
 		
 		public function startSolution(solution:Solution, conflict:Conflict):void 
@@ -201,6 +228,8 @@
 		
 		public function startTraining(profile:Profile, newExperienice : Number):Boolean 
 		{
+			_totalMoney += _trainingCost;
+			ViewManager.getInstance().mainSimulationScreen.setTotalMoney(_totalMoney);
 			return _profileManager.startTraining(profile,0.5);
 		}
 		
@@ -211,8 +240,9 @@
 		
 		public function makeParty():void 
 		{
+			_totalMoney += _partyCost;
+			ViewManager.getInstance().mainSimulationScreen.setTotalMoney(_totalMoney);			
 			_profileManager.increasePositiveAtributes(_profileManager.activeProfiles, 5);
-			_totalMoney = _totalMoney - 20;
 		}
 		
 		public function makeGlobalTraining():void 
@@ -222,6 +252,11 @@
 			}
 			_totalMoney = _totalMoney - 30;
 			
+		}
+		
+		public function hourEndend(hourDuration:int):void 
+		{
+			ViewManager.getInstance().mainSimulationScreen.addOneHour(hourDuration);
 		}
 	
 	}

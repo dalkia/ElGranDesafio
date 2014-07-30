@@ -14,26 +14,42 @@ package controller {
 		private var dayTimer:Timer;
 		private var _currentDay : int;
 		
+		private var _hourDuration : int;
+		private var _currentHour : int;
+		private var _hourTimer : Timer;
+		
 		public function TimeManager(dayDuration : int) {
-			_dayDuration = dayDuration * 1000;				
+			_dayDuration = dayDuration * 1000;	
+			_hourDuration = _dayDuration / 9;
 			_currentDay = 0;
+			_currentHour = 1;
 		}
 		
 		public function dayEnded(e : Event):void{
-			_currentDay++;		
+			_currentDay++;			
+			_currentHour = 0;
 			SimulationManager.getInstance().dayEnded(_currentDay);
-		}
-		
+		}	
 		
 		
 		public function startTimers():void{
 			dayTimer = new Timer(_dayDuration);
+			_hourTimer = new Timer(_hourDuration);
+			_hourTimer.start();
+			_hourTimer.addEventListener(TimerEvent.TIMER, hourEnded);
 			dayTimer.start();
 			dayTimer.addEventListener(TimerEvent.TIMER, dayEnded);	
 		}
 		
+		public function hourEnded(e : Event):void{
+			_currentHour++;					
+			SimulationManager.getInstance().hourEndend(_currentHour);
+		}	
+		
+		
 		public function endTimers():void {
 			dayTimer.stop();
+			_hourTimer.stop();
 		}
 		
 		public function get currentDay():int{

@@ -47,9 +47,10 @@ package view.ComputerScreens
 		
 		public function openTaskView(task:Task):void 
 		{
-			var taskView : TaskView = new TaskView(task);
+			var taskView : TaskView = new TaskView(task, false,null);
 			taskScrollPane.source = taskView;
 			taskScrollPane.update();
+			scrollPaneAdded = false;
 		}
 		
 		public function removeTask():void 
@@ -87,7 +88,7 @@ package view.ComputerScreens
 		}
 		
 		override public function goBackToInitialScreen():void {
-			if (scrollPaneAdded) {
+			if (contains(taskScrollPane)) {
 				removeChild(taskScrollPane);
 			}
 			addChild(asignTask_mc);

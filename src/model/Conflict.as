@@ -13,11 +13,10 @@ package model
 		private var _penalty : Penalty;
 		private var _id : int;
 		private var _owner : Profile;
+		private var _answereable : Boolean;
 		
 	
-		
-		
-		public function Conflict(id:int, title : String,description : String, penalty : Penalty, possibleSolutions : Array, owner : Profile) 
+		public function Conflict(id:int, title : String,description : String, penalty : Penalty, possibleSolutions : Array, owner : Profile, answereable : Boolean) 
 		{
 			_id = id;
 			_title = title;
@@ -25,6 +24,7 @@ package model
 			_penalty = penalty;
 			_solutions = possibleSolutions;
 			_owner = owner;
+			_answereable = answereable;
 		}
 		
 		public function get description():String{
@@ -50,6 +50,16 @@ package model
 		public function get owner():Profile 
 		{
 			return _owner;
+		}
+		
+		public function get answereable():Boolean 
+		{
+			return _answereable;
+		}
+		
+		public function set answereable(value:Boolean):void 
+		{
+			_answereable = value;
 		}
 		
 		

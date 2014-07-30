@@ -57,6 +57,8 @@
 		{
 			_peopleSelected = value;
 		}
+		
+		
 	
 		
 		public function startTime():void {

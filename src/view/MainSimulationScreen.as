@@ -26,8 +26,11 @@
 		private var conversationOn : Boolean;
 		public var profileStateOn : Boolean;
 		private var newspaperOn : Boolean;
+		private var gameOver : Boolean;
 		
 		private var _conversationViewManager : ConversationViewManager;
+		
+		private var _endSimulationScreen : EndSimulationScreen;
 		
 		public function MainSimulationScreen() 
 		{
@@ -46,6 +49,7 @@
 			computerIcon_mc.addEventListener(MouseEvent.CLICK, showComputer);
 			smallNewspaper_mc.addEventListener(MouseEvent.CLICK, showNewspaper);
 			_conversationViewManager = new ConversationViewManager();
+			gameOver = false;
 		}
 		
 		private function showNewspaper(e:MouseEvent):void 
@@ -97,9 +101,15 @@
 			updateCharacterAnimations();
 		}
 		
-		public function setGameOver():void 
+		public function setGameOver(profilesSelected:Array, totalMoney:Number, teamPoints:Number, completeTasks:Array):void 
 		{
-			day_txt.text = "Game Over";
+			_endSimulationScreen = new EndSimulationScreen(profilesSelected, totalMoney, teamPoints,completeTasks);
+			_endSimulationScreen.x = stage.width / 2 - _endSimulationScreen.width /2 - 20;
+			_endSimulationScreen.y = stage.height / 2 - _endSimulationScreen.height / 2 - 40;
+			addChild(_endSimulationScreen);
+			day_txt.text = "";
+			time_txt.text = "";
+			gameOver = true;
 		}
 		
 		public function setDay(day:int):void 
@@ -136,7 +146,7 @@
 		
 		public function updateCharacterAnimations():void 
 		{
-			if (!computerOn && !conversationOn && !profileStateOn && !newspaperOn) {
+			if (!computerOn && !conversationOn && !profileStateOn && !newspaperOn && !gameOver) {
 				removeChild(_desk);
 				addCharactersAnimations(SimulationManager.getInstance().profileManager.getActiveAnimations());
 			}			
@@ -170,6 +180,22 @@
 		public function continueConversation(nextItem:int):void 
 		{
 			_conversationViewManager.updateConversation(nextItem);
+		}
+		
+		public function addOneHour(hourDuration:int):void 
+		{
+			var currentTime : int = 8 + hourDuration;
+			if (currentTime < 10) {
+				time_txt.text =  "0" + currentTime.toString() + ":00";
+			}else {
+				time_txt.text =  currentTime.toString() + ":00";
+			}
+			
+		}
+		
+		public function updateTeamPoints(value:Number):void 
+		{
+			teamPoints_txt.text = value.toString();
 		}
 		
 		

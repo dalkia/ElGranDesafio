@@ -13,7 +13,7 @@ package view.Mail
 	{
 		private var _conflict : Conflict;
 		
-		public function MailView(conflict : Conflict) 
+		public function MailView(conflict : Conflict, answerable : Boolean) 
 		{
 			super();
 			_conflict = conflict;
@@ -21,7 +21,11 @@ package view.Mail
 			to_txt.text = "Gerente";
 			title_txt.text = _conflict.title;
 			description_txt.text = _conflict.description;
-			startSolution_mc.addEventListener(MouseEvent.CLICK, startSolution);
+			if (answerable) {
+				startSolution_mc.addEventListener(MouseEvent.CLICK, startSolution);
+			}else {
+				removeChild(startSolution_mc);
+			}
 		}
 		
 		private function startSolution(e:MouseEvent):void 

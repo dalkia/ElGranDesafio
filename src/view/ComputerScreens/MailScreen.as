@@ -63,7 +63,7 @@ package view.ComputerScreens
 		
 		public function openEmail(conflict:Conflict):void 
 		{
-			var mailView : MailView = new MailView(conflict);
+			var mailView : MailView = new MailView(conflict, conflict.answereable);
 			currentMail = mailView;
 			mailScrollPane.source = mailView;
 			mailScrollPane.update();

@@ -84,6 +84,11 @@ package controller
 			return a;
 		}
 		
+		public function getCompleteTasks():Array 
+		{
+			return _finishedTasks;
+		}
+		
 		
 		
 		
