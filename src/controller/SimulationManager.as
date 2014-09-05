@@ -47,7 +47,6 @@
 			_taskManager = new TaskManager();
 			_conflictManager = new ConflictManager();
 			_newsManager = new NewsManager();
-			_timeManager = new TimeManager(10);
 			_totalMoney = 0;
 			_currentDay = 0;
 			_teamPoints = 0;
@@ -61,7 +60,9 @@
 		
 		public function startSimulation()
 		{
-			_mainView.removeChild(ViewManager.getInstance().carousel);
+			_mainView.removeChild(ViewManager.getInstance().carousel);	
+			_timeManager = new TimeManager(parseInt(ViewManager.getInstance().startScreen.dayDuration_txt.text));
+			var budget : int = parseInt(ViewManager.getInstance().startScreen.budget_txt.text);
 			_mainView.addChild(ViewManager.getInstance().mainSimulationScreen);
 			ViewManager.getInstance().mainSimulationScreen.addCharactersAnimations(_profileManager.getActiveAnimations());
 			dayEnded(0);
