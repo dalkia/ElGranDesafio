@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+<gifts>
+	<gift>
+		<type>Global</type>
+		<name>Party</name>
+		<description>Partey</description>
+		<cost>20</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+	<gift>
+		<type>Individual</type>
+		<name>Reloj</name>
+		<description>Es un reloj muy hermoso, te kbe</description>
+		<cost>20</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+</gifts>
+</data>
