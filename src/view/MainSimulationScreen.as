@@ -80,14 +80,8 @@
 			removeChild(_computer);
 			computerOn = false;
 			updateCharacterAnimations();
-		}
+		}		
 	
-		
-		public function setTotalMoney(totalMoney:Number):void 
-		{
-			totalMoney_txt.text = "$ " + totalMoney.toString();
-		}
-		
 		public function showProfileMenu(profileMenu:ProfileMenu):void 
 		{
 			addChild(profileMenu);
@@ -196,6 +190,11 @@
 		public function updateTeamPoints(value:Number):void 
 		{
 			teamPoints_txt.text = value.toString();
+		}
+		
+		public function setBudget(budget:int):void 
+		{
+			totalMoney_txt.text = "$" + budget.toString();
 		}
 		
 		

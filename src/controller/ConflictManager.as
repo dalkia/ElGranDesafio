@@ -33,7 +33,7 @@ package controller
 			}
 		}
 		
-		public function createConflicts() {				
+		public function loadConflicts() {				
 			var conflictsXMLLoader:URLLoader = new URLLoader();			
 			conflictsXMLLoader.load(new URLRequest("../resources/xml/Conflicts.xml"));			
 			conflictsXMLLoader.addEventListener(Event.COMPLETE, createPersonalConflicts);			
@@ -50,6 +50,7 @@ package controller
 		}
 		
 		//Cargar solo los conflictos de gente activa
+		//trace("Mesaje de error");
 		public function createPersonalConflicts(e:Event):void {	
 			var conflictsXML : XML = new XML(e.target.data);
 			var totalConflictsOwners : int = conflictsXML.conflicts.length();

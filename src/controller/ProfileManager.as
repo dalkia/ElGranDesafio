@@ -12,6 +12,7 @@
 	import fl.events.*;
 	import flash.utils.*;
 	import model.Conflict;
+	import model.Gift;
 	import model.Profile;
 	import view.AnimationManager;
 	import view.ProfileCard;
@@ -45,7 +46,7 @@
 			
 		}
 		
-		public function createProfiles() {
+		public function loadProfiles() {
 			var profileXMLLoader:URLLoader = new URLLoader();			
 			profileXMLLoader.load(new URLRequest("../resources/xml/Profiles.xml"));
 			profileXMLLoader.addEventListener(Event.COMPLETE, processProfilesXML);			
@@ -134,6 +135,8 @@
 			return _activeProfiles;
 		}
 		
+		
+		
 		public function addToActiveProfile(profile : Profile) {
 			_activeProfiles.push(profile);
 		}
@@ -221,7 +224,7 @@
 				profile.startTraining();
 				return true;
 			}
-			trace("MENSAJE DE ERROR VIEJA");			
+			trace("Mensaje de error");			
 			return false;
 		}
 		
@@ -257,6 +260,13 @@
 				}
 			}
 			return null;
+		}
+		
+		public function giveGift(profile:Profile, gift:Gift):int 
+		{
+			var affection : int = gift.getAffectionForProfile(profile.humanProfile.generation);
+			profile.increasePositiveAttributes(affection);
+			return affection;
 		}
 		
 		

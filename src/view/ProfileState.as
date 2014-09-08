@@ -1,8 +1,11 @@
 package view 
 {
+	import fl.containers.ScrollPane;
+	import fl.controls.ScrollPolicy;
 	import flash.display.Bitmap;
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
+	import flash.text.engine.FontPosture;
 	import model.Profile;
 	import controller.ViewManager;
 	/**
@@ -14,6 +17,7 @@ package view
 		
 		private var _profile : Profile;
 		private var _firstTime : Boolean;
+		private var giftScrollPane : ScrollPane;
 		
 		
 		public function ProfileState(profile : Profile) 
@@ -39,10 +43,17 @@ package view
 				tech3_txt.text = _profile.technicalProfile.thirdAttribute.name;
 				tech4_txt.text = _profile.technicalProfile.fourthAttribute.name;
 				var image : Bitmap = new Bitmap(_profile.image.bitmapData.clone());
-				image.x = 151.9;
-				image.y = 350, 1;
+				image.x = 71.25;
+				image.y = 375.50;
 				addChild(image);
 				closeProfile_mc.addEventListener(MouseEvent.CLICK, closeProfile);
+				giftScrollPane = new ScrollPane();		
+				giftScrollPane.horizontalScrollPolicy = ScrollPolicy.OFF;
+				giftScrollPane.width = 230;
+				giftScrollPane.height = 135;
+				giftScrollPane.x = 218;	
+				giftScrollPane.y = 393;	
+				addChild(giftScrollPane);
 				_firstTime = false;
 			}			
 			experience_txt.text = _profile.technicalProfile.experience.toString();
@@ -54,6 +65,20 @@ package view
 			human2_mc.gotoAndStop(_profile.humanProfile.motivacion.value  + 1);
 			human3_mc.gotoAndStop(_profile.humanProfile.empatia.value  + 1);
 			human4_mc.gotoAndStop(_profile.humanProfile.cooperacion.value  + 1);
+			buildGiftList();
+		}
+		
+		private function buildGiftList():void 
+		{
+			var giftContainer : MovieClip = new MovieClip;
+			for (var i : int = 0; i < _profile.gifts.length;i++) {
+				var giftResult : GiftResult = new GiftResult();
+				giftResult.giftResult_txt.text = _profile.gifts[i];
+				giftResult.y = 46 * i;
+				giftContainer.addChild(giftResult);
+			}
+			giftScrollPane.source = giftContainer;
+			giftScrollPane.update();
 		}
 		
 		public function get profile():Profile 

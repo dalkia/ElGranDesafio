@@ -3,7 +3,10 @@ package view.ComputerScreens
 	import fl.containers.ScrollPane;
 	import fl.controls.ScrollPolicy;
 	import flash.display.MovieClip;
+	import model.Gift;
 	import model.Task;
+	import view.Gift.GiftItem;
+	import view.Gift.GiftView;
 	import view.Task.TaskItem;
 	import view.Task.TaskView;
 	import controller.SimulationManager;
@@ -24,13 +27,54 @@ package view.ComputerScreens
 		{
 			super();
 			asignTask_mc.addEventListener(MouseEvent.CLICK, openAsignTaskList);
-			globalParty_mc.addEventListener(MouseEvent.CLICK, createParty);
-			globalTraining_mc.addEventListener(MouseEvent.CLICK, createGlobalTraining);
+			individualGift_mc.addEventListener(MouseEvent.CLICK, openIndividualGiftWindow);
+			globalGift_mc.addEventListener(MouseEvent.CLICK, openGlobalGiftWindow);
 			taskScrollPane = new ScrollPane();
-			taskScrollPane.horizontalScrollPolicy = ScrollPolicy.ON;
 			taskScrollPane.width = 683.85;
 			taskScrollPane.height = 401.85;	
 			scrollPaneAdded = false;
+		}
+		
+		private function openIndividualGiftWindow(e:MouseEvent):void {			
+			removeAllButtons();
+			createIndividualGiftList();
+		}
+		
+		private function openGlobalGiftWindow(e:MouseEvent):void {			
+			removeAllButtons();
+			createGlobalGiftList();
+		}
+		
+		private function createIndividualGiftList():void {
+			var individualGiftsMC : MovieClip = new MovieClip();	
+			var individualGifts : Array = SimulationManager.getInstance().giftManager.individualGifts;
+			for (var i : int = 0; i < individualGifts.length; i++) {				
+				var giftItem : GiftItem = new GiftItem(individualGifts[i]);
+				giftItem.y = giftItem.height * i;
+				individualGiftsMC.addChild(giftItem);
+				
+			}
+			taskScrollPane.source = individualGiftsMC;
+			taskScrollPane.update();
+			addChild(taskScrollPane);
+			scrollPaneAdded = true;
+			
+		}
+		
+		private function createGlobalGiftList():void {
+			var globalGiftsMC : MovieClip = new MovieClip();	
+			var globalGifts : Array = SimulationManager.getInstance().giftManager.globalGifts;
+			for (var i : int = 0; i < globalGifts.length; i++) {				
+				var giftItem : GiftItem = new GiftItem(globalGifts[i]);
+				giftItem.y = giftItem.height * i;
+				globalGiftsMC.addChild(giftItem);
+				
+			}
+			taskScrollPane.source = globalGiftsMC;
+			taskScrollPane.update();
+			addChild(taskScrollPane);
+			scrollPaneAdded = true;
+			
 		}
 		
 		private function createParty(e:MouseEvent):void 
@@ -53,10 +97,24 @@ package view.ComputerScreens
 			scrollPaneAdded = false;
 		}
 		
+		public function openGiftView(gift:Gift):void 
+		{
+			var giftView : GiftView =  new GiftView(gift);
+			taskScrollPane.source = giftView;
+			taskScrollPane.update();
+			scrollPaneAdded = false;
+		}
+		
 		public function removeTask():void 
 		{
 			removeChild(taskScrollPane);		
 			createTaskList();
+		}
+		
+		public function removeGift():void 
+		{
+			removeChild(taskScrollPane);		
+			goBackToInitialScreen();
 		}
 		
 		private function openAsignTaskList(e:MouseEvent):void 
@@ -83,8 +141,8 @@ package view.ComputerScreens
 		private function removeAllButtons():void 
 		{
 			removeChild(asignTask_mc);
-			removeChild(globalParty_mc);
-			removeChild(globalTraining_mc);
+			removeChild(individualGift_mc);
+			removeChild(globalGift_mc);
 		}
 		
 		override public function goBackToInitialScreen():void {
@@ -92,8 +150,8 @@ package view.ComputerScreens
 				removeChild(taskScrollPane);
 			}
 			addChild(asignTask_mc);
-			addChild(globalParty_mc);
-			addChild(globalTraining_mc);
+			addChild(individualGift_mc);
+			addChild(globalGift_mc);
 		}
 		
 	}

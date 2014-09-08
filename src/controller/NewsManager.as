@@ -20,7 +20,7 @@
 		}
 		
 	
-		public function createNews() {				
+		public function loadNews() {				
 			var newsXMLLoader:URLLoader = new URLLoader();
 			newsXMLLoader.load(new URLRequest("../resources/xml/News.xml"));			
 			newsXMLLoader.addEventListener(Event.COMPLETE, onXMLNewsLoadComplete);			

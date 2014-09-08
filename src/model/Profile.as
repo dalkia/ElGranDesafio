@@ -22,6 +22,7 @@
 		private var _description : String;
 		private var _age : String;
 		private var _salary : int;
+		private var _gifts : Array;
 		
 		private var _imageLoader : Loader;
 		private var _image : Bitmap;
@@ -54,7 +55,7 @@
 			_lazy = true;
 			_wage = wage;
 			_profileState = new ProfileState(this);
-			
+			_gifts = new Array;
 			
 			trainingTimer = new Timer(SimulationManager.getInstance().trainingTime);
 			trainingTimer.addEventListener(TimerEvent.TIMER, endTraining);
@@ -164,6 +165,11 @@
 		public function set conversation(value:Conversation):void 
 		{
 			_conversation = value;
+		}
+		
+		public function get gifts():Array 
+		{
+			return _gifts;
 		}
 		/*
 		public function increaseNegativeAttributes():void {

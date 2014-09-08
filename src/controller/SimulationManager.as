@@ -4,6 +4,7 @@
 	import flash.utils.Dictionary;
 	import model.Conflict;
 	import model.Conversation.Conversation;
+	import model.Gift;
 	import model.News;
 	import model.Profile;
 	import model.Solution;
@@ -25,6 +26,7 @@
 		private var _conflictManager:ConflictManager;
 		private var _newsManager:NewsManager;
 		private var _timeManager:TimeManager;
+		private var _giftManager:GiftManager;
 		private var _mainView:Main;
 		
 		private var _totalMoney:Number;
@@ -37,7 +39,7 @@
 		
 		private var _currentDay : int;
 		
-		
+		private var _budget : int;
 		
 		public function SimulationManager()
 		{
@@ -47,10 +49,11 @@
 			_taskManager = new TaskManager();
 			_conflictManager = new ConflictManager();
 			_newsManager = new NewsManager();
+			_giftManager = new GiftManager();
 			_totalMoney = 0;
 			_currentDay = 0;
 			_teamPoints = 0;
-			_trainingTime = 5000;
+			_trainingTime = 1000;
 		}
 		
 		public function startGame()
@@ -61,10 +64,10 @@
 		public function startSimulation()
 		{
 			_mainView.removeChild(ViewManager.getInstance().carousel);	
-			_timeManager = new TimeManager(parseInt(ViewManager.getInstance().startScreen.dayDuration_txt.text));
-			var budget : int = parseInt(ViewManager.getInstance().startScreen.budget_txt.text);
+			_budget = parseInt(ViewManager.getInstance().startScreen.budget_txt.text);
 			_mainView.addChild(ViewManager.getInstance().mainSimulationScreen);
 			ViewManager.getInstance().mainSimulationScreen.addCharactersAnimations(_profileManager.getActiveAnimations());
+			ViewManager.getInstance().mainSimulationScreen.setBudget(_budget);
 			dayEnded(0);
 			hourEndend(1);
 			updateGroupAttributes(_profileManager.getGroupParameters());
@@ -83,7 +86,7 @@
 				_timeManager.endTimers();
 		
 			//	ViewManager.getInstance().mainSimulationScreen.setTotalMoney(_totalMoney);
-				ViewManager.getInstance().mainSimulationScreen.setGameOver(_profileManager.activeProfiles, _totalMoney, _teamPoints, taskManager.getCompleteTasks());
+				ViewManager.getInstance().mainSimulationScreen.setGameOver(_profileManager.activeProfiles, _budget, _teamPoints, taskManager.getCompleteTasks());
 				
 			}
 			else
@@ -100,14 +103,13 @@
 			}
 		}
 		
-		
-		
-		
+				
 		public function startCharacterSelectionScreen()
-		{
-			_profileManager.createProfiles();
-			_conflictManager.createConflicts();
-			_newsManager.createNews();
+		{			
+			_profileManager.loadProfiles();
+			_conflictManager.loadConflicts();
+			_newsManager.loadNews();
+			_giftManager.loadGifts();
 		}
 		
 		public function set mainView(value:Main):void
@@ -130,9 +132,15 @@
 			return _trainingTime;
 		}
 		
+		public function get giftManager():GiftManager 
+		{
+			return _giftManager;
+		}
+		
 		public function profilesLoadComplete():void
 		{
 			_mainView.removeChild(ViewManager.getInstance().startScreen);
+			_timeManager = new TimeManager(parseInt(ViewManager.getInstance().startScreen.dayDuration_txt.text));
 			ViewManager.getInstance().carousel.showCards(_profileManager.profileCards);
 			_mainView.addChild(ViewManager.getInstance().carousel);
 		}
@@ -229,9 +237,15 @@
 		
 		public function startTraining(profile:Profile, newExperienice : Number):Boolean 
 		{
-			_totalMoney += _trainingCost;
-			ViewManager.getInstance().mainSimulationScreen.setTotalMoney(_totalMoney);
-			return _profileManager.startTraining(profile,0.5);
+			if (_budget >= _trainingCost) {
+				_budget -= _trainingCost;
+				ViewManager.getInstance().mainSimulationScreen.setBudget(_budget);
+				return _profileManager.startTraining(profile,0.5);				
+			}else {
+				trace("Mensaje de error");
+				return false;				
+			}
+		
 		}
 		
 		public function updateGroupAttributes(groupParameters : Array):void 
@@ -241,23 +255,88 @@
 		
 		public function makeParty():void 
 		{
-			_totalMoney += _partyCost;
-			ViewManager.getInstance().mainSimulationScreen.setTotalMoney(_totalMoney);			
-			_profileManager.increasePositiveAtributes(_profileManager.activeProfiles, 5);
+			if (_budget >= _partyCost) {
+				_budget -= _partyCost;
+				ViewManager.getInstance().mainSimulationScreen.setBudget(_budget);			
+				_profileManager.increasePositiveAtributes(_profileManager.activeProfiles, 5);
+			}else {
+				trace("Mensaje de error");
+			}
+			
 		}
 		
 		public function makeGlobalTraining():void 
 		{
-			for each(var profile : Profile in _profileManager.activeProfiles) {
-				profile.animationManager.startTraining(1);
-			}
-			_totalMoney = _totalMoney - 30;
-			
+			if (_budget >= (_trainingCost *  _profileManager.activeProfiles.length)) {
+				_budget -= _trainingCost*  _profileManager.activeProfiles.length;
+				for each(var profile : Profile in _profileManager.activeProfiles) {
+					_profileManager.startTraining(profile,0.5);	
+				}
+				ViewManager.getInstance().mainSimulationScreen.setBudget(_budget);
+			}else {
+				trace("Mensaje de error");							
+			}			
 		}
 		
 		public function hourEndend(hourDuration:int):void 
 		{
 			ViewManager.getInstance().mainSimulationScreen.addOneHour(hourDuration);
+		}
+		
+		public function getActiveProfiles():Array 
+		{
+			return _profileManager.activeProfiles;
+		}
+		
+		public function giveGift(gift:Gift, selectedProfiles:Array):void 
+		{
+			var results : Array = new Array;			
+			if (gift.giftType == "Individual") {
+				if (_budget >= (gift.cost *  selectedProfiles.length)) {
+					_budget -= gift.cost *  selectedProfiles.length;
+					for each(var profile : Profile in selectedProfiles) {
+						var result : int = _profileManager.giveGift(profile, gift);	
+						var resultEmail : Conflict;
+						if (result > 0) {
+							resultEmail = new Conflict(0, "Gracias por el regalo!", "Estuvo espectacular, me encanto jefe. Maestro!"  + gift.name, null, null, profile,false);
+							profile.gifts.push(gift.name + " " +  gift.cost + " Bueno");
+						}else if (result == 0) {
+							resultEmail = new Conflict(0, "Agradecimiento", "Le agradezco el regalo."  + gift.name, null, null, profile, false);
+							profile.gifts.push(gift.name + " " +  gift.cost + " Medio");
+						}else {
+							resultEmail = new Conflict(0, "Posta?", "Esta garcha?"  + gift.name, null, null, profile, false);
+							profile.gifts.push(gift.name + " " +  gift.cost + " Malo");
+						}
+						results.push(resultEmail);
+					}
+					ViewManager.getInstance().mainSimulationScreen.setBudget(_budget);
+				}else {
+					trace("Mensaje de error");							
+				}
+			}else {
+				if (_budget >= (gift.cost)) {
+					_budget -= gift.cost;
+					for each(var profile : Profile in profileManager.activeProfiles) {
+						var result : int = _profileManager.giveGift(profile, gift);		
+						var resultEmail : Conflict;
+						if (result > 0) {
+							resultEmail = new Conflict(0, "Gracias por el regalo!", "Estuvo espectacular, me encanto jefe. Maestro!"  + gift.name, null, null, profile,false);
+							profile.gifts.push(gift.name + " " +  gift.cost + " Bueno");
+						}else if (result == 0) {
+							resultEmail = new Conflict(0, "Agradecimiento", "Le agradezco el regalo."  + gift.name, null, null, profile, false);
+							profile.gifts.push(gift.name + " " +  gift.cost + " Medio");
+						}else {
+							resultEmail = new Conflict(0, "Posta?", "Esta garcha?"  + gift.name, null, null, profile, false);
+							profile.gifts.push(gift.name + " " +  gift.cost + " Malo");
+						}
+						results.push(resultEmail);
+					}
+					ViewManager.getInstance().mainSimulationScreen.setBudget(_budget);
+				}else {
+					trace("Mensaje de error");							
+				}
+			}
+			_conflictManager.addActiveConflicts(results);		
 		}
 	
 	}
