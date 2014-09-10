@@ -50,6 +50,7 @@
 			smallNewspaper_mc.addEventListener(MouseEvent.CLICK, showNewspaper);
 			_conversationViewManager = new ConversationViewManager();
 			gameOver = false;
+			notification_mc.amount_txt.text = 0;
 		}
 		
 		private function showNewspaper(e:MouseEvent):void 

@@ -137,12 +137,28 @@
 		
 		
 		
-		public function addToActiveProfile(profile : Profile) {
-			_activeProfiles.push(profile);
+		public function addToActiveProfile(profile : Profile):Boolean {
+			if (_activeProfiles.length < 4) {
+				_activeProfiles.push(profile);
+				if (_activeProfiles.length == 4) {
+					ViewManager.getInstance().carousel.disableProfileAdds();	
+				}
+				return true;
+			}					
+			return false;
+			
 		}
 		
-		public function removeActiveProfile(profile : Profile) {
-			_activeProfiles.splice(_activeProfiles.indexOf(profile),1);
+		public function removeActiveProfile(profile : Profile) {			
+			
+			_activeProfiles.splice(_activeProfiles.indexOf(profile), 1);
+			if (_activeProfiles.length == 3) {
+				for each(var profile : Profile in _profiles) {
+					if (_activeProfiles.indexOf(profile) == -1) {
+						(_profileCards[_profiles.indexOf(profile)] as ProfileCard).activateCard();
+					}
+				}
+			}
 		}
 		
 		public function getActiveAnimations():Array {
@@ -181,7 +197,7 @@
 			for (var i : int = 0; i < peopleSelected.length; i++) {
 				peopleSelected[i].increasePositiveAttributes(affection);
 			}			
-			SimulationManager.getInstance().updateGroupAttributes(getGroupParameters());
+			
 			
 		}
 		

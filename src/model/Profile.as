@@ -245,6 +245,7 @@
 			}	
 			*/
 			updateAnimation();
+			SimulationManager.getInstance().updateGroupAttributes(SimulationManager.getInstance().profileManager.getGroupParameters());
 		}
 		
 		public function addExperience(newExperience : int):void {

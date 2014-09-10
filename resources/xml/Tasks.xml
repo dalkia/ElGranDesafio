@@ -107,7 +107,7 @@
 	<goodTime>10</goodTime>
 </task>
 <task>
-	<title>Mantener el orden y la limpieza de oficina, y salas de atención.</title>
+	<title>Mantener el orden y la limpieza de oficina.</title>
 	<description>Al final de la jornada dejar ordenado y limpios los puestos de trabajo, antes de que pase el personal del servicio</description>
 	<demands>
 		<goodTechnicalDemands>Lic. Humanidades</goodTechnicalDemands>

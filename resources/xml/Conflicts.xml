@@ -5,7 +5,10 @@
 		<title>Necesito un dia</title>
 		<description>Necesito un dia para ocuparme de mi hijo</description>
 		<day>1</day>
-		<penalty>			
+		<penalty>
+			<affection>
+				-2
+			</affection>
 		</penalty>
 		<solutions>
 			<solution>
@@ -30,7 +33,10 @@
 		<title>No me diste un dia</title>
 		<description>Necesito un dia para ocuparme de mi hijo, ahora si esta muy enfermo</description>
 		<day>3</day>
-		<penalty>			
+		<penalty>	
+			<affection>
+				2
+			</affection>
 		</penalty>
 		<solutions>
 			<solution>

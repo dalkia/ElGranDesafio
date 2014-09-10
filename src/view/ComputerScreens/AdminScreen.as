@@ -32,6 +32,7 @@ package view.ComputerScreens
 			taskScrollPane = new ScrollPane();
 			taskScrollPane.width = 683.85;
 			taskScrollPane.height = 401.85;	
+			taskScrollPane.horizontalScrollPolicy = ScrollPolicy.OFF;
 			scrollPaneAdded = false;
 		}
 		

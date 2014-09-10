@@ -18,6 +18,7 @@
 		
 		private function openMailScreen(e:MouseEvent):void 
 		{
+			ViewManager.getInstance().mainSimulationScreen.notification_mc.amount_txt.text = "0";
 			ViewManager.getInstance().mainSimulationScreen.computer.openMailScreen();
 		}
 		

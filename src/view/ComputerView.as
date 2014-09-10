@@ -39,6 +39,7 @@ package view
 			
 		}
 		
+		
 		public function showComputer():void {	
 			addChild(currentScreen);
 			addChild(_closeBigComputer);

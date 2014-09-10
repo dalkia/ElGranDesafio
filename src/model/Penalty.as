@@ -2,22 +2,17 @@ package model {
 	
 	public class Penalty {
 		
-		var _proactivityPenalty : int;
-		var _stressPenalty : int;
+		private var _affection : int;
 		
-		public function Penalty(proactivityPenalty : int, stressPenalty : int) {
-			_proactivityPenalty = proactivityPenalty;
-			_stressPenalty = stressPenalty;
+		public function Penalty(affection : int) {
+			_affection = affection;
 		}
 		
-		public function get proactivityPenalty() : int {
-			return _proactivityPenalty;
+		public function get affection():int 
+		{
+			return _affection;
 		}
 		
-		public function get stressPenalty() : int {
-			return _stressPenalty;
-		}
-
 	}
 	
 }

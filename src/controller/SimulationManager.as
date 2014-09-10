@@ -6,6 +6,7 @@
 	import model.Conversation.Conversation;
 	import model.Gift;
 	import model.News;
+	import model.Penalty;
 	import model.Profile;
 	import model.Solution;
 	import model.Task;
@@ -53,7 +54,7 @@
 			_totalMoney = 0;
 			_currentDay = 0;
 			_teamPoints = 0;
-			_trainingTime = 1000;
+			
 		}
 		
 		public function startGame()
@@ -72,6 +73,9 @@
 			hourEndend(1);
 			updateGroupAttributes(_profileManager.getGroupParameters());
 			ViewManager.getInstance().mainSimulationScreen.updateTeamPoints(0);
+			var dayDuration : int = parseInt(ViewManager.getInstance().startScreen.dayDuration_txt.text);
+			_timeManager = new TimeManager(dayDuration);
+			_trainingTime = dayDuration*1000;
 			_timeManager.startTimers();
 		}
 			
@@ -91,6 +95,9 @@
 			}
 			else
 			{
+				for (var i : int = 0; i < _conflictManager.activeConflicts.length; i++) {
+					_conflictManager.applyPenalty(_conflictManager.activeConflicts[i]);
+				}
 				_currentDay = day;
 				var conflictsForDay : Array = _profileManager.getConflictsForDay(day);
 				var currentNews : News = _newsManager.activeNews[day];
@@ -139,8 +146,7 @@
 		
 		public function profilesLoadComplete():void
 		{
-			_mainView.removeChild(ViewManager.getInstance().startScreen);
-			_timeManager = new TimeManager(parseInt(ViewManager.getInstance().startScreen.dayDuration_txt.text));
+			_mainView.removeChild(ViewManager.getInstance().startScreen);		
 			ViewManager.getInstance().carousel.showCards(_profileManager.profileCards);
 			_mainView.addChild(ViewManager.getInstance().carousel);
 		}
@@ -200,6 +206,12 @@
 
 		}
 		
+		public function removeConflict(conflict:Conflict):void 
+		{
+			_conflictManager.removeActiveConflict(conflict);	
+			ViewManager.getInstance().mainSimulationScreen.computer.mailScreen.goBackToInitialScreen();			
+		}
+		
 		public function startSolution(solution:Solution, conflict:Conflict):void 
 		{
 			_conflictManager.removeActiveConflict(conflict);		
@@ -220,8 +232,7 @@
 					_profileManager.addConflict(conflict.owner, _currentDay + 2, newConflict);
 				}
 				
-			}
-			
+			}			
 			ViewManager.getInstance().mainSimulationScreen.computer.mailScreen.removeSolutions();
 			ViewManager.getInstance().mainSimulationScreen.computer.mailScreen.goBackToInitialScreen();
 		}
@@ -298,13 +309,13 @@
 						var result : int = _profileManager.giveGift(profile, gift);	
 						var resultEmail : Conflict;
 						if (result > 0) {
-							resultEmail = new Conflict(0, "Gracias por el regalo!", "Estuvo espectacular, me encanto jefe. Maestro!"  + gift.name, null, null, profile,false);
+							resultEmail = new Conflict(0, "Gracias por el regalo!", "Estuvo espectacular, me encanto jefe. Maestro!"  + gift.name, new Penalty(0), null, profile,false);
 							profile.gifts.push(gift.name + " " +  gift.cost + " Bueno");
 						}else if (result == 0) {
-							resultEmail = new Conflict(0, "Agradecimiento", "Le agradezco el regalo."  + gift.name, null, null, profile, false);
+							resultEmail = new Conflict(0, "Agradecimiento", "Le agradezco el regalo."  + gift.name,new Penalty(0), null, profile, false);
 							profile.gifts.push(gift.name + " " +  gift.cost + " Medio");
 						}else {
-							resultEmail = new Conflict(0, "Posta?", "Esta garcha?"  + gift.name, null, null, profile, false);
+							resultEmail = new Conflict(0, "Posta?", "Esta garcha?"  + gift.name,new Penalty(0), null, profile, false);
 							profile.gifts.push(gift.name + " " +  gift.cost + " Malo");
 						}
 						results.push(resultEmail);
@@ -320,13 +331,13 @@
 						var result : int = _profileManager.giveGift(profile, gift);		
 						var resultEmail : Conflict;
 						if (result > 0) {
-							resultEmail = new Conflict(0, "Gracias por el regalo!", "Estuvo espectacular, me encanto jefe. Maestro!"  + gift.name, null, null, profile,false);
+							resultEmail = new Conflict(0, "Gracias por el regalo!", "Estuvo espectacular, me encanto jefe. Maestro!"  + gift.name, new Penalty(0), null, profile,false);
 							profile.gifts.push(gift.name + " " +  gift.cost + " Bueno");
 						}else if (result == 0) {
-							resultEmail = new Conflict(0, "Agradecimiento", "Le agradezco el regalo."  + gift.name, null, null, profile, false);
+							resultEmail = new Conflict(0, "Agradecimiento", "Le agradezco el regalo."  + gift.name,new Penalty(0), null, profile, false);
 							profile.gifts.push(gift.name + " " +  gift.cost + " Medio");
 						}else {
-							resultEmail = new Conflict(0, "Posta?", "Esta garcha?"  + gift.name, null, null, profile, false);
+							resultEmail = new Conflict(0, "Posta?", "Esta garcha?"  + gift.name,new Penalty(0), null, profile, false);
 							profile.gifts.push(gift.name + " " +  gift.cost + " Malo");
 						}
 						results.push(resultEmail);
@@ -338,6 +349,8 @@
 			}
 			_conflictManager.addActiveConflicts(results);		
 		}
+		
+		
 	
 	}
 

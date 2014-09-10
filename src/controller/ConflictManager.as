@@ -30,6 +30,8 @@ package controller
 		public function addActiveConflicts(newConflicts : Array):void {
 			for (var i : int = 0; i < newConflicts.length; i++) {
 				_activeConflicts.push(newConflicts[i]);
+				var currentConflictAmount : int = parseInt(ViewManager.getInstance().mainSimulationScreen.notification_mc.amount_txt.text); 
+				ViewManager.getInstance().mainSimulationScreen.notification_mc.amount_txt.text = currentConflictAmount + 1;
 			}
 		}
 		
@@ -61,7 +63,7 @@ package controller
 				for (var i : int = 0; i < conflictsLength; i++) {
 					var currentConflict = conflictsXML.conflicts[k].conflict[i];
 					var currentPenalty = currentConflict.penalty;						
-					var penalty : Penalty = new Penalty(currentPenalty.proactivity, currentPenalty.stress);						
+					var penalty : Penalty = new Penalty(currentPenalty.affection);						
 					var solutions : Array = new Array;
 					for (var j : int = 0; j < currentConflict.solutions.solution.length(); j++) {
 						var solution : Solution = new Solution(currentConflict.solutions.solution[j].title,currentConflict.solutions.solution[j].description,currentConflict.solutions.solution[j].affection,currentConflict.solutions.solution[j].nextConflict); 
@@ -85,6 +87,12 @@ package controller
 		public function removeActiveConflict(conflict:Conflict):void 
 		{
 			_activeConflicts.splice(_activeConflicts.indexOf(conflict), 1);
+		}
+		
+		public function applyPenalty(_conflict : Conflict):void 
+		{
+			
+			_conflict.owner.increasePositiveAttributes(_conflict.penalty.affection);
 		}
 		
 		private function create10DayArray():Array 

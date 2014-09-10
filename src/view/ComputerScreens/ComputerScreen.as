@@ -12,7 +12,7 @@ package view.ComputerScreens
 		public function ComputerScreen() 
 		{
 			super();
-			x = 33.7;
+			x = 30;
 			y = 24.3;
 		}
 		

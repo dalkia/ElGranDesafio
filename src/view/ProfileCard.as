@@ -71,10 +71,25 @@ package view
 		}
 		
 		public function addToTeam(e : Event) {	
-			ViewManager.getInstance().carousel.addSelectedProfile(this);
-			_profileManager.addToActiveProfile(_profile);
+			var profileAdded : Boolean = _profileManager.addToActiveProfile(_profile);
+			if (profileAdded) {
+				ViewManager.getInstance().carousel.addSelectedProfile(this);
+				if (contains(addToTeam_mc)) {
+					removeChild(addToTeam_mc);
+				}
+			}					
 		}
 		
+		public function disableAdd():void {
+			if (contains(addToTeam_mc)) {
+				removeChild(addToTeam_mc);
+			}
+		}
+		
+		public function activateCard():void 
+		{
+			addChild(addToTeam_mc);
+		}
 		
 		
 		
@@ -91,6 +106,11 @@ package view
 		public function get image():Bitmap 
 		{
 			return _image;
+		}
+		
+		public function get profile():Profile 
+		{
+			return _profile;
 		}
 		
 		
