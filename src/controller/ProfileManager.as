@@ -240,7 +240,8 @@
 				profile.startTraining();
 				return true;
 			}
-			trace("Mensaje de error");			
+			ViewManager.getInstance().mainSimulationScreen.errors_txt.text = "No se puede iniciar una capacitación";	
+			Utils.fadeInOut(ViewManager.getInstance().mainSimulationScreen.errors_txt, false);
 			return false;
 		}
 		

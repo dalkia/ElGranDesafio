@@ -26,7 +26,6 @@ package view.Mail
 				startSolution_mc.answer_txt.text = "Responder";
 				startSolution_mc.addEventListener(MouseEvent.CLICK, startSolution);
 			}else {
-				trace("Entre aca");
 				startSolution_mc.answer_txt.text = "Eliminar";
 				startSolution_mc.addEventListener(MouseEvent.CLICK, deleteMail);
 			}

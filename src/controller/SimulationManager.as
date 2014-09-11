@@ -189,7 +189,7 @@
 		public function addPoorWorkConflicts(peopleSelected : Array):void{
 			var poorEmails : Array = new Array();
 			for each(var profileTA : Profile in peopleSelected) {
-				var poorEmail : Conflict = new Conflict(0, "Este tarea fue dificil", "El equipo de trabajo que me asigno no me parecio bueno", null, null, profileTA,false);
+				var poorEmail : Conflict = new Conflict(0, "Este tarea fue dificil", "El equipo de trabajo que me asigno no me parecio bueno",new Penalty(0), null, profileTA,false);
 				poorEmails.push(poorEmail);
 			}
 			_conflictManager.addActiveConflicts(poorEmails);
@@ -199,7 +199,7 @@
 		public function addGreatWorkConflicts(peopleSelected : Array):void{
 			var niceEmails : Array = new Array();
 			for each(var profileTA : Profile in peopleSelected) {
-				var goodEmail : Conflict = new Conflict(0, "Este tarea fue excelente!", "Que buen equipo de trabajo", null, null, profileTA,false);
+				var goodEmail : Conflict = new Conflict(0, "Este tarea fue excelente!", "Que buen equipo de trabajo",new Penalty(0), null, profileTA,false);
 				niceEmails.push(goodEmail);
 			}
 			_conflictManager.addActiveConflicts(niceEmails);
@@ -253,7 +253,8 @@
 				ViewManager.getInstance().mainSimulationScreen.setBudget(_budget);
 				return _profileManager.startTraining(profile,0.5);				
 			}else {
-				trace("Mensaje de error");
+				ViewManager.getInstance().mainSimulationScreen.errors_txt.text = "No se puede iniciar una capacitación";
+				Utils.fadeInOut(ViewManager.getInstance().mainSimulationScreen.errors_txt, false);
 				return false;				
 			}
 		
@@ -264,31 +265,7 @@
 			ViewManager.getInstance().mainSimulationScreen.setGroupParamaters(groupParameters[0], groupParameters[1], groupParameters[2], groupParameters[3]);
 		}
 		
-		public function makeParty():void 
-		{
-			if (_budget >= _partyCost) {
-				_budget -= _partyCost;
-				ViewManager.getInstance().mainSimulationScreen.setBudget(_budget);			
-				_profileManager.increasePositiveAtributes(_profileManager.activeProfiles, 5);
-			}else {
-				trace("Mensaje de error");
-			}
 			
-		}
-		
-		public function makeGlobalTraining():void 
-		{
-			if (_budget >= (_trainingCost *  _profileManager.activeProfiles.length)) {
-				_budget -= _trainingCost*  _profileManager.activeProfiles.length;
-				for each(var profile : Profile in _profileManager.activeProfiles) {
-					_profileManager.startTraining(profile,0.5);	
-				}
-				ViewManager.getInstance().mainSimulationScreen.setBudget(_budget);
-			}else {
-				trace("Mensaje de error");							
-			}			
-		}
-		
 		public function hourEndend(hourDuration:int):void 
 		{
 			ViewManager.getInstance().mainSimulationScreen.addOneHour(hourDuration);
@@ -301,7 +278,7 @@
 		
 		public function giveGift(gift:Gift, selectedProfiles:Array):void 
 		{
-			var results : Array = new Array;			
+			var results : Array = new Array;
 			if (gift.giftType == "Individual") {
 				if (_budget >= (gift.cost *  selectedProfiles.length)) {
 					_budget -= gift.cost *  selectedProfiles.length;
@@ -315,14 +292,16 @@
 							resultEmail = new Conflict(0, "Agradecimiento", "Le agradezco el regalo."  + gift.name,new Penalty(0), null, profile, false);
 							profile.gifts.push(gift.name + " " +  gift.cost + " Medio");
 						}else {
-							resultEmail = new Conflict(0, "Posta?", "Esta garcha?"  + gift.name,new Penalty(0), null, profile, false);
+							resultEmail = new Conflict(0, "En serio?", "No me ha gustado su regalo"  + gift.name,new Penalty(0), null, profile, false);
 							profile.gifts.push(gift.name + " " +  gift.cost + " Malo");
 						}
 						results.push(resultEmail);
 					}
 					ViewManager.getInstance().mainSimulationScreen.setBudget(_budget);
 				}else {
-					trace("Mensaje de error");							
+					trace("Entre aca");
+					ViewManager.getInstance().mainSimulationScreen.errors_txt.text = "No hay presupuesto suficiente";
+					Utils.fadeInOut(ViewManager.getInstance().mainSimulationScreen.errors_txt, false);
 				}
 			}else {
 				if (_budget >= (gift.cost)) {
@@ -337,18 +316,22 @@
 							resultEmail = new Conflict(0, "Agradecimiento", "Le agradezco el regalo."  + gift.name,new Penalty(0), null, profile, false);
 							profile.gifts.push(gift.name + " " +  gift.cost + " Medio");
 						}else {
-							resultEmail = new Conflict(0, "Posta?", "Esta garcha?"  + gift.name,new Penalty(0), null, profile, false);
+							resultEmail = new Conflict(0, "En serio?", "No me ha gustado su regalo" + gift.name,new Penalty(0), null, profile, false);
 							profile.gifts.push(gift.name + " " +  gift.cost + " Malo");
 						}
 						results.push(resultEmail);
 					}
 					ViewManager.getInstance().mainSimulationScreen.setBudget(_budget);
 				}else {
-					trace("Mensaje de error");							
+					trace("Entre aca");
+					ViewManager.getInstance().mainSimulationScreen.errors_txt.text = "No hay presupuesto suficiente";	
+					Utils.fadeInOut(ViewManager.getInstance().mainSimulationScreen.errors_txt, false);
 				}
 			}
 			_conflictManager.addActiveConflicts(results);		
 		}
+		
+		
 		
 		
 	

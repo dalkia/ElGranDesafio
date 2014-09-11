@@ -87,18 +87,21 @@ package view.Gift
 		
 		private function giveGift(e:MouseEvent):void 
 		{			
-			if (_gift.giftType == "Individual") {
-				var selectedProfiles : Array = new Array();			
-				for (var i : int = 0; i < currentMovieClips.length; i++) {				
-					if (currentMovieClips[i].userData[0]) {
-						selectedProfiles.push(currentMovieClips[i].userData[1]);
+			if (currentMovieClips.length > 0) {
+				if (_gift.giftType == "Individual") {
+					var selectedProfiles : Array = new Array();			
+					for (var i : int = 0; i < currentMovieClips.length; i++) {				
+						if (currentMovieClips[i].userData[0]) {
+							selectedProfiles.push(currentMovieClips[i].userData[1]);
+						}
+						removeChild(currentMovieClips[i]);
+						currentIcons[i].bitmapData.dispose();				
 					}
-					removeChild(currentMovieClips[i]);
-					currentIcons[i].bitmapData.dispose();				
-				}
-			}			
-			SimulationManager.getInstance().giveGift(_gift, selectedProfiles);			
-			ViewManager.getInstance().mainSimulationScreen.computer.adminScreen.removeGift();		
+				}			
+				SimulationManager.getInstance().giveGift(_gift, selectedProfiles);			
+				ViewManager.getInstance().mainSimulationScreen.computer.adminScreen.removeGift();
+			}
+		
 		}
 		
 	}

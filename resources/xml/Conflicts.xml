@@ -2,8 +2,8 @@
 <data>
 <conflicts owner="Catalina">
 	<conflict id='1' autoActivated="true">
-		<title>Necesito un dia</title>
-		<description>Necesito un dia para ocuparme de mi hijo</description>
+		<title>Necesito un día</title>
+		<description>Necesito un dia para ocuparme de mi hijo.</description>
 		<day>1</day>
 		<penalty>
 			<affection>
@@ -13,17 +13,17 @@
 		<solutions>
 			<solution>
 				<title>Tomatelo</title>
-				<description>Tomatelo hermosa</description>
+				<description>Tomatelo hermosa.</description>
 				<affection>-5</affection>
 			</solution>
 			<solution>
 				<title>Tomatelo</title>
-				<description>Esta todo bien</description>
+				<description>Esta todo bien.</description>
 				<affection>5</affection>
 			</solution>
 			<solution>
 				<title>No</title>
-				<description>Te necesitamos en la empresa</description>
+				<description>Te necesitamos en la empresa.</description>
 				<affection>0</affection>
 				<nextConflict>2</nextConflict>
 			</solution>
@@ -31,7 +31,7 @@
 	</conflict>	
 	<conflict id='2' autoActivated="false">
 		<title>No me diste un dia</title>
-		<description>Necesito un dia para ocuparme de mi hijo, ahora si esta muy enfermo</description>
+		<description>Necesito un dia para ocuparme de mi hijo, ahora si esta muy enfermo,</description>
 		<day>3</day>
 		<penalty>	
 			<affection>
@@ -54,7 +54,22 @@
 	<conflict id='1' autoActivated="true">
 		<title>Me cuesta mucho mi trabajo</title>
 		<day>1</day>
-	</conflict>	
+	</conflict>
+	<penalty>	
+		<affection>
+			2
+		</affection>
+	</penalty>
+	<solutions>
+		<solution>
+			<title>Podrias tomartelo mas tranquila.</title>
+			<affection>2</affection>
+		</solution>
+		<solution>
+			<title>Cualquier cosa que te pueda ayudar avisame.</title>
+			<affection>-2</affection>
+		</solution>
+	</solutions>
 </conflicts>
 <conflicts owner="Martin">
 </conflicts>

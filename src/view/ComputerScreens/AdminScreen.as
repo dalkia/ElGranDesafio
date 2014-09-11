@@ -68,8 +68,7 @@ package view.ComputerScreens
 			for (var i : int = 0; i < globalGifts.length; i++) {				
 				var giftItem : GiftItem = new GiftItem(globalGifts[i]);
 				giftItem.y = giftItem.height * i;
-				globalGiftsMC.addChild(giftItem);
-				
+				globalGiftsMC.addChild(giftItem);				
 			}
 			taskScrollPane.source = globalGiftsMC;
 			taskScrollPane.update();
@@ -77,18 +76,8 @@ package view.ComputerScreens
 			scrollPaneAdded = true;
 			
 		}
+	
 		
-		private function createParty(e:MouseEvent):void 
-		{
-			SimulationManager.getInstance().makeParty();
-			ViewManager.getInstance().mainSimulationScreen.computer.closeComputer(null);
-		}
-		
-		private function createGlobalTraining(e:MouseEvent):void 
-		{
-			SimulationManager.getInstance().makeGlobalTraining();
-			ViewManager.getInstance().mainSimulationScreen.computer.closeComputer(null);
-		}
 		
 		public function openTaskView(task:Task):void 
 		{

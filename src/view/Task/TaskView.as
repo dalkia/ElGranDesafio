@@ -112,16 +112,19 @@ package view.Task
 		
 		private function startTask(e:MouseEvent):void 
 		{
-			var selectedProfiles : Array = new Array();			
-			for (var i : int = 0; i < currentMovieClips.length; i++) {				
-				if (currentMovieClips[i].userData[0]) {
-					selectedProfiles.push(currentMovieClips[i].userData[1]);
-				}
-				removeChild(currentMovieClips[i]);
-				currentIcons[i].bitmapData.dispose();				
+			var selectedProfiles : Array = new Array();		
+			if (currentMovieClips.length > 0) {
+				for (var i : int = 0; i < currentMovieClips.length; i++) {				
+					if (currentMovieClips[i].userData[0]) {
+						selectedProfiles.push(currentMovieClips[i].userData[1]);
+					}
+					removeChild(currentMovieClips[i]);
+					currentIcons[i].bitmapData.dispose();				
+					}
+				SimulationManager.getInstance().startNewTask(_task, selectedProfiles);
+				ViewManager.getInstance().mainSimulationScreen.computer.adminScreen.removeTask();		
 			}
-			SimulationManager.getInstance().startNewTask(_task, selectedProfiles);
-			ViewManager.getInstance().mainSimulationScreen.computer.adminScreen.removeTask();			
+	
 		}
 		
 	}

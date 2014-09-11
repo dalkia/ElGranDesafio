@@ -100,7 +100,7 @@
 		{
 			_endSimulationScreen = new EndSimulationScreen(profilesSelected, totalMoney, teamPoints,completeTasks);
 			_endSimulationScreen.x = stage.width / 2 - _endSimulationScreen.width /2 - 20;
-			_endSimulationScreen.y = stage.height / 2 - _endSimulationScreen.height / 2 - 40;
+			_endSimulationScreen.y = stage.height / 2 - 547 / 2 - 40;
 			addChild(_endSimulationScreen);
 			day_txt.text = "";
 			time_txt.text = "";

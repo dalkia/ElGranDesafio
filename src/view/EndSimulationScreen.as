@@ -30,7 +30,7 @@ package view
 				arrayCounter++;
 			}
 			taskScrollPane = new ScrollPane();		
-			taskScrollPane.horizontalScrollPolicy = ScrollPolicy.ON;
+			taskScrollPane.horizontalScrollPolicy = ScrollPolicy.OFF;
 			taskScrollPane.width = 690.85;
 			taskScrollPane.height = 184.88;	
 			taskScrollPane.x = 36.95;	

@@ -32,8 +32,10 @@ package view
 		private function openTask(e:MouseEvent):void 
 		{
 			var taskView : TaskView = new TaskView(task, true, this);
+			var taskView : TaskView = new TaskView(task, true, this);
 			taskView.x = endSimulationScreen.width / 2 - taskView.width / 2;
 			taskView.y = 30;
+			
 			endSimulationScreen.addChild(taskView);
 		}
 		

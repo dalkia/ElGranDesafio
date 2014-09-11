@@ -39,6 +39,7 @@ package view
 		private var _profileState : ProfileState;
 		
 		private var progressBarOn : Boolean;
+		private var menuOn : Boolean;
 		
 		public function AnimationManager(normalAnimation : MovieClip, happyAnimation : MovieClip, sadAnimation : MovieClip, profileState : ProfileState) 
 		{
@@ -65,17 +66,20 @@ package view
 			currentLabel.setStyle("textFormat", format);
 			
 			progressBarOn = false;
+			menuOn = false;
 		}
 		
 		private function showProfileMenu(e:MouseEvent):void 
 		{			
 			_currentAnimation.addChild(_profileMenu);			
+			menuOn = true;
 			ViewManager.getInstance().mainSimulationScreen.addEventListener(MouseEvent.MOUSE_UP, removeProfileMenu);
 		}
 		
 		private function removeProfileMenu(e:MouseEvent):void 
 		{			
-			ViewManager.getInstance().mainSimulationScreen.removeEventListener(MouseEvent.MOUSE_UP,removeProfileMenu);
+			ViewManager.getInstance().mainSimulationScreen.removeEventListener(MouseEvent.MOUSE_UP, removeProfileMenu);
+			menuOn = false;
 			_currentAnimation.removeChild(_profileMenu);
 		}
 		
@@ -129,19 +133,24 @@ package view
 				_currentAnimation.removeChild(currentLabel);
 				_currentAnimation.removeChild(currentProgressBar);
 			}
+			if (menuOn) {
+				_currentAnimation.removeChild(_profileMenu);
+			}
 			if (humanProfile.getActualPerformance() > 7.5) {
 				_currentAnimation = _happyAnimation;			
 				
 			}else if (humanProfile.getActualPerformance() > 4.0) {
 				_currentAnimation = _normalAnimation;				
 			}else {
-				_currentAnimation = _sadAnimation;
-				
+				_currentAnimation = _sadAnimation;				
 			}
 			if (progressBarOn) {
 				currentLabel.text = temporarySavedText;
+				_currentAnimation.addChild(currentProgressBar);	
 				_currentAnimation.addChild(currentLabel);
-				_currentAnimation.addChild(currentProgressBar);				
+			}
+			if (menuOn) {
+				_currentAnimation.addChild(_profileMenu);
 			}
 			_currentAnimation.addEventListener(MouseEvent.CLICK, showProfileMenu);
 			ViewManager.getInstance().mainSimulationScreen.updateCharacterAnimations();
