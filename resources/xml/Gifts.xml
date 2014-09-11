@@ -29,7 +29,7 @@
 	<gift>
 		<type>Individual</type>
 		<name>Reloj</name>
-		<description>Es un reloj muy hermoso, te kbe</description>
+		<description>Es un reloj muy hermoso</description>
 		<cost>20</cost>
 		<image></image>
 		<results>
