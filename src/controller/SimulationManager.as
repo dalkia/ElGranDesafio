@@ -103,7 +103,8 @@
 				var currentNews : News = _newsManager.activeNews[day];
 				ViewManager.getInstance().mainSimulationScreen.createNews(currentNews, day);
 				if (currentNews.affection != 0) {
-					_profileManager.increasePositiveAtributes(_profileManager.activeProfiles, currentNews.affection);
+					_profileManager.increaseMotivacion(_profileManager.activeProfiles, currentNews.affection);
+					_profileManager.increaseProactividad(_profileManager.activeProfiles, currentNews.affection);
 				}				
 				_conflictManager.addActiveConflicts(conflictsForDay);
 				ViewManager.getInstance().mainSimulationScreen.setDay(day + 1);
@@ -215,7 +216,7 @@
 		public function startSolution(solution:Solution, conflict:Conflict):void 
 		{
 			_conflictManager.removeActiveConflict(conflict);		
-			_profileManager.increasePositiveAtributes(new Array(conflict.owner), solution.affection);
+			_profileManager.increaseEmpatia(new Array(conflict.owner), solution.affection);
 			if (solution.nextConflict != 0) {
 				
 				var newConflict : Conflict;		

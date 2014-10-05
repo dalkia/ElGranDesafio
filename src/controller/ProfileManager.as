@@ -196,10 +196,38 @@
 		{
 			for (var i : int = 0; i < peopleSelected.length; i++) {
 				peopleSelected[i].increasePositiveAttributes(affection);
-			}			
-			
-			
+			}					
 		}
+		
+		public function increaseMotivacion(peopleSelected:Array, affection : int):void 
+		{
+			for (var i : int = 0; i < peopleSelected.length; i++) {
+				peopleSelected[i].increaseMotivacion(affection);
+			}					
+		}
+		
+		public function increaseProactividad(peopleSelected:Array, affection : int):void 
+		{
+			for (var i : int = 0; i < peopleSelected.length; i++) {
+				peopleSelected[i].increaseProactividad(affection);
+			}					
+		}
+		
+		public function increaseEmpatia(peopleSelected:Array, affection : int):void 
+		{
+			for (var i : int = 0; i < peopleSelected.length; i++) {
+				peopleSelected[i].increaseEmpatia(affection);
+			}					
+		}
+		
+		public function increaseCooperacion(peopleSelected:Array, affection : int):void 
+		{
+			for (var i : int = 0; i < peopleSelected.length; i++) {
+				peopleSelected[i].increaseCooperacion(affection);
+			}					
+		}
+		
+		
 		
 		public function addConflicts(name:String, conflictsForDay:Array, pendingConflicts:Array):void 
 		{
@@ -282,7 +310,7 @@
 		public function giveGift(profile:Profile, gift:Gift):int 
 		{
 			var affection : int = gift.getAffectionForProfile(profile.humanProfile.generation);
-			profile.increasePositiveAttributes(affection);
+			profile.increaseEmpatia(affection);
 			return affection;
 		}
 		

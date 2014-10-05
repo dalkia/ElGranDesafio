@@ -2,10 +2,10 @@
 <data>
 <gifts>
 	<gift>
-		<type>Global</type>
-		<name>Party</name>
-		<description>Partey</description>
-		<cost>20</cost>
+		<type>Individual</type>
+		<name>Flores</name>
+		<description>Un hermoso ramo de flores primaverales.</description>
+		<cost>80</cost>
 		<image></image>
 		<results>
 			<result>
@@ -28,9 +28,9 @@
 	</gift>
 	<gift>
 		<type>Individual</type>
-		<name>Reloj</name>
-		<description>Es un reloj muy hermoso</description>
-		<cost>20</cost>
+		<name>Lapicera</name>
+		<description>Lapicera de alta gama.</description>
+		<cost>500</cost>
 		<image></image>
 		<results>
 			<result>
@@ -51,5 +51,355 @@
 			</result>
 		</results>		
 	</gift>
+	<gift>
+		<type>Individual</type>
+		<name>Cuaderno</name>
+		<description>Cuaderno institucional para uso general.</description>
+		<cost>30</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+	<gift>
+		<type>Individual</type>
+		<name>Chocolates</name>
+		<description>Selección de los mejores chocolates.</description>
+		<cost>235</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+	<gift>
+		<type>Individual</type>
+		<name>Vino</name>
+		<description>Selección del mejor vino.</description>
+		<cost>180</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+	<gift>
+		<type>Individual</type>
+		<name>Torta</name>
+		<description>Marquisse de chocolate para distender los ánimos.</description>
+		<cost>80</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+	<gift>
+		<type>Individual</type>
+		<name>Pendrive</name>
+		<description>8GB de memoria para archivos, música y uso general.</description>
+		<cost>200</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+	<gift>
+		<type>Individual</type>
+		<name>Celular</name>
+		<description>Nuevo MutOX V2.H con cámara de 12 Mega pixeles.</description>
+		<cost>1200</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+	<gift>
+		<type>Individual</type>
+		<name>Libro</name>
+		<description>Bestseller actual.</description>
+		<cost>180</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+	<gift>
+		<type>Individual</type>
+		<name>Canasta de regalos</name>
+		<description>Una selección de los mejores matambres y quesos.</description>
+		<cost>250</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+	<gift>
+		<type>Global</type>
+		<name>After Office</name>
+		<description>Reunión en O'Callaghans, cervezas traicionales.</description>
+		<cost>1500</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+	<gift>
+		<type>Global</type>
+		<name>Desayuno</name>
+		<description>Desayuno típico americano.</description>
+		<cost>2000</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+	<gift>
+		<type>Global</type>
+		<name>Paintball</name>
+		<description>Día de paintball en la localidad de San Andres de Giles.</description>
+		<cost>1000</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>
+	<gift>
+		<type>Global</type>
+		<name>Día de campo</name>
+		<description>Día de campo en San Andres de Giles.</description>
+		<cost>2500</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>	
+	<gift>
+		<type>Global</type>
+		<name>Fiesta</name>
+		<description>Noche de fiesta en el Sheraton, incluye catering.</description>
+		<cost>5000</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>	
+	<gift>
+		<type>Global</type>
+		<name>Limpieza General</name>
+		<description>Limpieza de toda la oficina y de todo los escritorios.</description>
+		<cost>500</cost>
+		<image></image>
+		<results>
+			<result>
+				<generation>X</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Y</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>Z</generation>
+				<affection>10</affection>
+			</result>
+			<result>
+				<generation>BB</generation>
+				<affection>10</affection>
+			</result>
+		</results>		
+	</gift>	
 </gifts>
 </data>

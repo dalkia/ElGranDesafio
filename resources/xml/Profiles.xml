@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <data>
 <profile>
 	<name>Catalina</name>
@@ -10,12 +10,12 @@
 	<technicalProfile>Ingeniería</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
-			<name>Programación</name>
-			<value>10</value>
+			<name>Organización</name>
+			<value>5</value>
 		</mainAttribute>
 		<secondAttribute>
-			<name>Diseño</name>
-			<value>0</value>
+			<name>Analisis de Problemas</name>
+			<value>7</value>
 		</secondAttribute>
 		<thirdAttribute>
 			<name>Comunicación</name>
@@ -23,7 +23,7 @@
 		</thirdAttribute>
 		<fourthAttribute>
 			<name>Investigación</name>
-			<value>4</value>
+			<value>6</value>
 		</fourthAttribute>
 	</technicalAbilities>
 	<img>../resources/ProfileImages/Catalina.png</img>	
@@ -43,20 +43,20 @@
 	<technicalProfile>Bachiller</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
-			<name>Programación</name>
-			<value>1</value>
+			<name>Organización</name>
+			<value>5</value>
 		</mainAttribute>
 		<secondAttribute>
-			<name>Diseño</name>
-			<value>1</value>
+			<name>Analisis de Problemas</name>
+			<value>7</value>
 		</secondAttribute>
 		<thirdAttribute>
 			<name>Comunicación</name>
-			<value>3</value>
+			<value>4</value>
 		</thirdAttribute>
 		<fourthAttribute>
 			<name>Investigación</name>
-			<value>1</value>
+			<value>6</value>
 		</fourthAttribute>
 	</technicalAbilities>
 	<img>../resources/ProfileImages/Marta.png</img>	
@@ -76,20 +76,20 @@
 	<technicalProfile>Lic. Administración de Empresas</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
-			<name>Programación</name>
-			<value>1</value>
+			<name>Organización</name>
+			<value>5</value>
 		</mainAttribute>
 		<secondAttribute>
-			<name>Diseño</name>
-			<value>1</value>
+			<name>Analisis de Problemas</name>
+			<value>7</value>
 		</secondAttribute>
 		<thirdAttribute>
 			<name>Comunicación</name>
-			<value>1</value>
+			<value>4</value>
 		</thirdAttribute>
 		<fourthAttribute>
 			<name>Investigación</name>
-			<value>1</value>
+			<value>6</value>
 		</fourthAttribute>
 	</technicalAbilities>
 	<img>../resources/ProfileImages/Martin.png</img>	
@@ -109,20 +109,20 @@
 	<technicalProfile>Lic. Humanidades</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
-			<name>Programación</name>
-			<value>1</value>
+			<name>Organización</name>
+			<value>5</value>
 		</mainAttribute>
 		<secondAttribute>
-			<name>Diseño</name>
-			<value>1</value>
+			<name>Analisis de Problemas</name>
+			<value>7</value>
 		</secondAttribute>
 		<thirdAttribute>
 			<name>Comunicación</name>
-			<value>1</value>
+			<value>4</value>
 		</thirdAttribute>
 		<fourthAttribute>
 			<name>Investigación</name>
-			<value>1</value>
+			<value>6</value>
 		</fourthAttribute>
 	</technicalAbilities>
 	<img>../resources/ProfileImages/Nicolas.png</img>
@@ -142,20 +142,20 @@
 	<technicalProfile>Secundario técnico</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
-			<name>Programación</name>
-			<value>1</value>
+			<name>Organización</name>
+			<value>5</value>
 		</mainAttribute>
 		<secondAttribute>
-			<name>Diseño</name>
-			<value>1</value>
+			<name>Analisis de Problemas</name>
+			<value>7</value>
 		</secondAttribute>
 		<thirdAttribute>
 			<name>Comunicación</name>
-			<value>1</value>
+			<value>4</value>
 		</thirdAttribute>
 		<fourthAttribute>
 			<name>Investigación</name>
-			<value>1</value>
+			<value>6</value>
 		</fourthAttribute>
 	</technicalAbilities>
 	<img>../resources/ProfileImages/Roberto.png</img>	
@@ -175,20 +175,20 @@
 	<technicalProfile>Bachiller</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
-			<name>Programación</name>
-			<value>1</value>
+			<name>Organización</name>
+			<value>5</value>
 		</mainAttribute>
 		<secondAttribute>
-			<name>Diseño</name>
-			<value>1</value>
+			<name>Analisis de Problemas</name>
+			<value>7</value>
 		</secondAttribute>
 		<thirdAttribute>
 			<name>Comunicación</name>
-			<value>1</value>
+			<value>4</value>
 		</thirdAttribute>
 		<fourthAttribute>
 			<name>Investigación</name>
-			<value>1</value>
+			<value>6</value>
 		</fourthAttribute>
 	</technicalAbilities>
 	<img>../resources/ProfileImages/Tomas.png</img>	
@@ -208,20 +208,20 @@
 	<technicalProfile>Lic. Humanidades</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
-			<name>Programación</name>
-			<value>1</value>
+			<name>Organización</name>
+			<value>5</value>
 		</mainAttribute>
 		<secondAttribute>
-			<name>Diseño</name>
-			<value>1</value>
+			<name>Analisis de Problemas</name>
+			<value>7</value>
 		</secondAttribute>
 		<thirdAttribute>
 			<name>Comunicación</name>
-			<value>1</value>
+			<value>4</value>
 		</thirdAttribute>
 		<fourthAttribute>
 			<name>Investigación</name>
-			<value>1</value>
+			<value>6</value>
 		</fourthAttribute>
 	</technicalAbilities>
 	<img>../resources/ProfileImages/Valentina.png</img>	
@@ -241,20 +241,20 @@
 	<technicalProfile>Lic. Administración de Empresas</technicalProfile>
 	<technicalAbilities>
 		<mainAttribute>
-			<name>Programación</name>
-			<value>1</value>
+			<name>Organización</name>
+			<value>5</value>
 		</mainAttribute>
 		<secondAttribute>
-			<name>Diseño</name>
-			<value>1</value>
+			<name>Analisis de Problemas</name>
+			<value>7</value>
 		</secondAttribute>
 		<thirdAttribute>
 			<name>Comunicación</name>
-			<value>1</value>
+			<value>4</value>
 		</thirdAttribute>
 		<fourthAttribute>
 			<name>Investigación</name>
-			<value>1</value>
+			<value>6</value>
 		</fourthAttribute>
 	</technicalAbilities>
 	<img>../resources/ProfileImages/Victoria.png</img>	

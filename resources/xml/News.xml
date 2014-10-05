@@ -1,64 +1,64 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
 <news>
-	<title>Dia 1</title>
-	<description>No pasa nada</description>
+	<title>Fin de semana lleno de fútbol</title>
+	<description>Los partidos del fin de semana han estado llenos de emoción.</description>
 	<day>1</day>
 	<affection>0</affection>
 </news>	
 <news>
-	<title>Paro Gremial</title>
-	<description>Descripcion del paro gremial</description>
+	<title>Paro de transporte</title>
+	<description>Varias líneas de subte y colectivo se adhieren al paro del día de la fecha.</description>
 	<day>2</day>
 	<affection>-1</affection>
 </news>	
 <news>
-	<title>Dia 3</title>
-	<description>Descripcion del paro gremial</description>
+	<title>Rock in Buenos Aires</title>
+	<description>El gobierno de la ciudad ofrece un concierto gratuito con las mejores bandas argentinas</description>
 	<day>3</day>
+	<affection>1</affection>
+</news>	
+<news>
+	<title>Se inaugura la línea Z</title>
+	<description>Toda la ciudad esta presente para presenciar este gran evento.</description>
+	<day>4</day>
 	<affection>0</affection>
 </news>	
 <news>
-	<title>Corte de luz global</title>
-	<description>Hay muchas csas sin luz</description>
-	<day>4</day>
+	<title>Suba de impuestos</title>
+	<description>Se agrega un impuesto a la transacción con tarjetas de crédito</description>
+	<day>5</day>
 	<affection>-1</affection>
 </news>	
 <news>
-	<title>Dia 5</title>
-	<description>No pasa nada</description>
-	<day>5</day>
-	<affection>0</affection>
-</news>	
-<news>
-	<title>Dia 6</title>
-	<description>No pasa nada</description>
+	<title>Aumentan el salario básico</title>
+	<description>Por un decreto presidencial, se aumenta el minimo sueldo imponible.</description>
 	<day>6</day>
-	<affection>0</affection>
+	<affection>1</affection>
 </news>	
 <news>
-	<title>Anuncio de suba de impuestos</title>
-	<description>Disconformidad general en la poblacion por la suba de los impuestos</description>
+	<title>Una nube tóxica esta estancada en la ciudad</title>
+	<description>Una nube tóxica ocasionada por un fuga molesta a los habitantes de la ciudad.</description>
 	<day>7</day>
-	<affection>-2</affection>
+	<affection>-1</affection>
 </news>	
 <news>
-	<title>Dia 8</title>
-	<description>No pasa nada</description>
+	<title>Aparece una nueva raza de perro</title>
+	<description>Es una mezcla entre Caniche Toy y Golden Retriever. </description>
 	<day>8</day>
 	<affection>0</affection>
 </news>	
 <news>
-	<title>Dia 9</title>
-	<description>No pasa nada</description>
+	<title>Dias de ofertas!</title>
+	<description>Sobre el fin de mes, aumentan las ofertas para fomentar el consumo junto con el pago del aguinaldo.</description>
 	<day>9</day>
-	<affection>0</affection>
+	<affection>1</affection>
 </news>	
 <news>
-	<title>Dia 10</title>
-	<description>Fin de mes</description>
+	<title>Accidente de tránsito</title>
+	<description>Choque en cadena genera embotellamiento general.</description>
 	<day>10</day>
-	<affection>8</affection>
+	<affection>-1</affection>
 </news>	
 
 </data>

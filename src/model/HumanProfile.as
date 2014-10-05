@@ -1,4 +1,4 @@
-package model 
+﻿package model 
 {
 	/**
 	 * ...
@@ -61,6 +61,7 @@ package model
 		{
 			return _humanAttributes;
 		}
+		
 		
 	
 	

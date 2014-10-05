@@ -248,6 +248,84 @@
 			SimulationManager.getInstance().updateGroupAttributes(SimulationManager.getInstance().profileManager.getGroupParameters());
 		}
 		
+		public function increaseEmpatia(affection : int):void {
+			var attribute : Attribute = _humanProfile.empatia;
+			if (affection > 0) {
+				if (attribute.value + affection >= 10) {
+					attribute.value = 10;
+				}else {
+					attribute.value = attribute.value + affection;
+				}
+			}else if(affection < 0) {
+				if (attribute.value + affection <= 0) {
+					attribute.value = 0;
+				}else {
+					attribute.value = attribute.value + affection;
+				}
+			}
+			updateAnimation();
+			SimulationManager.getInstance().updateGroupAttributes(SimulationManager.getInstance().profileManager.getGroupParameters());
+		}
+		
+		public function increaseMotivacion(affection : int):void {
+			var attribute : Attribute = _humanProfile.motivacion;
+			if (affection > 0) {
+				if (attribute.value + affection >= 10) {
+					attribute.value = 10;
+				}else {
+					attribute.value = attribute.value + affection;
+				}
+			}else if(affection < 0) {
+				if (attribute.value + affection <= 0) {
+					attribute.value = 0;
+				}else {
+					attribute.value = attribute.value + affection;
+				}
+			}
+			updateAnimation();
+			SimulationManager.getInstance().updateGroupAttributes(SimulationManager.getInstance().profileManager.getGroupParameters());
+		}
+		
+		public function increaseCooperacion(affection : int):void {
+			var attribute : Attribute = _humanProfile.cooperacion;
+			if (affection > 0) {
+				if (attribute.value + affection >= 10) {
+					attribute.value = 10;
+				}else {
+					attribute.value = attribute.value + affection;
+				}
+			}else if(affection < 0) {
+				if (attribute.value + affection <= 0) {
+					attribute.value = 0;
+				}else {
+					attribute.value = attribute.value + affection;
+				}
+			}
+			updateAnimation();
+			SimulationManager.getInstance().updateGroupAttributes(SimulationManager.getInstance().profileManager.getGroupParameters());
+		}
+
+		public function increaseProactividad(affection : int):void {
+			var attribute : Attribute = _humanProfile.proactividad;
+			if (affection > 0) {
+				if (attribute.value + affection >= 10) {
+					attribute.value = 10;
+				}else {
+					attribute.value = attribute.value + affection;
+				}
+			}else if(affection < 0) {
+				if (attribute.value + affection <= 0) {
+					attribute.value = 0;
+				}else {
+					attribute.value = attribute.value + affection;
+				}
+			}
+			updateAnimation();
+			SimulationManager.getInstance().updateGroupAttributes(SimulationManager.getInstance().profileManager.getGroupParameters());
+		}
+
+
+		
 		public function addExperience(newExperience : int):void {
 			if (_technicalProfile.experience + newExperience >= 10) {
 					_technicalProfile.experience = 10;

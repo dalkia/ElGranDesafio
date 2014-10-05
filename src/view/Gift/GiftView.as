@@ -1,4 +1,4 @@
-package view.Gift 
+﻿package view.Gift 
 {
 	import controller.SimulationManager;
 	import controller.ViewManager;
@@ -97,11 +97,12 @@ package view.Gift
 						removeChild(currentMovieClips[i]);
 						currentIcons[i].bitmapData.dispose();				
 					}
-				}			
-				SimulationManager.getInstance().giveGift(_gift, selectedProfiles);			
-				ViewManager.getInstance().mainSimulationScreen.computer.adminScreen.removeGift();
+				}	
+			}else{
+				var selectedProfiles : Array = SimulationManager.getInstance().getActiveProfiles();
 			}
-		
+			SimulationManager.getInstance().giveGift(_gift, selectedProfiles);			
+			ViewManager.getInstance().mainSimulationScreen.computer.adminScreen.removeGift();
 		}
 		
 	}

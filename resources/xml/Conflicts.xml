@@ -2,8 +2,8 @@
 <data>
 <conflicts owner="Catalina">
 	<conflict id='1' autoActivated="true">
-		<title>Necesito un día</title>
-		<description>Necesito un dia para ocuparme de mi hijo.</description>
+		<title>Necesito tomarme un día</title>
+		<description>Vengo al límite y creo que voy a engriparme si no me tomo un día personal</description>
 		<day>1</day>
 		<penalty>
 			<affection>
@@ -12,20 +12,55 @@
 		</penalty>
 		<solutions>
 			<solution>
-				<title>Tomatelo</title>
-				<description>Tomatelo hermosa.</description>
-				<affection>-5</affection>
+				<description>Hace Home Office</description>
+				<affection>-1</affection>
 			</solution>
 			<solution>
-				<title>Tomatelo</title>
-				<description>Esta todo bien.</description>
-				<affection>5</affection>
-			</solution>
-			<solution>
-				<title>No</title>
-				<description>Te necesitamos en la empresa.</description>
+				<title></title>
+				<description>Sería mejor si te lo tomas la semana que viene</description>
 				<affection>0</affection>
-				<nextConflict>2</nextConflict>
+			</solution>
+			<solution>
+				<title></title>
+				<description>De ninguna manera.</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<title></title>
+				<description>Dale, tomate el día. Después vemos como recuperás el día.</description>
+				<affection>1</affection>
+				<!--<nextConflict>2</nextConflict>-->
+			</solution>
+		</solutions>
+	</conflict>	
+	<conflict id='1' autoActivated="true">
+		<title>No me siento comodo en el grupo.</title>
+		<description>Siento que el grupo me separa, no encuentro manera de integrarme.</description>
+		<day>1</day>
+		<penalty>
+			<affection>
+				-2
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>No te preocupes se acerca un paintball</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<title></title>
+				<description>Creo que lo mejor es hablar estas cosas, ¿querés que lo hablemos en la reunión semanal?</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<title></title>
+				<description>No es mi problema.</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<title></title>
+				<description>Hacete fuerte</description>
+				<affection>-1</affection>
 			</solution>
 		</solutions>
 	</conflict>	
@@ -80,10 +115,6 @@
 <conflicts owner="Tomas">
 </conflicts>
 <conflicts owner="Valentina">
-	<conflict id='1' autoActivated="true">
-		<title>Tengo pulgas</title>
-		<day>4</day>
-	</conflict>	
 </conflicts>
 <conflicts owner="Victoria">
 </conflicts>

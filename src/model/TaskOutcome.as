@@ -133,7 +133,7 @@
 		}
 		
 		public function activateOutcome():void{
-			SimulationManager.getInstance().affectHumanProfiles(_affection, _profilesSelected);
+			SimulationManager.getInstance().profileManager.increaseCooperacion(_profilesSelected,_affection);
 			if(createConflicts){
 				SimulationManager.getInstance().addPoorWorkConflicts(_profilesSelected);
 			}else if (createGreatWorkConflict) {
