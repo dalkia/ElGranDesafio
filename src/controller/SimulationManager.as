@@ -35,6 +35,7 @@
 		
 		private var _trainingTime : int;
 		private var _trainingCost : int;
+		private var _dayDuration : int;
 		
 		private var _partyCost : int;
 		
@@ -73,8 +74,8 @@
 			hourEndend(1);
 			updateGroupAttributes(_profileManager.getGroupParameters());
 			ViewManager.getInstance().mainSimulationScreen.updateTeamPoints(0);
-			var dayDuration : int = parseInt(ViewManager.getInstance().startScreen.dayDuration_txt.text);
-			_timeManager = new TimeManager(dayDuration);
+			_dayDuration = parseInt(ViewManager.getInstance().startScreen.dayDuration_txt.text);
+			_timeManager = new TimeManager(_dayDuration);
 			_trainingTime = dayDuration*1000;
 			_timeManager.startTimers();
 		}
@@ -138,6 +139,11 @@
 		public function get trainingTime():int 
 		{
 			return _trainingTime;
+		}
+		
+		public function get dayDuration():int 
+		{
+			return _dayDuration;
 		}
 		
 		public function get giftManager():GiftManager 
@@ -299,8 +305,7 @@
 						results.push(resultEmail);
 					}
 					ViewManager.getInstance().mainSimulationScreen.setBudget(_budget);
-				}else {
-					trace("Entre aca");
+				}else {					
 					ViewManager.getInstance().mainSimulationScreen.errors_txt.text = "No hay presupuesto suficiente";
 					Utils.fadeInOut(ViewManager.getInstance().mainSimulationScreen.errors_txt, false);
 				}

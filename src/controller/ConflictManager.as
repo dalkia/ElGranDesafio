@@ -92,7 +92,7 @@ package controller
 		public function applyPenalty(_conflict : Conflict):void 
 		{
 			
-			_conflict.owner.increasePositiveAttributes(_conflict.penalty.affection);
+			_conflict.owner.increaseEmpatia(_conflict.penalty.affection);
 		}
 		
 		private function create10DayArray():Array 

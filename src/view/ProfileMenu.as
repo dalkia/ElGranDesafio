@@ -13,10 +13,10 @@
 			_animationManager = animationManager;
 			viewProfile_btn.gotoAndStop(0);
 			train_btn.gotoAndStop(0);
-			talk_btn.gotoAndStop(0);
+			//talk_btn.gotoAndStop(0);
 			viewProfile_btn.addEventListener(MouseEvent.MOUSE_DOWN, openProfileState);			
 			train_btn.addEventListener(MouseEvent.MOUSE_DOWN, train);
-			talk_btn.addEventListener(MouseEvent.MOUSE_DOWN, startTalk);
+			//talk_btn.addEventListener(MouseEvent.MOUSE_DOWN, startTalk);
 		}
 		
 		private function startTalk(e:MouseEvent):void 

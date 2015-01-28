@@ -4,7 +4,7 @@
 	<conflict id='1' autoActivated="true">
 		<title>Necesito tomarme un día</title>
 		<description>Vengo al límite y creo que voy a engriparme si no me tomo un día personal</description>
-		<day>1</day>
+		<day>2</day>
 		<penalty>
 			<affection>
 				-2
@@ -33,10 +33,10 @@
 			</solution>
 		</solutions>
 	</conflict>	
-	<conflict id='1' autoActivated="true">
+	<conflict id='2' autoActivated="true">
 		<title>No me siento comodo en el grupo.</title>
 		<description>Siento que el grupo me separa, no encuentro manera de integrarme.</description>
-		<day>1</day>
+		<day>7</day>
 		<penalty>
 			<affection>
 				-2
@@ -64,7 +64,7 @@
 			</solution>
 		</solutions>
 	</conflict>	
-	<conflict id='2' autoActivated="false">
+	<conflict id='17' autoActivated="false">
 		<title>No me diste un dia</title>
 		<description>Necesito un dia para ocuparme de mi hijo, ahora si esta muy enfermo,</description>
 		<day>3</day>
@@ -86,37 +86,414 @@
 	</conflict>	
 </conflicts>
 <conflicts owner="Marta">
-	<conflict id='1' autoActivated="true">
-		<title>Me cuesta mucho mi trabajo</title>
-		<day>1</day>
-	</conflict>
-	<penalty>	
-		<affection>
-			2
-		</affection>
-	</penalty>
-	<solutions>
-		<solution>
-			<title>Podrias tomartelo mas tranquila.</title>
-			<affection>2</affection>
-		</solution>
-		<solution>
-			<title>Cualquier cosa que te pueda ayudar avisame.</title>
-			<affection>-2</affection>
-		</solution>
-	</solutions>
+	<conflict id='3' autoActivated="true">
+		<title>El grupo no me da mi espacio para trabajar.</title>
+		<description>El grupo me esta metiendo presion todo el tiempo, y no puedo trabajar.</description>
+		<day>2</day>
+		<penalty>	
+			<affection>		
+				-2
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>La exigencia es el origen de todo buen resultado</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<description>Es porque no sos eficiente con tu tiempo</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<description>Reunámosnos y charlemoslo, creo que podemos encontrar una solución</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>Charlemoslo en la reunión semanal</description>
+				<affection>1</affection>
+			</solution>
+		</solutions>
+	</conflict>	
+	<conflict id='4' autoActivated="true">
+		<title>Me divorcie y no me puedo concentrar en el trabajo</title>
+		<description>Mi situacion actual personal me esta impidiendo llevar adelante mi trabajo.</description>
+		<day>7</day>
+		<penalty>	
+			<affection>	
+				-4
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>Tomate un día para poner tus cosas en orden</description>
+				<affection>1</affection>
+			</solution>
+			<solution>				
+				<description>Tal vez sea momento de buscar otro trabajo</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<description>Soy tu jefe, no tu amigo.</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>¿Te parece si nos tomamos un cafe después del trabajo y lo charlamos?</description>
+				<affection>1</affection>
+			</solution>
+		</solutions>
+	</conflict>	
 </conflicts>
 <conflicts owner="Martin">
+	<conflict id='5' autoActivated="true">
+		<title>Siento que el ambiente de trabajo no es el adecuado</title>
+		<description>A esta oficina le falta algo para motivar al equipo.</description>
+		<day>2</day>
+		<penalty>	
+			<affection>	
+				-2
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>Tené paciencia que se acerca algo interesante</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>Acá no venimos a jugar, venimos a trabajar.</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>¿Que crees que podría ayudar?</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>No se bien que decirte, dejame que lo piense.</description>
+				<affection>0</affection>
+			</solution>
+		</solutions>
+	</conflict>	
+	<conflict id='6' autoActivated="true">
+		<title>No se si estoy capacitado totalmente para este trabajo.</title>
+		<description>Lo estoy realizando, pero a veces siento que no soy suficiente.</description>
+		<day>7</day>
+		<penalty>	
+			<affection>		
+				-4
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>Creo que una capacitación te vendría bien.</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>¿Qué cosas crees que te están faltando?</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>Yo creo que estas bien, tenes que relajarte un poco</description>
+				<affection>2</affection>
+			</solution>
+			<solution>
+				<description>Esforzate más, vos podes.</description>
+				<affection>1</affection>
+			</solution>
+		</solutions>
+	</conflict>	
 </conflicts>
 <conflicts owner="Nicolas">
+	<conflict id='7' autoActivated="true">
+		<title>Problemas con las custodia de mi hijos</title>
+		<description>Tengo una cita a las 9 am con el juez a cargo. Llegaré más tarde</description>
+		<day>2</day>
+		<penalty>	
+			<affection>
+				-2			
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>No hay problema, después recuperás las horas</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>Tomate el día</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>Corré la fecha, mañana te necesitamos</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<description>De ninguna manera</description>
+				<affection>-1</affection>
+			</solution>
+		</solutions>
+	</conflict>	
+	<conflict id='8' autoActivated="true">
+		<title>Debo ir a declarar a la policía</title>
+		<description>Me robaron el auto y debo ir a declarar a la comisaría.</description>
+		<day>7</day>
+		<penalty>	
+			<affection>		
+				-4
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>Anda cuando termine tu trabajo.</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>Podes tomarte el dia</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>No puedo dejarte ir en horario de oficina.</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>Yo no puedo hacer nada.</description>
+				<affection>0</affection>
+			</solution>
+		</solutions>
+	</conflict>
+		
 </conflicts>
 <conflicts owner="Roberto">
+	<conflict id='9' autoActivated="true">
+		<title>Mi PC no funciona adecuadamente.</title>
+		<description>Con esta computadora no puedo seguir haciendo mi trabajo.</description>
+		<day>2</day>
+		<penalty>	
+			<affection>	
+				-2
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>No hay presupuesto para comprar otra.</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>Para el mes que viene voy a comprar una nueva.</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<description>Todos tienen la misma.</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<description>Voy a conseguirte un antivirus o optimizador de pc.</description>
+				<affection>1</affection>
+			</solution>
+		</solutions>
+	</conflict>	
+	<conflict id='10' autoActivated="true">
+		<title>Problema</title>
+		<description>Siento que ultimamente no me estas tratando bien.</description>
+		<day>7</day>
+		<penalty>	
+			<affection>		
+				-4
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>Te pido disculpas, voy a tratar de mejorar</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>Tus actitudes tambien son dificiles.</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<description>Mil disculpas.</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>No estoy de acuerdo con lo que me comentas.</description>
+				<affection>0</affection>
+			</solution>
+		</solutions>
+	</conflict>
+		
 </conflicts>
 <conflicts owner="Tomas">
+	<conflict id='11' autoActivated="true">
+		<title>Siento que mi trabajo no va para ningun lado.</title>
+		<description>Últimamente siento que mi trabajo no tiene importancia.</description>
+		<day>2</day>
+		<penalty>	
+			<affection>
+				-2
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>Voy a tratar de cambiarte tus tareas.</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>Voy a aumentarte las exigencias.</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>Las tareas son las que hay.</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>No esta en mi cambiarlo.</description>
+				<affection>-1</affection>
+			</solution>
+		</solutions>
+	</conflict>	
+	<conflict id='12' autoActivated="true">
+		<title>Problema de responsabildades</title>
+		<description>Mis compañeros de trabajo no cumplen con sus responsabilidades.</description>
+		<day>7</day>
+		<penalty>	
+			<affection>		
+				-4
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>Voy a hablar con ellos.</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>Habla con ellos, es parte de tu responsabilidad.</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>Dejemos que la situación fluya</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<description>No se puede hacer nada al respecto.</description>
+				<affection>0</affection>
+			</solution>
+		</solutions>
+	</conflict>
+		
 </conflicts>
 <conflicts owner="Valentina">
+	<conflict id='13' autoActivated="true">
+		<title>Suciedad</title>
+		<description>Mis compañeros de trabajo dejan todo sucio. Así no se puede trabajar.</description>
+		<day>2</day>
+		<penalty>	
+			<affection>	
+				-2
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>Vamos a ver que se puede hacer.</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<description>Inmediatamente contrato un servicio de limpieza.</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>Estoy al tanto de la situación.</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>Le respondere a la brevedad.</description>
+				<affection>0</affection>
+			</solution>
+		</solutions>
+	</conflict>	
+	<conflict id='14' autoActivated="true">
+		<title>Me esta costando mucho llegar a la oficina a tiempo. </title>
+		<description>Vivo muy lejos,y para cumplir los tiempos debo hacer lo imposible.</description>
+		<day>7</day>
+		<penalty>	
+			<affection>		
+				-4
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>Continua haciendolo.</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>Vemos de cambiar tus horarios para que se adapten a tus necesidades.</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>No puedo hacer nada.</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>Termina el mes y lo vemos.</description>
+				<affection>0</affection>
+			</solution>
+		</solutions>
+	</conflict>
+	
 </conflicts>
 <conflicts owner="Victoria">
+	<conflict id='15' autoActivated="true">
+		<title>Istriónico</title>
+		<description>Uno de mis compañeros se la pasa cantando y gritando. Yo así no puedo trabajar</description>
+		<day>2</day>
+		<penalty>	
+			<affection>	
+				-2
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>Dejame que hable con él/ella</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>Deberías hablarlo con él/ella</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>¿Que te parece si lo hablamos juntos?</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>Ese no es mi problema</description>
+				<affection>-1</affection>
+			</solution>
+		</solutions>
+	</conflict>	
+	<conflict id='16' autoActivated="true">
+		<title>Comida Faltante</title>
+		<description>Ya es la segunda vez que desaparece comida de la heladera</description>
+		<day>7</day>
+		<penalty>	
+			<affection>		
+				-4
+			</affection>
+		</penalty>
+		<solutions>
+			<solution>
+				<description>No la dejes desatendida</description>
+				<affection>-1</affection>
+			</solution>
+			<solution>
+				<description>Deberíamos hablarlo con el grupo</description>
+				<affection>1</affection>
+			</solution>
+			<solution>
+				<description>Charlalo con tus compañeros</description>
+				<affection>0</affection>
+			</solution>
+			<solution>
+				<description>No es mi problema</description>
+				<affection>-1</affection>
+			</solution>
+		</solutions>
+	</conflict>
 </conflicts>
 
 </data>

@@ -20,9 +20,9 @@
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
 	<goodResult>10</goodResult>
-	<badTime>10</badTime>
-	<mediumTime>5</mediumTime>
-	<goodTime>10</goodTime>
+	<badTime>3</badTime>
+	<mediumTime>2</mediumTime>
+	<goodTime>1</goodTime>
 </task>
 <task>
 	<title>Participación en reunión de equipo</title>
@@ -44,9 +44,9 @@
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
 	<goodResult>10</goodResult>
-	<badTime>10</badTime>
-	<mediumTime>10</mediumTime>
-	<goodTime>10</goodTime>
+	<badTime>3</badTime>
+	<mediumTime>2</mediumTime>
+	<goodTime>1</goodTime>
 </task>
 <task>
 	<title>Propuesta de nuevos proyectos</title>
@@ -68,9 +68,9 @@
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
 	<goodResult>10</goodResult>
-	<badTime>10</badTime>
-	<mediumTime>10</mediumTime>
-	<goodTime>10</goodTime>
+	<badTime>3</badTime>
+	<mediumTime>2</mediumTime>
+	<goodTime>1</goodTime>
 </task>
 <task>
 	<title>Recibir llamados de consultas o quejas de clientes</title>
@@ -102,9 +102,9 @@
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
 	<goodResult>10</goodResult>
-	<badTime>10</badTime>
-	<mediumTime>10</mediumTime>
-	<goodTime>10</goodTime>
+	<badTime>3</badTime>
+	<mediumTime>2</mediumTime>
+	<goodTime>1</goodTime>
 </task>
 <task>
 	<title>Mantener el orden y la limpieza de oficina.</title>
@@ -126,9 +126,9 @@
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
 	<goodResult>10</goodResult>
-	<badTime>10</badTime>
-	<mediumTime>10</mediumTime>
-	<goodTime>10</goodTime>
+	<badTime>3</badTime>
+	<mediumTime>2</mediumTime>
+	<goodTime>1</goodTime>
 </task>
 <task>
 	<title>Aprendizaje permanente en el puesto de trabajo</title>
@@ -150,9 +150,9 @@
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
 	<goodResult>10</goodResult>
-	<badTime>10</badTime>
-	<mediumTime>10</mediumTime>
-	<goodTime>10</goodTime>
+	<badTime>3</badTime>
+	<mediumTime>2</mediumTime>
+	<goodTime>1</goodTime>
 </task>
 <task>
 	<title>Capacitación on line</title>
@@ -174,9 +174,9 @@
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
 	<goodResult>10</goodResult>
-	<badTime>10</badTime>
-	<mediumTime>10</mediumTime>
-	<goodTime>10</goodTime>
+	<badTime>3</badTime>
+	<mediumTime>2</mediumTime>
+	<goodTime>1</goodTime>
 </task>
 <task>
 	<title>Mantenimiento al día de la base de clientes</title>
@@ -198,9 +198,9 @@
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
 	<goodResult>10</goodResult>
-	<badTime>10</badTime>
-	<mediumTime>10</mediumTime>
-	<goodTime>10</goodTime>
+	<badTime>3</badTime>
+	<mediumTime>2</mediumTime>
+	<goodTime>1</goodTime>
 </task>
 <task>
 	<title>Obtener información de nuevos clientes</title>
@@ -222,8 +222,8 @@
 	<badResult>1</badResult>
 	<mediumResult>5</mediumResult>
 	<goodResult>10</goodResult>
-	<badTime>10</badTime>
-	<mediumTime>10</mediumTime>
-	<goodTime>10</goodTime>
+	<badTime>3</badTime>
+	<mediumTime>2</mediumTime>
+	<goodTime>1</goodTime>
 </task>
 </data>

@@ -287,9 +287,9 @@
 				motivation += profile.humanProfile.motivacion.value;
 			}
 			var proactivityInt : int = proactivity / 4;
-			var empathyInt : int = proactivity / 4;
-			var cooperationInt : int = proactivity / 4;
-			var motivationInt : int = proactivity / 4;
+			var empathyInt : int = empathy / 4;
+			var cooperationInt : int = cooperation / 4;
+			var motivationInt : int = motivation / 4;
 			groupParamaters.push(proactivityInt);
 			groupParamaters.push(empathyInt);
 			groupParamaters.push(cooperationInt);

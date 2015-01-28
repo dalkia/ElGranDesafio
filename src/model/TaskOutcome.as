@@ -1,6 +1,7 @@
 ﻿package model 
 {
 	import controller.SimulationManager;
+
 	
 	/**
 	 * ...
@@ -89,7 +90,7 @@
 			_outcome = new Object();	
 			var synergy : Number = 0;
 			if (goodTechnical && goodGeneration && goodAmount) {
-				outcome.time = _goodTime * 1000;
+				outcome.time = _goodTime * 1000 * SimulationManager.getInstance().dayDuration;
 				for each(var profile : Profile in profilesSelected) {
 					synergy += profile.humanProfile.getActualPerformance() + profile.technicalProfile.getActualPerformance();
 				}
@@ -99,7 +100,7 @@
 				createGreatWorkConflict = true;
 				_resultString = "Resultado Bueno";
 			}else if (mediumTechnical && mediumGeneration && mediumAmount) {
-				outcome.time = _mediumTime * 1000;
+				outcome.time = _mediumTime * 1000 * SimulationManager.getInstance().dayDuration;
 				for each(var profile : Profile in profilesSelected) {
 					synergy += profile.humanProfile.getActualPerformance() + profile.technicalProfile.getActualPerformance();
 				}
@@ -108,7 +109,7 @@
 				_affection = 1;
 				_resultString = "Resultado Medio";
 			}else {
-				outcome.time = _badTime * 1000;
+				outcome.time = _badTime * 1000 * SimulationManager.getInstance().dayDuration;
 				outcome.result = _badResult;
 				_affection = -1;
 				createConflicts = true;		

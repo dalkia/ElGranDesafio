@@ -10,7 +10,7 @@ public class Utils {
 
     static public function fadeInOut(obj:TextField, isFadeIn:Boolean):void {
         var timer:Timer;
-        timer = new Timer(200);
+        timer = new Timer(500);
         timer.addEventListener(TimerEvent.TIMER, TimerTask);
         //timer.addEventListener(TimerEvent.TIMER_COMPLETE, TimerCompleteTask);
         timer.start();
